@@ -46,20 +46,23 @@ func _move(move_direction: Vector2i)-> bool :
 	if(newCoords.x >0 && newCoords.y >0 && newCoords.x<Globals.NUMBER_CELL_X && newCoords.y< Globals.NUMBER_CELL_Y ):
 		var case :Globals.TypeCase= _level.get_type_case_from_position(newCoords.x, newCoords.y)
 		# if possible
-		if(case != Globals.TypeCase.ICE && case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH):
+		if(case != Globals.TypeCase.ICE ):
+			if(is_ghost() || (case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH)):
+				caseCoords = newCoords
+				print("after compute ", caseCoords)
+				update_visual()
+				
+				if(case == Globals.TypeCase.TRAP_ICE ): 
+					#effet d' arrivée 
+					print("ICe trap  ")
+					put_ice_on_entity()
+				if( case ==Globals.TypeCase.TRAP_REPULSE):
+					print("TRAP_REPULSE trap  ")
+					move(Vector2i(2,0)) #2 case  on the right 
+			else :
 			
-			caseCoords = newCoords
-			print("after compute ", caseCoords)
-			update_visual()
-			
-			if(case == Globals.TypeCase.TRAP_ICE ): 
-				#effet d' arrivée 
-				print("ICe trap  ")
-				put_ice_on_entity()
-			if( case ==Globals.TypeCase.TRAP_REPULSE):
-				print("TRAP_REPULSE trap  ")
-				move(Vector2i(2,0)) #2 case  on the right 
-
+				print("Not move block")
+				move_after=false
 		else :
 			
 			print("Not move block")
@@ -69,6 +72,7 @@ func _move(move_direction: Vector2i)-> bool :
 		move_after=true
 	return move_after 
 
-
+func is_ghost():
+	return false 
 func put_ice_on_entity():
 	pass
