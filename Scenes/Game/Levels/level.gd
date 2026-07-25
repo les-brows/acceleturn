@@ -18,15 +18,15 @@ func _init() -> void:
 	
 func _process(_delta):
 	var clicked = false
-	if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
-		var positionmouse: Vector2i = get_map_position_from_mouse()
-		get_type_case_from_position(positionmouse.x, positionmouse.y)
-		#print(result )
-		getPostionAbsoluteFromCoordinates(positionmouse.x, positionmouse.y)
-		#print("absolute , ", absoluteposition)
-		clicked = true
-	else :
-		clicked = false
+	#if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
+		#var positionmouse: Vector2i = get_map_position_from_mouse()
+		#get_type_case_from_position(positionmouse.x, positionmouse.y)
+		##print(result )
+		#getPostionAbsoluteFromCoordinates(positionmouse.x, positionmouse.y)
+		##print("absolute , ", absoluteposition)
+		#clicked = true
+	#else :
+		#clicked = false
 	pass
 
 
@@ -157,3 +157,51 @@ func _on_level_timer_end():
 	# TODO : kill yourself here
 	print("Game over!!!!! Timer is done!!!!!!!!!!!!")
 	pass
+	
+#return next position and sizePath 
+func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement : bool) ->Array :
+	var nextPosition :Vector2i 
+	nextPosition.x=0
+	nextPosition.y=0
+	var sizePath=50
+	
+	var astar_grid = AStarGrid2D.new()
+	astar_grid.region = Rect2i(0, 0, Globals.NUMBER_CELL_X,Globals.NUMBER_CELL_Y)
+	astar_grid.cell_size = Vector2(1, 1)
+	astar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	astar_grid.update()
+	var line :Array
+	var point:Vector2i
+	#Remove Obstacle and enemies 
+	for i in range(Globals.NUMBER_CELL_Y):
+		line = caseContent[i]
+		for j in range(Globals.NUMBER_CELL_X):
+			point.y=i
+			point.x=j
+			if(!withEnvironement && (line[j]==Globals.TypeCase.TREE || line[j]==Globals.TypeCase.BUSH)):
+				astar_grid.set_point_solid(point, true)
+			if(line[j]==Globals.TypeCase.ICE):
+				astar_grid.set_point_solid(point, true)
+			if(!withEnemies && (line[j]==Globals.TypeCase.ENEMIES )):
+				astar_grid.set_point_solid(point, true)
+				
+	astar_grid.update()
+	
+	#Path finding for all case after the line 
+	var Path:Array
+	point.x=Globals.COLUMN_MAX_ENEMIES
+	for i in range(Globals.NUMBER_CELL_Y):
+		point.y=i
+		Path = astar_grid.get_id_path(positionInit, point)
+		#Keep the best 
+		if(Path.size() > 1 && Path.size()<sizePath):
+			sizePath=Path.size()
+			nextPosition=Path[1]
+			
+			
+	#default if there are no path 
+	if(sizePath==50):
+		sizePath=0
+	return  [nextPosition,sizePath ]
+ 

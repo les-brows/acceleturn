@@ -20,4 +20,4 @@ func process_enemy_turn():
 	print("Mes ennemis vont faire des trucs tkt")
 	for enemy in get_children():
 		if enemy is Enemy:
-			enemy.move(Vector2i(-1, 0)) 
+			enemy.act()
