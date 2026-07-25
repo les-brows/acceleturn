@@ -10,6 +10,11 @@ func _init() -> void:
 	Globals.state_finished.connect(_on_state_finished)
 
 func _process(_delta):
+	var clicked = false
+	if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
+		get_map_position_from_mouse()
+	else :
+		clicked = false
 	pass
 
 
@@ -50,3 +55,18 @@ func _on_state_finished(state: Globals.StateTurn):
 	
 	Globals.state_started.emit(curr_state)
 	print("Send state %s" % curr_state)
+
+
+
+func get_map_position_from_mouse():
+	var mouse_position = get_global_mouse_position()
+	var current_tile = get_node("TileMapGround").local_to_map(mouse_position)
+	var tile_position: Vector2
+	tile_position =  get_node("TileMapGround").map_to_local(current_tile)
+	var result : Vector2  
+
+	#print("Position_Click x=", tile_position.x," y=", tile_position.y , "Size tile",Globals.SIZE_CELL_X )
+	result.x= int(tile_position.x/float(64))
+	result.y= int(tile_position.y/float( 64))
+	
+	print("Position_Click x=", result.x," y=", result.y)
