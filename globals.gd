@@ -1,0 +1,6 @@
+extends Node
+
+enum ACTION_PERSO  { MOVE_LEFT , MOVE_RIGHT , MOVE_UP, MOVE_DOWN, ACTION1, ACTION2, ACTION3 , ACTION4 , DEFAULT }
+
+
+var testglobal
