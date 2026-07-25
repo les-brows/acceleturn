@@ -60,7 +60,7 @@ func _process(_delta) -> void:
 		
 	if timerStarted:
 		var remaining_time: float = timer.time_left
-		var min: int = int(remaining_time) / 60
+		var min: int = int(remaining_time) / 60.0
 		var sec: int = int(remaining_time) % 60
 		timerText.clear()
 		if(min > 0):
@@ -155,16 +155,19 @@ func show_action_menu():
 func reset_timer():
 	timeBar.color = Color8(41, 198, 0)
 	timeBar.scale = Vector2(1, 1)
-	tweenTimeBarColor.stop()
-	tweenTimeBarSize.stop()
-	tweenFirePosition.stop()
+	tweenTimeBarColor.kill()
+	tweenTimeBarColor = null
+	tweenTimeBarSize.kill()
+	tweenTimeBarSize = null
+	tweenFirePosition.kill()
+	tweenFirePosition = null
 	timerStarted = false
 	timer.stop()
 
 
 func start_timer(timeToFinish: float):
 	print("Time to finish: %d" % timeToFinish)
-	if(timeToFinish < 0):
+	if(timeToFinish <= 0):
 		timeToFinish = 0.25
 	timer.wait_time = timeToFinish
 	timer.start()
@@ -176,11 +179,11 @@ func start_timer(timeToFinish: float):
 		tweenTimeBarColor = get_tree().create_tween()
 		tweenTimeBarSize = get_tree().create_tween()
 		tweenFirePosition = get_tree().create_tween()
-		
+
 	# We want to keep the X size but set Y to 0
 	fireAnimation.position.y = initialFirePos.y
 	var targetPosition: Vector2 = Vector2(initialFirePos.x, fireAnimation.size.y + fireAnimation.position.y)
-	
+
 	tweenTimeBarColor.tween_property(timeBar, "color", Color8(178, 0, 43), timeToFinish).set_trans(Tween.TRANS_LINEAR)
 	tweenTimeBarSize.tween_property(timeBar, "scale", Vector2(1, 0), timeToFinish).set_trans(Tween.TRANS_LINEAR)
 	tweenFirePosition.tween_property(fireAnimation, "position", targetPosition, timeToFinish).set_trans(Tween.TRANS_LINEAR)
