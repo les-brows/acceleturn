@@ -154,9 +154,16 @@ func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase
 
 
 func _on_level_timer_end():
-	# TODO : kill yourself here
-	print("Game over!!!!! Timer is done!!!!!!!!!!!!")
-	pass
+	match curr_state:
+		Globals.StateTurn.ACTION_CHARACTER:
+			return
+		Globals.StateTurn.ACTION_ENEMIES:
+			return
+
+	characterManager.set_current_character(characterChosen)
+	characterManager.set_current_action(Globals.CharacterAction.DEFAULT)
+	curr_state = Globals.StateTurn.ACTION_CHARACTER
+	Globals.state_started.emit(Globals.StateTurn.ACTION_CHARACTER)
 	
 #return next position and sizePath 
 func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement : bool) ->Array :
