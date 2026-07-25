@@ -151,3 +151,9 @@ func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase
 			lineContent[columnIndex] = newType
 			#real update
 	return success 
+
+
+func _on_level_timer_end():
+	# TODO : kill yourself here
+	print("Game over!!!!! Timer is done!!!!!!!!!!!!")
+	pass

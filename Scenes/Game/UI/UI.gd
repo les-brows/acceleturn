@@ -23,11 +23,15 @@ extends CanvasLayer
 @onready var allyDialogName = $%CharacterName
 @onready var allyDialogImage = $%DialogueImage
 
+@onready var timer = $%Timer
+@onready var timerText = $%TimerText
+
 var trasitionDuration: float = 0.2
 
-var initialFirePos: int = 0
+var initialFirePos: Vector2 = Vector2(0,0)
 var timerStarted: bool = false
 var timerEndTime: int = 0
+var first_process_run: bool = true
 
 var tweenCharacter: Tween
 var tweenAction: Tween
@@ -38,6 +42,7 @@ var tweenAllyDialog: Tween
 
 signal _on_choose_character(character: Globals.CharacterClass)
 signal _on_choose_action(action: Globals.CharacterAction)
+signal _on_timer_end()
 
 
 func _ready() -> void:
@@ -46,11 +51,19 @@ func _ready() -> void:
 
 
 func _process(_delta) -> void:
-	timeBar.rotation_degrees = 180
-	timeBar.position += timeBar.size
-	fireAnimation.position.y -= 90 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
-	initialFirePos = fireAnimation.position.y
-	set_process(false)
+	if first_process_run:
+		timeBar.rotation_degrees = 180
+		timeBar.position += timeBar.size
+		fireAnimation.position.y -= 110 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
+		initialFirePos = fireAnimation.position
+		first_process_run = false
+		
+	if timerStarted:
+		var remaining_time: float = timer.time_left
+		var sec: int = int(remaining_time) % 60
+		var ms: int = int(remaining_time * 100) % 100
+		timerText.clear()
+		timerText.append_text("%02d:%02d" % [sec, ms])
 
 
 # ------------ State Machine functions -------------------
@@ -144,9 +157,12 @@ func reset_timer():
 	tweenTimeBarSize.stop()
 	tweenFirePosition.stop()
 	timerStarted = false
+	timer.stop()
 
 
 func start_timer(timeToFinish: int):
+	timer.wait_time = timeToFinish
+	timer.start()
 	if tweenTimeBarColor && tweenTimeBarSize && tweenFirePosition:
 		tweenTimeBarColor.play()
 		tweenTimeBarSize.play()
@@ -157,8 +173,8 @@ func start_timer(timeToFinish: int):
 		tweenFirePosition = get_tree().create_tween()
 		
 	# We want to keep the X size but set Y to 0
-	fireAnimation.position.y = initialFirePos
-	var targetPosition: Vector2 = Vector2(0, fireAnimation.size.y + fireAnimation.position.y)
+	fireAnimation.position.y = initialFirePos.y
+	var targetPosition: Vector2 = Vector2(initialFirePos.x, fireAnimation.size.y + fireAnimation.position.y)
 	
 	tweenTimeBarColor.tween_property(timeBar, "color", Color8(178, 0, 43), timeToFinish).set_trans(Tween.TRANS_LINEAR)
 	tweenTimeBarSize.tween_property(timeBar, "scale", Vector2(1, 0), timeToFinish).set_trans(Tween.TRANS_LINEAR)
@@ -175,8 +191,8 @@ func stop_timer():
 # ------------ Dialogue functions -------------------
 
 
-func show_ally_dialog(name: String, text: String, character: Globals.CharacterClass):
-	allyDialogName = name
+func show_ally_dialog(characterName: String, text: String, character: Globals.CharacterClass):
+	allyDialogName = characterName
 	allyDialogText = text
 	
 	match character:
@@ -226,3 +242,7 @@ func _on_action_3_button_pressed() -> void:
 
 func _on_action_4_button_pressed() -> void:
 	_on_choose_action.emit(4)
+
+
+func _on_local_timer_end() -> void:
+	_on_timer_end.emit()
