@@ -7,7 +7,6 @@ extends Node2D
 @onready var enemyTurnManager: EnemyTurnManager = $EnemyTurnManager
 @onready var characterManager: CharacterManager = $CharacterManager
 
-var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 var characterChosen : Globals.CharacterClass = Globals.CharacterClass.NONE;
 
 
@@ -100,28 +99,28 @@ func _on_player_choose_action(action: Globals.CharacterAction):
 
 	
 func _on_state_finished(state: Globals.StateTurn):
-	assert(state == curr_state)
+	assert(state == Globals.curr_state)
 	
 	match state:
 		Globals.StateTurn.CHOICE_CHARACTER :
-			curr_state=Globals.StateTurn.CHOICE_ACTION
+			Globals.curr_state=Globals.StateTurn.CHOICE_ACTION
 		Globals.StateTurn.CHOICE_ACTION :
 			hide_player_move_ui()
 			if(characterManager.action_needs_target()):
-				curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
+				Globals.curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
 				#set ACTION 
 			else:
-				curr_state = Globals.StateTurn.ACTION_CHARACTER
+				Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 				
 		Globals.StateTurn.CHOICE_TARGET_CHARACTER :
-			curr_state = Globals.StateTurn.ACTION_CHARACTER
+			Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 
 		Globals.StateTurn.ACTION_CHARACTER :
-			curr_state = Globals.StateTurn.ACTION_ENEMIES
+			Globals.curr_state = Globals.StateTurn.ACTION_ENEMIES
 		Globals.StateTurn.ACTION_ENEMIES :
-			curr_state = Globals.StateTurn.CHOICE_CHARACTER 
+			Globals.curr_state = Globals.StateTurn.CHOICE_CHARACTER 
 	
-	var signal_to_send = curr_state
+	var signal_to_send = Globals.curr_state
 	Globals.state_started.emit(signal_to_send)
 
 
