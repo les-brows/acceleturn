@@ -112,12 +112,12 @@ func create_initial_map():
 	
 	
 func get_type_case_from_position( columnIndex : int, lineIndex : int ) -> Globals.TypeCase :
-	if(caseContent.size()<lineIndex):
+	if(lineIndex>=caseContent.size()):
 		print("Line INVALID !!!")
 		return  Globals.TypeCase.EMPTY
 	else :
 		var lineContent : Array = caseContent[lineIndex]
-		if(lineContent.size()<columnIndex):
+		if(columnIndex>=lineContent.size()):
 			print("COLUMN INVALID !!!")
 			return  Globals.TypeCase.EMPTY
 		else :
