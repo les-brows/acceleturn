@@ -3,8 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://wt81p2nllwo6" path="res://Assets/UI/20240707dragon9SlicesA.png" id="1_im5y3"]
 [ext_resource type="Script" uid="uid://ct1uuldml3r2c" path="res://Scenes/Game/UI/UI.gd" id="1_p25nt"]
 [ext_resource type="Texture2D" uid="uid://cn85li1mdduwu" path="res://Assets/UI/20240707dragon9SlicesC.png" id="2_lf2ao"]
+[ext_resource type="Texture2D" uid="uid://cr2kx8ergp58e" path="res://Assets/UI/20240707dragonHeaderA.png" id="3_sunpx"]
+[ext_resource type="FontFile" uid="uid://b4oto8nlv1l7j" path="res://Assets/UI/ThaleahFat.ttf" id="4_75ja4"]
 [ext_resource type="Texture2D" uid="uid://d22pfc5gpvqa" path="res://Assets/UI/output-onlinepngtools.png" id="4_gkwei"]
+[ext_resource type="Texture2D" uid="uid://bbe1sd75quk63" path="res://Assets/UI/20240707dragon9SlicesD.png" id="4_o4pdo"]
 [ext_resource type="Texture2D" uid="uid://c3oegr82pvgv6" path="res://Assets/UI/Group 4 - 3_1.png" id="5_6atay"]
+[ext_resource type="Texture2D" uid="uid://blu0dpvabt2r7" path="res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg" id="6_75ja4"]
 [ext_resource type="Texture2D" uid="uid://bmtvjwakxcpp1" path="res://Assets/UI/Group 4 - 3_2.png" id="6_aa4bu"]
 [ext_resource type="Texture2D" uid="uid://dek8cq3fcsisk" path="res://Assets/UI/Group 4 - 3_3.png" id="7_ktdqi"]
 [ext_resource type="Texture2D" uid="uid://vpcfgc166k6h" path="res://Assets/UI/Group 4 - 3_4.png" id="8_wftri"]
@@ -34,6 +38,115 @@ frame_7/duration = 0.1
 
 [node name="UI" type="CanvasLayer" unique_id=955902580]
 script = ExtResource("1_p25nt")
+
+[node name="Dialogue Ally" type="MarginContainer" parent="." unique_id=2118627234]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -500.0
+offset_right = -500.0
+offset_bottom = 190.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 800
+theme_override_constants/margin_bottom = 10
+
+[node name="BottomBackground" type="NinePatchRect" parent="Dialogue Ally" unique_id=1180237499]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_im5y3")
+region_rect = Rect2(0, 0, 144, 144)
+patch_margin_left = 34
+patch_margin_top = 47
+patch_margin_right = 34
+patch_margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue Ally/BottomBackground" unique_id=1423305463]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogue Ally/BottomBackground/MarginContainer" unique_id=1124620107]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer" unique_id=1185934944]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/margin_left = -20
+theme_override_constants/margin_right = -20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/MarginContainer" unique_id=1562480251]
+layout_mode = 2
+texture = ExtResource("3_sunpx")
+patch_margin_left = 24
+patch_margin_top = 2
+patch_margin_right = 24
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect" unique_id=1585322626]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 31
+theme_override_constants/margin_top = 2
+
+[node name="CharacterName" type="RichTextLabel" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/MarginContainer/NinePatchRect/MarginContainer" unique_id=825569983]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 28
+text = "My KING"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer" unique_id=564218181]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/HBoxContainer" unique_id=454449994]
+layout_mode = 2
+texture = ExtResource("4_o4pdo")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/HBoxContainer/TextureRect" unique_id=107703279]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="DialogueImage" type="TextureRect" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/MarginContainer" unique_id=1181094279]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_75ja4")
+expand_mode = 2
+
+[node name="DialogueText" type="RichTextLabel" parent="Dialogue Ally/BottomBackground/MarginContainer/VBoxContainer/HBoxContainer" unique_id=354156275]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 20
+text = "What a predictable creature !"
 
 [node name="CharacterSelection" type="MarginContainer" parent="." unique_id=158660005]
 anchors_preset = 15
@@ -240,7 +353,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dialogue" type="MarginContainer" parent="." unique_id=1075161957]
+[node name="Time" type="MarginContainer" parent="." unique_id=1075161957]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -253,37 +366,37 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBox" type="HBoxContainer" parent="Dialogue" unique_id=1770726805]
+[node name="HBox" type="HBoxContainer" parent="Time" unique_id=1770726805]
 layout_mode = 2
 size_flags_horizontal = 8
 alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Dialogue/HBox" unique_id=1422763765]
+[node name="MarginContainer" type="MarginContainer" parent="Time/HBox" unique_id=1422763765]
 layout_mode = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_bottom = 150
 
-[node name="MarginContainer" type="MarginContainer" parent="Dialogue/HBox/MarginContainer" unique_id=313024545]
+[node name="MarginContainer" type="MarginContainer" parent="Time/HBox/MarginContainer" unique_id=313024545]
 layout_mode = 2
 theme_override_constants/margin_top = 34
 theme_override_constants/margin_bottom = 35
 
-[node name="TimeBar" type="ColorRect" parent="Dialogue/HBox/MarginContainer/MarginContainer" unique_id=181212306]
+[node name="TimeBar" type="ColorRect" parent="Time/HBox/MarginContainer/MarginContainer" unique_id=181212306]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.16078432, 0.7764706, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="Dialogue/HBox/MarginContainer" unique_id=320445559]
+[node name="TextureRect" type="TextureRect" parent="Time/HBox/MarginContainer" unique_id=320445559]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 texture = ExtResource("4_gkwei")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Dialogue/HBox/MarginContainer" unique_id=518280847]
+[node name="MarginContainer2" type="MarginContainer" parent="Time/HBox/MarginContainer" unique_id=518280847]
 layout_mode = 2
 theme_override_constants/margin_top = 34
 theme_override_constants/margin_bottom = 35
 
-[node name="FireAnimation" type="TextureRect" parent="Dialogue/HBox/MarginContainer/MarginContainer2" unique_id=1082419084]
+[node name="FireAnimation" type="TextureRect" parent="Time/HBox/MarginContainer/MarginContainer2" unique_id=1082419084]
 unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AnimatedTexture_pa3om")
