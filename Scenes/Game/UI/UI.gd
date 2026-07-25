@@ -18,6 +18,9 @@ extends CanvasLayer
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/ActionButton
 ]
 
+var timerDuration: int = 10
+
+var initialFirePos: int = 0
 var timerStarted: bool = false
 var timerEndTime: int = 0
 
@@ -40,12 +43,15 @@ func _process(_delta) -> void:
 	timeBar.rotation_degrees = 180
 	timeBar.position += timeBar.size
 	fireAnimation.position.y -= 90 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
+	initialFirePos = fireAnimation.position.y
 	set_process(false)
 
 
 func _on_state_started_received(state: Globals.StateTurn) -> void:
 	match state:
 		Globals.StateTurn.CHOICE_CHARACTER:
+			reset_timer()
+			start_timer(timerDuration)
 			hide_action_menu()
 			show_character_menu()
 		Globals.StateTurn.CHOICE_ACTION:
@@ -55,6 +61,9 @@ func _on_state_started_received(state: Globals.StateTurn) -> void:
 
 func _on_state_finished_received(state: Globals.StateTurn) -> void:
 	match state:
+		Globals.StateTurn.CHOICE_CHARACTER:
+			if(!timerStarted):
+				start_timer(timerDuration)
 		Globals.StateTurn.CHOICE_ACTION:
 			hide_character_menu()
 			hide_action_menu()
@@ -140,6 +149,7 @@ func start_timer(timeToFinish: int):
 		tweenFirePosition = get_tree().create_tween()
 		
 	# We want to keep the X size but set Y to 0
+	fireAnimation.position.y = initialFirePos
 	var targetPosition: Vector2 = Vector2(0, fireAnimation.size.y + fireAnimation.position.y)
 	
 	tweenTimeBarColor.tween_property(timeBar, "color", Color8(178, 0, 43), timeToFinish).set_trans(Tween.TRANS_LINEAR)
@@ -155,22 +165,6 @@ func stop_timer():
 
 
 func _on_character_1_button_pressed() -> void:
-<<<<<<< HEAD
-	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
-	switch_to_action_menu()
-	start_timer(10)
-
-
-func _on_character_2_button_pressed() -> void:
-	_on_choose_character.emit(Globals.CharacterClass.MAGE)
-	switch_to_action_menu()
-	reset_timer()
-
-
-func _on_character_3_button_pressed() -> void:
-	_on_choose_character.emit(Globals.CharacterClass.TRAPPER)
-	switch_to_action_menu()
-=======
 	_on_choose_character.emit(1)
 
 
@@ -180,7 +174,6 @@ func _on_character_2_button_pressed() -> void:
 
 func _on_character_3_button_pressed() -> void:
 	_on_choose_character.emit(3)
->>>>>>> 18d52d0 (UI: connect the state machine from Helios to the UI buttons)
 
 
 func _on_action_1_button_pressed() -> void:
