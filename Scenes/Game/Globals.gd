@@ -49,6 +49,7 @@ enum TypeCase
 	TRAP_REPULSE
 }
 
+var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 
 var NUMBER_CELL_X = 14
 var NUMBER_CELL_Y = 6
