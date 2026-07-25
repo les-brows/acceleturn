@@ -48,9 +48,14 @@ func _move(move_direction: Vector2i)-> bool :
 		# if possible
 		if(case != Globals.TypeCase.ICE ):
 			if(is_ghost() || (case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH)):
+				
+				_level.update_case(caseCoords.x, caseCoords.y,Globals.TypeCase.EMPTY )
+				
+				_level.update_case(newCoords.x, newCoords.y, get_case_entity() )
 				caseCoords = newCoords
 				print("after compute ", caseCoords)
 				update_visual()
+				
 				
 				if(case == Globals.TypeCase.TRAP_ICE ): 
 					#effet d' arrivée 
@@ -76,3 +81,8 @@ func is_ghost():
 	return false 
 func put_ice_on_entity():
 	pass
+	
+	
+func get_case_entity() ->Globals.TypeCase:
+	print("Default get_case_entity :: ERROR !!!!")
+	return  Globals.TypeCase.ENEMIES

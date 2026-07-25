@@ -1,6 +1,7 @@
 class_name Enemy
 extends Entities
 
+var isGhost=false
 
 func act():
 	#print("case Initial caseCoords",caseCoords )
@@ -10,3 +11,7 @@ func act():
 	# TODO update position with trap 
 	if(result[1]!=0):
 		move(result[0]-caseCoords)
+	else :
+		print("no path")
+func get_case_entity() ->Globals.TypeCase:
+	return Globals.TypeCase.ENEMIES

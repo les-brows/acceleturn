@@ -121,7 +121,11 @@ func create_initial_map():
 				line.append(Globals.TypeCase.TREE)
 			else :
 				line.append(Globals.TypeCase.EMPTY)
+				
+				
 		caseContent.append(line)
+		line=[]
+		
 	pass 
 	
 	
@@ -148,8 +152,12 @@ func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase
 			#print("COLUMN INVALID !!!")
 			success = false
 		else :
+			#if(newType==Globals.TypeCase.ENEMIES):
+				#print("update case", columnIndex, "...  ", lineIndex   )
+				#print(caseContent)
 			lineContent[columnIndex] = newType
 			#real update
+			
 	return success 
 
 
@@ -187,24 +195,27 @@ func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement :
 			point.y=i
 			point.x=j
 			if(!withEnvironement && (line[j]==Globals.TypeCase.TREE || line[j]==Globals.TypeCase.BUSH)):
+				#print("ignore Env ",point)
 				astar_grid.set_point_solid(point, true)
 			if(line[j]==Globals.TypeCase.ICE):
 				astar_grid.set_point_solid(point, true)
-			if(!withEnemies && (line[j]==Globals.TypeCase.ENEMIES )):
+				#print("ignoreICe",point)
+			if(!withEnemies && (line[j]==Globals.TypeCase.ENEMIES ) && point!=positionInit ):
 				astar_grid.set_point_solid(point, true)
-				
-	astar_grid.update()
+				#print("ignoreenemies ",point)
+		line=[]
 	
 	#Path finding for all case after the line 
-	var Path:Array
+	var path:Array
 	point.x=Globals.COLUMN_MAX_ENEMIES
 	for i in range(Globals.NUMBER_CELL_Y):
 		point.y=i
-		Path = astar_grid.get_id_path(positionInit, point)
+		path = astar_grid.get_id_path(positionInit, point)
+		#print("Point",point,"positionInit", positionInit , "Path", path)
 		#Keep the best 
-		if(Path.size() > 1 && Path.size()<sizePath):
-			sizePath=Path.size()
-			nextPosition=Path[1]
+		if(path.size() > 1 && path.size()<sizePath):
+			sizePath=path.size()
+			nextPosition=path[1]
 			
 			
 	#default if there are no path 

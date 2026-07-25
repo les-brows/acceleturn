@@ -13,3 +13,9 @@ func act(action: Globals.CharacterAction):
 			move(Vector2i(0, -1))
 		Globals.CharacterAction.MOVE_DOWN:
 			move(Vector2i(0, 1))
+
+
+
+func get_case_entity() ->Globals.TypeCase:
+	return Globals.TypeCase.CHARACTER
+
