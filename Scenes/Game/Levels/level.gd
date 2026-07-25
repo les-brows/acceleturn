@@ -122,5 +122,18 @@ func get_type_case_from_position( columnIndex : int, lineIndex : int ) -> Global
 			return  Globals.TypeCase.EMPTY
 		else :
 			return lineContent[columnIndex]
-	
-	
+			
+func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase ) ->bool :
+	var success : bool =true
+	if(lineIndex>=caseContent.size()):
+		print("Line INVALID !!!")
+		success=false
+	else :
+		var lineContent : Array = caseContent[lineIndex]
+		if(columnIndex>=lineContent.size()):
+			print("COLUMN INVALID !!!")
+			success = false
+		else :
+			lineContent[columnIndex] = newType
+			#real update
+	return success 
