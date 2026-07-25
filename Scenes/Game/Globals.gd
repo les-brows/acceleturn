@@ -4,8 +4,9 @@ enum StateTurn
 {
 	CHOICE_CHARACTER,
 	CHOICE_ACTION,
+	CHOICE_TARGET_CHARACTER,
 	ACTION_CHARACTER,
-	DEPLACEMENT_ENEMIES
+	ACTION_ENEMIES
 }
 
 @warning_ignore("unused_signal")
@@ -30,7 +31,7 @@ enum CHARACTER_ACTION
 enum CharacterClass
 {
 	NONE,
-	TRAPPER,
 	GUNNER,
-	MAGE
+	MAGE,
+	TRAPPER,
 }

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var enemyTurnManager: EnemyTurnManager = $EnemyTurnManager
+@onready var characterManager: CharacterManager = $CharacterManager
 
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 var characterChosen : Globals.CharacterClass = Globals.CharacterClass.NONE;
@@ -14,7 +15,8 @@ func _process(_delta):
 
 func _on_player_choose_character(character: Globals.CharacterClass):
 	print("Choose player %d " % character)
-	characterChosen = characterChosen
+	characterChosen = character
+	characterManager.set_current_character(characterChosen)
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_CHARACTER)
 	
 
@@ -33,17 +35,18 @@ func _on_state_finished(state: Globals.StateTurn):
 			curr_state=Globals.StateTurn.CHOICE_ACTION
 		Globals.StateTurn.CHOICE_ACTION :
 			if(0):
-				curr_state=Globals.StateTurn.ACTION_CHARACTER
+				curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
 				#set ACTION 
 			else:
-				curr_state = Globals.StateTurn.DEPLACEMENT_ENEMIES
+				curr_state = Globals.StateTurn.ACTION_CHARACTER
 				
+		Globals.StateTurn.CHOICE_TARGET_CHARACTER :
+			curr_state = Globals.StateTurn.ACTION_CHARACTER
+
 		Globals.StateTurn.ACTION_CHARACTER :
-			curr_state = Globals.StateTurn.DEPLACEMENT_ENEMIES
-			#emit ? 
-			#player.ExecuteAction(nextAction) # Add Action  
-		Globals.StateTurn.DEPLACEMENT_ENEMIES :
+			curr_state = Globals.StateTurn.ACTION_ENEMIES
+		Globals.StateTurn.ACTION_ENEMIES :
 			curr_state = Globals.StateTurn.CHOICE_CHARACTER 
 	
 	Globals.state_started.emit(curr_state)
-	print("Send state %d" % curr_state)
+	print("Send state %s" % curr_state)
