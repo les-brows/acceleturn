@@ -27,16 +27,14 @@ func get_current_character_node() -> Node2D:
 					return child
 		
 		Globals.CharacterClass.MAGE:
-			pass
-			#for child in get_children():
-				#if child is Mage:
-					#return child
+			for child in get_children():
+				if child is Mage:
+					return child
 		
 		Globals.CharacterClass.TRAPPER:
-			pass
-			#for child in get_children():
-				#if child is Gunner:
-					#return child
+			for child in get_children():
+				if child is Gunner:
+					return child
 	return null
 
 
@@ -58,4 +56,14 @@ func process_character_turn():
 	if(curr_character == Globals.CharacterClass.GUNNER):
 		for child in get_children():
 			if child is Gunner:
+				child.act()
+
+	if(curr_character == Globals.CharacterClass.MAGE):
+		for child in get_children():
+			if child is Mage:
+				child.act()
+
+	if(curr_character == Globals.CharacterClass.TRAPPER):
+		for child in get_children():
+			if child is Trapper:
 				child.act()
