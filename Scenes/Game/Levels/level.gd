@@ -12,7 +12,6 @@ func _process(_delta):
 	pass
 
 
-
 func _on_player_choose_character(character: Globals.CharacterClass):
 	print("Choose player %d " % character)
 	characterChosen = characterChosen

@@ -1,2 +1,2 @@
 class_name Enemy
-extends Node
+extends Node2D
