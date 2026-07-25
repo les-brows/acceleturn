@@ -19,7 +19,7 @@ func _init() -> void:
 	
 	
 func _process(_delta):
-	var clicked = false
+	#var clicked = false
 	#if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
 		#var positionmouse: Vector2i = get_map_position_from_mouse()
 		#get_type_case_from_position(positionmouse.x, positionmouse.y)
@@ -71,7 +71,7 @@ func can_player_move_to_coordinates(coordinates: Vector2):
 	if(coordinates.x >= Globals.NUMBER_CELL_X or coordinates.y >= Globals.NUMBER_CELL_Y):
 		return false
 		
-	var tileType: Globals.TypeCase = get_type_case_from_position(coordinates.x, coordinates.y)
+	var tileType: Globals.TypeCase = get_type_case_from_position(int(coordinates.x), int(coordinates.y))
 	if(tileType != Globals.TypeCase.EMPTY and tileType != Globals.TypeCase.ENEMIES):
 		# EXTREMELY INCORRECT !!! We're waiting for get_type_case_from_position to be fixed
 		return true
@@ -215,7 +215,7 @@ func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase
 
 
 func _on_level_timer_end():
-	match curr_state:
+	match Globals.curr_state:
 		Globals.StateTurn.ACTION_CHARACTER:
 			return
 		Globals.StateTurn.ACTION_ENEMIES:
@@ -223,7 +223,7 @@ func _on_level_timer_end():
 
 	characterManager.set_current_character(characterChosen)
 	characterManager.set_current_action(Globals.CharacterAction.DEFAULT)
-	curr_state = Globals.StateTurn.ACTION_CHARACTER
+	Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 	Globals.state_started.emit(Globals.StateTurn.ACTION_CHARACTER)
 	
 #return next position and sizePath 

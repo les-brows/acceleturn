@@ -18,4 +18,3 @@ func act(action: Globals.CharacterAction):
 
 func get_case_entity() ->Globals.TypeCase:
 	return Globals.TypeCase.CHARACTER
-
