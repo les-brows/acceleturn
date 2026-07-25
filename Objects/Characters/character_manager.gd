@@ -19,7 +19,6 @@ func init_characters_positions():
 			character.init_entity(get_parent())
 
 func get_current_character_node() -> Node2D:
-
 	match curr_character:
 		Globals.CharacterClass.GUNNER:
 			for child in get_children():
@@ -33,7 +32,7 @@ func get_current_character_node() -> Node2D:
 		
 		Globals.CharacterClass.TRAPPER:
 			for child in get_children():
-				if child is Gunner:
+				if child is Trapper:
 					return child
 	return null
 
@@ -56,14 +55,14 @@ func process_character_turn():
 	if(curr_character == Globals.CharacterClass.GUNNER):
 		for child in get_children():
 			if child is Gunner:
-				child.act()
+				child.act(curr_action)
 
 	if(curr_character == Globals.CharacterClass.MAGE):
 		for child in get_children():
 			if child is Mage:
-				child.act()
+				child.act(curr_action)
 
 	if(curr_character == Globals.CharacterClass.TRAPPER):
 		for child in get_children():
 			if child is Trapper:
-				child.act()
+				child.act(curr_action)
