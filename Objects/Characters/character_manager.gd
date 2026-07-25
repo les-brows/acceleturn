@@ -5,11 +5,19 @@ var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
 
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started)
+	init_characters_positions()
 
 func _on_state_started(state: Globals.StateTurn):
 	if(state == Globals.StateTurn.ACTION_CHARACTER):
 		process_character_turn()
 		Globals.state_finished.emit(Globals.StateTurn.ACTION_CHARACTER)
+
+func init_characters_positions():
+	for character in get_children():
+		if character is Character:
+			character.init_entity(get_parent())
+
+
 
 func set_current_character(character : Globals.CharacterClass):
 	curr_character = character
