@@ -9,7 +9,7 @@
 script = ExtResource("1_afrlh")
 
 [node name="Level" parent="." unique_id=1804012200 instance=ExtResource("1_c3lgb")]
-position = Vector2(37, 5)
+position = Vector2(100, 70)
 script = ExtResource("3_oytey")
 
 [node name="UI" parent="." unique_id=955902580 instance=ExtResource("2_t0q61")]

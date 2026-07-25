@@ -1,6 +1,9 @@
 class_name Level
 extends Node2D
 
+@onready var TileMapGround: TileMapLayer = $TileMapGround
+@onready var CharacterSelectionAnimation: AnimatedSprite2D = $MovementUI/CharacterSelection
+
 @onready var enemyTurnManager: EnemyTurnManager = $EnemyTurnManager
 @onready var characterManager: CharacterManager = $CharacterManager
 
@@ -34,11 +37,61 @@ func _on_player_choose_character(character: Globals.CharacterClass):
 	print("Choose player %d " % character)
 	characterChosen = character
 	characterManager.set_current_character(characterChosen)
-	set_player_move_ui(characterManager.get_current_character_node())
+	show_player_move_ui(characterManager.get_current_character_node())
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_CHARACTER)
 	
-func set_player_move_ui(player_node: Node2D):
-	pass
+func show_player_move_ui(player_node: Node2D):
+	var characterTileCoordinates = TileMapGround.local_to_map(player_node.position)
+	CharacterSelectionAnimation.position = TileMapGround.map_to_local(characterTileCoordinates) + TileMapGround.get_parent().position
+	CharacterSelectionAnimation.visible = true
+	CharacterSelectionAnimation.play("default")
+	
+	var neighbooringCoordinates: Array[Vector2] = [
+		Vector2(characterTileCoordinates.x + 1, characterTileCoordinates.y), #Right
+		Vector2(characterTileCoordinates.x - 1, characterTileCoordinates.y), #Left
+		Vector2(characterTileCoordinates.x, characterTileCoordinates.y + 1), #Down
+		Vector2(characterTileCoordinates.x, characterTileCoordinates.y - 1), #Up
+	]
+	
+	var neighbooringNodes: Array[Node2D] = [
+		$MovementUI/TileSelectionSpriteRight,
+		$MovementUI/TileSelectionSpriteLeft,
+		$MovementUI/TileSelectionSpriteDown,
+		$MovementUI/TileSelectionSpriteUp,
+	]
+	
+	for neighboorIndex in range(4):
+		var nodeToShow = neighbooringNodes[neighboorIndex]
+		if can_player_move_to_coordinates(neighbooringCoordinates[neighboorIndex]):
+			nodeToShow.position = TileMapGround.map_to_local(neighbooringCoordinates[neighboorIndex]) + TileMapGround.get_parent().position
+			nodeToShow.visible = true
+
+func can_player_move_to_coordinates(coordinates: Vector2):
+	if(coordinates.x < 0 or coordinates.y < 0):
+		return false
+	if(coordinates.x >= Globals.NUMBER_CELL_X or coordinates.y >= Globals.NUMBER_CELL_Y):
+		return false
+		
+	var tileType: Globals.TypeCase = get_type_case_from_position(coordinates.x, coordinates.y)
+	if(tileType != Globals.TypeCase.EMPTY and tileType != Globals.TypeCase.ENEMIES):
+		# EXTREMELY INCORRECT !!! We're waiting for get_type_case_from_position to be fixed
+		return true
+	
+	return true
+
+
+func hide_player_move_ui():
+	CharacterSelectionAnimation.visible = false
+	
+	var neighbooringNodes: Array[Node2D] = [
+		$MovementUI/TileSelectionSpriteRight,
+		$MovementUI/TileSelectionSpriteLeft,
+		$MovementUI/TileSelectionSpriteDown,
+		$MovementUI/TileSelectionSpriteUp,
+	]
+	
+	for node in neighbooringNodes:
+		node.visible = false
 
 func _on_player_choose_action(action: Globals.CharacterAction):
 	print("Choose action %d " % action)
@@ -53,6 +106,7 @@ func _on_state_finished(state: Globals.StateTurn):
 		Globals.StateTurn.CHOICE_CHARACTER :
 			curr_state=Globals.StateTurn.CHOICE_ACTION
 		Globals.StateTurn.CHOICE_ACTION :
+			hide_player_move_ui()
 			if(characterManager.action_needs_target()):
 				curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
 				#set ACTION 
@@ -222,4 +276,21 @@ func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement :
 	if(sizePath==50):
 		sizePath=0
 	return  [nextPosition,sizePath ]
- 
+
+
+
+func _on_right_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
+		print('clicked right!')
+
+func _on_left_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
+		print('clicked left!')
+
+func _on_down_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
+		print('clicked down!')
+		
+func _on_top_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
+		print('clicked up!')

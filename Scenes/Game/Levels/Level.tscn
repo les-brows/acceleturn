@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dqhg6dytqs761"]
 
 [ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_cp10e"]
+[ext_resource type="Script" uid="uid://hctaq4mhn7tw" path="res://Scenes/Game/Levels/level.gd" id="1_uxbrl"]
 [ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="2_4lmyb"]
 [ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="3_1tmkh"]
 [ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_h6cj1"]
@@ -8,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="6_cxvpv"]
 [ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="6_mhcxe"]
 [ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="7_fpcu7"]
+[ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="9_xy7d7"]
+[ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="10_xuo1q"]
+[ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="11_xuo1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
 texture = ExtResource("1_cp10e")
@@ -143,7 +147,25 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_q8yj7")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_pa3om"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xy7d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xuo1q")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3om"]
+size = Vector2(30, 30)
+
 [node name="Level" type="Node2D" unique_id=1804012200]
+script = ExtResource("1_uxbrl")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAYAAAAAAAEAAAADAAIAAAAAAAIAAAACAAYAAAAAAAMAAAADAAIAAAAAAAQAAAACAAYAAAAAAAUAAAADAAIAAAABAAAAAAADAAIAAAABAAIAAAADAAIAAAABAAMAAAACAAYAAAABAAQAAAADAAIAAAABAAUAAAACAAYAAAACAAAAAAACAAYAAAACAAEAAAADAAIAAAACAAIAAAACAAYAAAACAAMAAAADAAIAAAACAAQAAAACAAYAAAACAAUAAAADAAIAAAADAAAAAAADAAIAAAADAAEAAAACAAYAAAADAAIAAAADAAIAAAADAAMAAAACAAYAAAADAAQAAAADAAIAAAADAAUAAAACAAYAAAAEAAAAAAACAAYAAAAEAAEAAAADAAIAAAAEAAIAAAACAAYAAAAEAAMAAAADAAIAAAAEAAQAAAACAAYAAAAEAAUAAAADAAIAAAAFAAAAAAADAAIAAAAFAAEAAAACAAYAAAAFAAIAAAADAAIAAAAFAAMAAAACAAYAAAAFAAQAAAADAAIAAAAFAAUAAAACAAYAAAAGAAAAAAAHAA4AAAAGAAEAAAAHAA4AAAAGAAIAAAAHAA4AAAAGAAMAAAAHAA4AAAAGAAQAAAAHAA4AAAAGAAUAAAAHAA4AAAAHAAAAAAAJAA4AAAAHAAEAAAAJAA4AAAAHAAIAAAAJAA4AAAAHAAMAAAAJAA4AAAAHAAQAAAAJAA4AAAAHAAUAAAAJAA4AAAAIAAAAAAACAAYAAAAIAAEAAAADAAIAAAAIAAIAAAACAAYAAAAIAAMAAAADAAIAAAAIAAQAAAACAAYAAAAIAAUAAAADAAIAAAAJAAAAAAADAAIAAAAJAAEAAAACAAYAAAAJAAIAAAADAAIAAAAJAAMAAAACAAYAAAAJAAQAAAADAAIAAAAJAAUAAAACAAYAAAAKAAAAAAACAAYAAAAKAAEAAAADAAIAAAAKAAIAAAACAAYAAAAKAAMAAAADAAIAAAAKAAQAAAACAAYAAAAKAAUAAAADAAIAAAALAAAAAAADAAIAAAALAAEAAAACAAYAAAALAAIAAAADAAIAAAALAAMAAAACAAYAAAALAAQAAAADAAIAAAALAAUAAAACAAYAAAAMAAAAAAACAAYAAAAMAAEAAAADAAIAAAAMAAIAAAACAAYAAAAMAAMAAAADAAIAAAAMAAQAAAACAAYAAAAMAAUAAAADAAIAAAANAAAAAAADAAIAAAANAAEAAAACAAYAAAANAAQAAAADAAIAAAANAAUAAAACAAYAAAABAAEAAAACAAYAAAANAAMAAAACAAYAAAANAAIAAAADAAIAAAA=")
@@ -173,3 +195,64 @@ position = Vector2(127, 218)
 
 [node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("6_cxvpv")]
 position = Vector2(222, 79)
+
+[node name="MovementUI" type="Node" parent="." unique_id=1458852701]
+
+[node name="CharacterSelection" type="AnimatedSprite2D" parent="MovementUI" unique_id=103931730]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pa3om")
+frame_progress = 0.51570284
+
+[node name="TileSelectionSpriteRight" type="Node2D" parent="MovementUI" unique_id=983933466]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteRight" unique_id=1758355829]
+scale = Vector2(2, 2)
+texture = ExtResource("11_xuo1q")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteRight/Sprite2D" unique_id=1604275179]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" unique_id=531695608]
+shape = SubResource("RectangleShape2D_pa3om")
+
+[node name="TileSelectionSpriteLeft" type="Node2D" parent="MovementUI" unique_id=890580343]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteLeft" unique_id=1614691099]
+scale = Vector2(2, 2)
+texture = ExtResource("11_xuo1q")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteLeft/Sprite2D" unique_id=1119479242]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" unique_id=642368907]
+shape = SubResource("RectangleShape2D_pa3om")
+
+[node name="TileSelectionSpriteDown" type="Node2D" parent="MovementUI" unique_id=1697215931]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteDown" unique_id=1084001214]
+scale = Vector2(2, 2)
+texture = ExtResource("11_xuo1q")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteDown/Sprite2D" unique_id=1673243665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" unique_id=2066393423]
+shape = SubResource("RectangleShape2D_pa3om")
+
+[node name="TileSelectionSpriteUp" type="Node2D" parent="MovementUI" unique_id=531892026]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteUp" unique_id=1221537323]
+scale = Vector2(2, 2)
+texture = ExtResource("11_xuo1q")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D" unique_id=1942414050]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" unique_id=1605461623]
+shape = SubResource("RectangleShape2D_pa3om")
+
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_right_movement_clicked"]
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_left_movement_clicked"]
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" to="." method="_on_down_movement_clicked"]
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" to="." method="_on_top_movement_clicked"]
