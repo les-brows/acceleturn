@@ -36,6 +36,17 @@ enum CharacterClass
 	TRAPPER,
 }
 
+
+enum TypeCase
+{
+	EMPTY,
+	ENEMIES,
+	CHARACTER,
+	BUSH,
+	TREE
+}
+
+
 var NUMBER_CELL_X = 14
 var NUMBER_CELL_Y = 6
 var SIZE_CELL_X :int = 64
