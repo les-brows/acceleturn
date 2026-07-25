@@ -156,10 +156,10 @@ tile_set = SubResource("TileSet_7pr3o")
 [node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("2_4lmyb")]
 
 [node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("3_h6cj1")]
-position = Vector2(601, 89)
+position = Vector2(639, 133)
 
 [node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("3_h6cj1")]
-position = Vector2(940, 203)
+position = Vector2(835, 257)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("3_1tmkh")]
 script = ExtResource("5_qv7ba")

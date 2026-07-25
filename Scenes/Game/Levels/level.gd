@@ -1,3 +1,4 @@
+class_name Level
 extends Node2D
 
 @onready var enemyTurnManager: EnemyTurnManager = $EnemyTurnManager
@@ -82,7 +83,18 @@ func get_map_position_from_mouse() -> Vector2i:
 	result.y= tile_position.y/Globals.SIZE_CELL_Y 
 	
 	#print("Position_Click x=", result.x," y=", result.y)
-	
+	return result
+
+
+func getCoordinatesFromPostionAbsolute(initial_pos: Vector2) -> Vector2i:
+	var current_tile = get_node("TileMapGround").local_to_map(initial_pos)
+	var tile_position: Vector2
+	tile_position =  get_node("TileMapGround").map_to_local(current_tile)
+	var result : Vector2  
+
+	result.x = tile_position.x / Globals.SIZE_CELL_X
+	result.y = tile_position.y / Globals.SIZE_CELL_Y 
+
 	return result
 
 func getPostionAbsoluteFromCoordinates( columnIndex : int ,lineIndex : int ) -> Vector2i:

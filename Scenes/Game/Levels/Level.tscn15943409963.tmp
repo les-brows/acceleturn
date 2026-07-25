@@ -1,9 +1,13 @@
-[gd_scene format=4 uid="uid://crl2rvhhy53je"]
+[gd_scene format=4 uid="uid://dqhg6dytqs761"]
 
 [ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_cp10e"]
-[ext_resource type="Script" path="res://Scenes/Game/Levels/level_portion.gd" id="1_tg1hv"]
+[ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="2_4lmyb"]
+[ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="3_1tmkh"]
+[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_h6cj1"]
+[ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="5_qv7ba"]
+[ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="6_cxvpv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqqvl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
 texture = ExtResource("1_cp10e")
 texture_region_size = Vector2i(64, 64)
 2:1/0 = 0
@@ -70,18 +74,15 @@ texture_region_size = Vector2i(64, 64)
 9:14/0 = 0
 11:14/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_3bvl0"]
+[sub_resource type="TileSet" id="TileSet_h6cj1"]
 tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_fqqvl")
+sources/0 = SubResource("TileSetAtlasSource_ymddk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cp10e"]
 texture = ExtResource("1_cp10e")
 texture_region_size = Vector2i(64, 64)
 11:9/0 = 0
 12:9/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cp10e"]
 tile_size = Vector2i(64, 64)
@@ -141,16 +142,27 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_q8yj7")
 
 [node name="Level" type="Node2D" unique_id=1804012200]
-script = ExtResource("1_tg1hv")
 
-[node name="TileMapGround" type="TileMapLayer" parent="." unique_id=1332350197]
+[node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAYAAAAAAAEAAAADAAIAAAAAAAIAAAACAAYAAAAAAAMAAAADAAIAAAAAAAQAAAACAAYAAAAAAAUAAAADAAIAAAABAAAAAAADAAIAAAABAAIAAAADAAIAAAABAAMAAAACAAYAAAABAAQAAAADAAIAAAABAAUAAAACAAYAAAACAAAAAAACAAYAAAACAAEAAAADAAIAAAACAAIAAAACAAYAAAACAAMAAAADAAIAAAACAAQAAAACAAYAAAACAAUAAAADAAIAAAADAAAAAAADAAIAAAADAAEAAAACAAYAAAADAAIAAAADAAIAAAADAAMAAAACAAYAAAADAAQAAAADAAIAAAADAAUAAAACAAYAAAAEAAAAAAACAAYAAAAEAAEAAAADAAIAAAAEAAIAAAACAAYAAAAEAAMAAAADAAIAAAAEAAQAAAACAAYAAAAEAAUAAAADAAIAAAAFAAAAAAADAAIAAAAFAAEAAAACAAYAAAAFAAIAAAADAAIAAAAFAAMAAAACAAYAAAAFAAQAAAADAAIAAAAFAAUAAAACAAYAAAAGAAAAAAAHAA4AAAAGAAEAAAAHAA4AAAAGAAIAAAAHAA4AAAAGAAMAAAAHAA4AAAAGAAQAAAAHAA4AAAAGAAUAAAAHAA4AAAAHAAAAAAAJAA4AAAAHAAEAAAAJAA4AAAAHAAIAAAAJAA4AAAAHAAMAAAAJAA4AAAAHAAQAAAAJAA4AAAAHAAUAAAAJAA4AAAAIAAAAAAACAAYAAAAIAAEAAAADAAIAAAAIAAIAAAACAAYAAAAIAAMAAAADAAIAAAAIAAQAAAACAAYAAAAIAAUAAAADAAIAAAAJAAAAAAADAAIAAAAJAAEAAAACAAYAAAAJAAIAAAADAAIAAAAJAAMAAAACAAYAAAAJAAQAAAADAAIAAAAJAAUAAAACAAYAAAAKAAAAAAACAAYAAAAKAAEAAAADAAIAAAAKAAIAAAACAAYAAAAKAAMAAAADAAIAAAAKAAQAAAACAAYAAAAKAAUAAAADAAIAAAALAAAAAAADAAIAAAALAAEAAAACAAYAAAALAAIAAAADAAIAAAALAAMAAAACAAYAAAALAAQAAAADAAIAAAALAAUAAAACAAYAAAAMAAAAAAACAAYAAAAMAAEAAAADAAIAAAAMAAIAAAACAAYAAAAMAAMAAAADAAIAAAAMAAQAAAACAAYAAAAMAAUAAAADAAIAAAANAAAAAAADAAIAAAANAAEAAAACAAYAAAANAAQAAAADAAIAAAANAAUAAAACAAYAAAABAAEAAAACAAYAAAANAAMAAAACAAYAAAANAAIAAAADAAIAAAA=")
-tile_set = SubResource("TileSet_3bvl0")
+tile_set = SubResource("TileSet_h6cj1")
 
 [node name="TileMapDecor" type="TileMapLayer" parent="." unique_id=1405313040]
-visible = false
 tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
-visible = false
 tile_set = SubResource("TileSet_7pr3o")
+
+[node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("2_4lmyb")]
+
+[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("3_h6cj1")]
+position = Vector2(601, 89)
+
+[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("3_h6cj1")]
+position = Vector2(940, 203)
+
+[node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("3_1tmkh")]
+script = ExtResource("5_qv7ba")
+
+[node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("6_cxvpv")]
+position = Vector2(210, 323)

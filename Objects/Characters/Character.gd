@@ -1,6 +1,6 @@
 class_name Character
-extends Node2D
+extends Entities
+
 
 func act():
-	print("Je bouge (comme tous les Characters en fait)")
-	position += Vector2(50, 10)
+	move(Vector2i(1, 0))
