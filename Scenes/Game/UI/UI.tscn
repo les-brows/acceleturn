@@ -1,3 +1,221 @@
 [gd_scene format=3 uid="uid://fn5o3c23jali"]
 
+[ext_resource type="Texture2D" uid="uid://wt81p2nllwo6" path="res://Assets/UI/20240707dragon9SlicesA.png" id="1_im5y3"]
+[ext_resource type="Script" uid="uid://ct1uuldml3r2c" path="res://Scenes/Game/UI/UI.gd" id="1_p25nt"]
+[ext_resource type="Texture2D" uid="uid://cn85li1mdduwu" path="res://Assets/UI/20240707dragon9SlicesC.png" id="2_lf2ao"]
+
 [node name="UI" type="CanvasLayer" unique_id=955902580]
+script = ExtResource("1_p25nt")
+
+[node name="CharacterSelection" type="MarginContainer" parent="." unique_id=158660005]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="CharacterSelection" unique_id=678322743]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="BottomBackground" type="NinePatchRect" parent="CharacterSelection/VBox" unique_id=927962323]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = ExtResource("1_im5y3")
+region_rect = Rect2(0, 0, 144, 144)
+patch_margin_left = 34
+patch_margin_top = 47
+patch_margin_right = 34
+patch_margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterSelection/VBox/BottomBackground" unique_id=1763404434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 20
+
+[node name="CharacterButtonsContainer" type="HBoxContainer" parent="CharacterSelection/VBox/BottomBackground/MarginContainer" unique_id=893724244]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="CharacterBg1" type="NinePatchRect" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer" unique_id=1981718171]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CharacterButton" type="Button" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1" unique_id=2100859790]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterBg2" type="NinePatchRect" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer" unique_id=323367340]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CharacterButton" type="Button" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2" unique_id=1468357205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterBg3" type="NinePatchRect" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer" unique_id=2090353006]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CharacterButton" type="Button" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3" unique_id=764572942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionSelection" type="MarginContainer" parent="." unique_id=1557234401]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20000.0
+offset_bottom = 20000.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="ActionSelection" unique_id=2091014076]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="BottomBackground" type="NinePatchRect" parent="ActionSelection/VBox" unique_id=325703482]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+texture = ExtResource("1_im5y3")
+region_rect = Rect2(0, 0, 144, 144)
+patch_margin_left = 34
+patch_margin_top = 47
+patch_margin_right = 34
+patch_margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionSelection/VBox/BottomBackground" unique_id=725858242]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 20
+
+[node name="ActionSelectionButtons" type="HBoxContainer" parent="ActionSelection/VBox/BottomBackground/MarginContainer" unique_id=396024323]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="ActionBg1" type="NinePatchRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons" unique_id=1738056088]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg1" unique_id=182835009]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionBg2" type="NinePatchRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons" unique_id=1379877523]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg2" unique_id=855999738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionBg3" type="NinePatchRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons" unique_id=1586681234]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg3" unique_id=1513188838]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ActionBg4" type="NinePatchRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons" unique_id=1256893543]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lf2ao")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4" unique_id=273868532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
+[connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/CharacterButton" to="." method="_on_character_2_button_pressed"]
+[connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3/CharacterButton" to="." method="_on_character_3_button_pressed"]
+[connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg1/ActionButton" to="." method="_on_action_1_button_pressed"]
+[connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg2/ActionButton" to="." method="_on_action_2_button_pressed"]
+[connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg3/ActionButton" to="." method="_on_action_3_button_pressed"]
+[connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/ActionButton" to="." method="_on_action_4_button_pressed"]
