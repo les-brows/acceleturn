@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var actionSelectionMenu = $ActionSelection
 @onready var timeBar = $%TimeBar
 @onready var fireAnimation = $%FireAnimation
+@onready var dialogAlly = $"Dialogue Ally"
 
 @onready var CharacterButtons = [
 	$CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton,
@@ -18,6 +19,10 @@ extends CanvasLayer
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/ActionButton
 ]
 
+@onready var allyDialogText = $%DialogueText
+@onready var allyDialogName = $%CharacterName
+@onready var allyDialogImage = $%DialogueImage
+
 var trasitionDuration: float = 0.2
 
 var timerDuration: int = 10
@@ -31,6 +36,7 @@ var tweenAction: Tween
 var tweenTimeBarColor: Tween
 var tweenTimeBarSize: Tween
 var tweenFirePosition: Tween
+var tweenAllyDialog: Tween
 
 signal _on_choose_character(character: Globals.CharacterClass)
 signal _on_choose_action(action: Globals.CHARACTER_ACTION)
@@ -47,6 +53,9 @@ func _process(_delta) -> void:
 	fireAnimation.position.y -= 90 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
 	initialFirePos = fireAnimation.position.y
 	set_process(false)
+
+
+# ------------ State Machine functions -------------------
 
 
 func _on_state_started_received(state: Globals.StateTurn) -> void:
@@ -74,6 +83,9 @@ func _on_state_finished_received(state: Globals.StateTurn) -> void:
 			hide_action_menu()
 
 
+# ------------ Action & Character functions -------------------
+
+
 func hide_character_menu():
 	for button in CharacterButtons:
 		button.disabled = true
@@ -97,8 +109,8 @@ func show_character_menu():
 	await tweenCharacter.finished
 	for button in CharacterButtons:
 		button.disabled = false
-	
-	
+
+
 func hide_action_menu():
 	for button in ActionButtons:
 		button.disabled = true
@@ -110,8 +122,8 @@ func hide_action_menu():
 	# We keep the tween at 300 for aesthetics, but then move it to 2000 to prevent overlap
 	await tweenAction.finished
 	actionSelectionMenu.position = Vector2(0, 2000)
-	
-	
+
+
 func show_action_menu():
 	# Move the menu from 2000 to 300
 	actionSelectionMenu.position = Vector2(0, 300)
@@ -122,7 +134,10 @@ func show_action_menu():
 	await tweenAction.finished
 	for button in ActionButtons:
 		button.disabled = false
-	
+
+
+# ------------ Timer functions -------------------
+
 
 func reset_timer():
 	timeBar.color = Color8(41, 198, 0)
@@ -159,8 +174,37 @@ func stop_timer():
 	tweenFirePosition.pause()
 
 
+# ------------ Dialogue functions -------------------
+
+
+func show_ally_dialog(name: String, text: String, character: Globals.CharacterClass):
+	allyDialogName = name
+	allyDialogText = text
+	
+	match character:
+		Globals.CharacterClass.GUNNER:
+			allyDialogImage = "res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg"
+		
+		Globals.CharacterClass.MAGE:
+			allyDialogImage = "res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg"
+		
+		Globals.CharacterClass.TRAPPER:
+			allyDialogImage = "res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg"
+	
+	tweenAllyDialog = get_tree().create_tween()
+	tweenAllyDialog.tween_property(dialogAlly, "position", Vector2(0, 0), trasitionDuration).set_trans(Tween.TRANS_BACK)
+
+func hide_ally_dialog():
+	tweenAllyDialog = get_tree().create_tween()
+	tweenAllyDialog.tween_property(dialogAlly, "position", Vector2(-500, 0), trasitionDuration).set_trans(Tween.TRANS_BACK)
+
+
+# ------------ Button Callbacks functions -------------------
+
+
 func _on_character_1_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
+	show_ally_dialog("My Kiiiing", "Eh tmr la pvt c bon", Globals.CharacterClass.GUNNER)
 
 
 func _on_character_2_button_pressed() -> void:
@@ -173,6 +217,7 @@ func _on_character_3_button_pressed() -> void:
 
 func _on_action_1_button_pressed() -> void:
 	_on_choose_action.emit(1)
+	hide_ally_dialog()
 
 
 func _on_action_2_button_pressed() -> void:
