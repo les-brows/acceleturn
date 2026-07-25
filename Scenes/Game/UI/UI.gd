@@ -6,7 +6,7 @@ extends CanvasLayer
 var tweenCharacter: Tween
 var tweenAction: Tween
 
-signal _on_choose_character(playerIndex: int)
+signal _on_choose_character(character: Globals.CharacterClass)
 signal _on_choose_action(action: Globals.CHARACTER_ACTION)
 
 
