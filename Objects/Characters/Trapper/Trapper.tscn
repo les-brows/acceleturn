@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dehcpyo4u001j"]
+
+[ext_resource type="Script" uid="uid://ewpxxvi6nrus" path="res://Objects/Characters/Trapper/trapper.gd" id="1_lprvd"]
+[ext_resource type="Texture2D" uid="uid://blu0dpvabt2r7" path="res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg" id="2_pcart"]
+
+[node name="Trapper" type="Node2D" unique_id=638839594]
+script = ExtResource("1_lprvd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=443612665]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_pcart")

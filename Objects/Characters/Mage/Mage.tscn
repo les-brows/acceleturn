@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://u8ckqn1eknte"]
+
+[ext_resource type="Script" uid="uid://bgkflxvtlvsfx" path="res://Objects/Characters/Mage/mage.gd" id="1_7anr4"]
+[ext_resource type="Texture2D" uid="uid://c3oegr82pvgv6" path="res://Assets/UI/Group 4 - 3_1.png" id="2_oqi3k"]
+
+[node name="Mage" type="Node2D" unique_id=893759127]
+script = ExtResource("1_7anr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=943319176]
+position = Vector2(0, -21.77)
+scale = Vector2(2.96, 2.96)
+texture = ExtResource("2_oqi3k")

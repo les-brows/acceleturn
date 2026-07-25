@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_h6cj1"]
 [ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="5_qv7ba"]
 [ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="6_cxvpv"]
+[ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="6_mhcxe"]
+[ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="7_fpcu7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
 texture = ExtResource("1_cp10e")
@@ -164,5 +166,10 @@ position = Vector2(835, 257)
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("3_1tmkh")]
 script = ExtResource("5_qv7ba")
 
+[node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("6_mhcxe")]
+position = Vector2(127, 218)
+
+[node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("7_fpcu7")]
+
 [node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("6_cxvpv")]
-position = Vector2(210, 323)
+position = Vector2(222, 79)

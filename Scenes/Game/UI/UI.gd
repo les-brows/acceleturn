@@ -202,7 +202,6 @@ func hide_ally_dialog():
 
 func _on_character_1_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
-	show_ally_dialog("My Kiiiing", "Eh tmr la pvt c bon", Globals.CharacterClass.GUNNER)
 
 
 func _on_character_2_button_pressed() -> void:
@@ -215,7 +214,6 @@ func _on_character_3_button_pressed() -> void:
 
 func _on_action_1_button_pressed() -> void:
 	_on_choose_action.emit(1)
-	hide_ally_dialog()
 
 
 func _on_action_2_button_pressed() -> void:
