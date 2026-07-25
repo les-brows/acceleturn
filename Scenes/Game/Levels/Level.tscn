@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_cp10e"]
 [ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="2_4lmyb"]
 [ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="3_1tmkh"]
+[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_h6cj1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pr3o"]
 texture = ExtResource("1_cp10e")
@@ -151,5 +152,11 @@ tile_set = SubResource("TileSet_cp10e")
 tile_set = SubResource("TileSet_7pr3o")
 
 [node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("2_4lmyb")]
+
+[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("3_h6cj1")]
+position = Vector2(601, 89)
+
+[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("3_h6cj1")]
+position = Vector2(940, 203)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("3_1tmkh")]
