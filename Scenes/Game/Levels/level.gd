@@ -53,8 +53,8 @@ func _on_state_finished(state: Globals.StateTurn):
 		Globals.StateTurn.ACTION_ENEMIES :
 			curr_state = Globals.StateTurn.CHOICE_CHARACTER 
 	
-	Globals.state_started.emit(curr_state)
-	print("Send state %s" % curr_state)
+	var signal_to_send = curr_state
+	Globals.state_started.emit(signal_to_send)
 
 
 
