@@ -60,11 +60,11 @@ func _process(_delta) -> void:
 		
 	if timerStarted:
 		var remaining_time: float = timer.time_left
-		var min: int = int(remaining_time) / 60.0
-		var sec: int = int(remaining_time) % 60
+		var minute: int =  int(remaining_time / 60.0)
+		var sec: int = int(remaining_time) % 60 + ceil(remaining_time / 60.0)
 		timerText.clear()
-		if(min > 0):
-			timerText.append_text("%02d:%02d" % [min, sec])
+		if(minute > 0):
+			timerText.append_text("%02d:%02d" % [minute, sec])
 		else:
 			timerText.append_text("%02d" % [sec])
 
