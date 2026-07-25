@@ -155,6 +155,7 @@ func stop_timer():
 
 
 func _on_character_1_button_pressed() -> void:
+<<<<<<< HEAD
 	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
 	switch_to_action_menu()
 	start_timer(10)
@@ -169,6 +170,17 @@ func _on_character_2_button_pressed() -> void:
 func _on_character_3_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.TRAPPER)
 	switch_to_action_menu()
+=======
+	_on_choose_character.emit(1)
+
+
+func _on_character_2_button_pressed() -> void:
+	_on_choose_character.emit(2)
+
+
+func _on_character_3_button_pressed() -> void:
+	_on_choose_character.emit(3)
+>>>>>>> 18d52d0 (UI: connect the state machine from Helios to the UI buttons)
 
 
 func _on_action_1_button_pressed() -> void:
