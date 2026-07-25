@@ -6,13 +6,22 @@ extends Node2D
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 var characterChosen : Globals.CharacterClass = Globals.CharacterClass.NONE;
 
+
+var caseContent : Array[Array]=[]
+
+
 func _init() -> void:
 	Globals.state_finished.connect(_on_state_finished)
-
+	create_initial_map()
+	
+	
 func _process(_delta):
 	var clicked = false
 	if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
-		get_map_position_from_mouse()
+		var position: Vector2 = get_map_position_from_mouse()
+		var test= get_type_case_from_position(position.y, position.x)
+		print(test)
+		clicked = true
 	else :
 		clicked = false
 	pass
@@ -57,8 +66,7 @@ func _on_state_finished(state: Globals.StateTurn):
 	print("Send state %s" % curr_state)
 
 
-
-func get_map_position_from_mouse():
+func get_map_position_from_mouse() -> Vector2:
 	var mouse_position = get_global_mouse_position()
 	var current_tile = get_node("TileMapGround").local_to_map(mouse_position)
 	var tile_position: Vector2
@@ -70,3 +78,34 @@ func get_map_position_from_mouse():
 	result.y= int(tile_position.y/float( 64))
 	
 	print("Position_Click x=", result.x," y=", result.y)
+	
+	return result
+	
+func create_initial_map():
+	#TODO 
+	var line :Array
+	for i in range(Globals.NUMBER_CELL_Y):
+		for j in range(Globals.NUMBER_CELL_X):
+			if(j==3):
+				line.append(Globals.TypeCase.BUSH)
+			elif (i==2 && j==4) :
+				line.append(Globals.TypeCase.TREE)
+			else :
+				line.append(Globals.TypeCase.EMPTY)
+		caseContent.append(line)
+	pass 
+	
+	
+func get_type_case_from_position(lineIndex : int , columnIndex : int) -> Globals.TypeCase :
+	if(caseContent.size()<lineIndex):
+		print("Line INVALID !!!")
+		return  Globals.TypeCase.EMPTY
+	else :
+		var lineContent : Array = caseContent[lineIndex]
+		if(lineContent.size()<columnIndex):
+			print("COLUMN INVALID !!!")
+			return  Globals.TypeCase.EMPTY
+		else :
+			return lineContent[columnIndex]
+	
+	
