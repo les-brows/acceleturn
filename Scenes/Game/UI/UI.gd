@@ -50,10 +50,14 @@ func _process(_delta) -> void:
 func _on_state_started_received(state: Globals.StateTurn) -> void:
 	match state:
 		Globals.StateTurn.CHOICE_CHARACTER:
+			if tweenCharacter && tweenCharacter.is_running():
+				await tweenCharacter.finished
+
 			reset_timer()
 			start_timer(timerDuration)
 			hide_action_menu()
 			show_character_menu()
+
 		Globals.StateTurn.CHOICE_ACTION:
 			hide_character_menu()
 			show_action_menu()
@@ -65,7 +69,6 @@ func _on_state_finished_received(state: Globals.StateTurn) -> void:
 			if(!timerStarted):
 				start_timer(timerDuration)
 		Globals.StateTurn.CHOICE_ACTION:
-			hide_character_menu()
 			hide_action_menu()
 
 
@@ -83,10 +86,10 @@ func hide_character_menu():
 
 
 func show_character_menu():
-	tweenCharacter = get_tree().create_tween()
-	
 	# Move the menu from 2000 to 300
 	characterSelectionMenu.position = Vector2(0, 300)
+	
+	tweenCharacter = get_tree().create_tween()
 	tweenCharacter.tween_property(characterSelectionMenu, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_BACK)
 	
 	await tweenCharacter.finished
@@ -108,26 +111,16 @@ func hide_action_menu():
 	
 	
 func show_action_menu():
-	tweenAction = get_tree().create_tween()
-	
 	# Move the menu from 2000 to 300
 	actionSelectionMenu.position = Vector2(0, 300)
+	
+	tweenAction = get_tree().create_tween()
 	tweenAction.tween_property(actionSelectionMenu, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_BACK)
 	
 	await tweenAction.finished
 	for button in ActionButtons:
 		button.disabled = false
 	
-	
-func switch_to_character_menu():
-	hide_action_menu()
-	show_character_menu()
-
-
-func switch_to_action_menu():
-	hide_character_menu()
-	show_action_menu()
-
 
 func reset_timer():
 	timeBar.color = Color8(41, 198, 0)
@@ -165,15 +158,17 @@ func stop_timer():
 
 
 func _on_character_1_button_pressed() -> void:
-	_on_choose_character.emit(1)
+	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
+	start_timer(10)
 
 
 func _on_character_2_button_pressed() -> void:
-	_on_choose_character.emit(2)
+	_on_choose_character.emit(Globals.CharacterClass.MAGE)
+	reset_timer()
 
 
 func _on_character_3_button_pressed() -> void:
-	_on_choose_character.emit(3)
+	_on_choose_character.emit(Globals.CharacterClass.TRAPPER)
 
 
 func _on_action_1_button_pressed() -> void:
