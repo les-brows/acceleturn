@@ -2,9 +2,25 @@ extends CanvasLayer
 
 @onready var characterSelectionMenu = $CharacterSelection
 @onready var actionSelectionMenu = $ActionSelection
+@onready var timeBar = $%TimeBar
+@onready var fireAnimation = $%FireAnimation
+
+var timerStarted: bool = false
+var timerEndTime: int = 0
 
 var tweenCharacter: Tween
 var tweenAction: Tween
+var tweenTimeBarColor: Tween
+var tweenTimeBarSize: Tween
+var tweenFirePosition: Tween
+
+
+func _process(_delta) -> void:
+	timeBar.rotation_degrees = 180
+	timeBar.position += timeBar.size
+	fireAnimation.position.y -= 90 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
+	set_process(false)
+		
 
 signal _on_choose_character(character: Globals.CharacterClass)
 signal _on_choose_action(action: Globals.CHARACTER_ACTION)
@@ -40,14 +56,50 @@ func switch_to_action_menu():
 	characterSelectionMenu.position = Vector2(0, 2000)
 
 
+func reset_timer():
+	timeBar.color = Color8(41, 198, 0)
+	timeBar.scale = Vector2(1, 1)
+	tweenTimeBarColor.stop()
+	tweenTimeBarSize.stop()
+	tweenFirePosition.stop()
+	timerStarted = false
+
+
+func start_timer(timeToFinish: int):
+	if tweenTimeBarColor && tweenTimeBarSize && tweenFirePosition:
+		tweenTimeBarColor.play()
+		tweenTimeBarSize.play()
+		tweenFirePosition.play()
+	else:
+		tweenTimeBarColor = get_tree().create_tween()
+		tweenTimeBarSize = get_tree().create_tween()
+		tweenFirePosition = get_tree().create_tween()
+		
+	# We want to keep the X size but set Y to 0
+	var targetPosition: Vector2 = Vector2(0, fireAnimation.size.y + fireAnimation.position.y)
+	
+	tweenTimeBarColor.tween_property(timeBar, "color", Color8(178, 0, 43), timeToFinish).set_trans(Tween.TRANS_LINEAR)
+	tweenTimeBarSize.tween_property(timeBar, "scale", Vector2(1, 0), timeToFinish).set_trans(Tween.TRANS_LINEAR)
+	tweenFirePosition.tween_property(fireAnimation, "position", targetPosition, timeToFinish).set_trans(Tween.TRANS_LINEAR)
+	timerStarted = true
+
+
+func stop_timer():
+	tweenTimeBarColor.pause()
+	tweenTimeBarSize.pause()
+	tweenFirePosition.pause()
+
+
 func _on_character_1_button_pressed() -> void:
 	_on_choose_character.emit(1)
 	switch_to_action_menu()
+	start_timer(10)
 
 
 func _on_character_2_button_pressed() -> void:
 	_on_choose_character.emit(2)
 	switch_to_action_menu()
+	reset_timer()
 
 
 func _on_character_3_button_pressed() -> void:
@@ -58,6 +110,7 @@ func _on_character_3_button_pressed() -> void:
 func _on_action_1_button_pressed() -> void:
 	_on_choose_action.emit(1)
 	switch_to_character_menu()
+	stop_timer()
 
 
 func _on_action_2_button_pressed() -> void:

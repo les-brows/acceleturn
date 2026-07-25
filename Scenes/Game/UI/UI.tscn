@@ -3,6 +3,34 @@
 [ext_resource type="Texture2D" uid="uid://wt81p2nllwo6" path="res://Assets/UI/20240707dragon9SlicesA.png" id="1_im5y3"]
 [ext_resource type="Script" uid="uid://ct1uuldml3r2c" path="res://Scenes/Game/UI/UI.gd" id="1_p25nt"]
 [ext_resource type="Texture2D" uid="uid://cn85li1mdduwu" path="res://Assets/UI/20240707dragon9SlicesC.png" id="2_lf2ao"]
+[ext_resource type="Texture2D" uid="uid://d22pfc5gpvqa" path="res://Assets/UI/output-onlinepngtools.png" id="4_gkwei"]
+[ext_resource type="Texture2D" uid="uid://c3oegr82pvgv6" path="res://Assets/UI/Group 4 - 3_1.png" id="5_6atay"]
+[ext_resource type="Texture2D" uid="uid://bmtvjwakxcpp1" path="res://Assets/UI/Group 4 - 3_2.png" id="6_aa4bu"]
+[ext_resource type="Texture2D" uid="uid://dek8cq3fcsisk" path="res://Assets/UI/Group 4 - 3_3.png" id="7_ktdqi"]
+[ext_resource type="Texture2D" uid="uid://vpcfgc166k6h" path="res://Assets/UI/Group 4 - 3_4.png" id="8_wftri"]
+[ext_resource type="Texture2D" uid="uid://5o76igspxcxd" path="res://Assets/UI/Group 4 - 3_5.png" id="9_6aqr6"]
+[ext_resource type="Texture2D" uid="uid://cgu5ulevxnus0" path="res://Assets/UI/Group 4 - 3_6.png" id="10_s28dx"]
+[ext_resource type="Texture2D" uid="uid://dria87eroy00p" path="res://Assets/UI/Group 4 - 3_7.png" id="11_sunpx"]
+[ext_resource type="Texture2D" uid="uid://cbrkwylar8pir" path="res://Assets/UI/Group 4 - 3_8.png" id="12_o4pdo"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_pa3om"]
+frames = 8
+frame_0/texture = ExtResource("5_6atay")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("6_aa4bu")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("7_ktdqi")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("8_wftri")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("9_6aqr6")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("10_s28dx")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("11_sunpx")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("12_o4pdo")
+frame_7/duration = 0.1
 
 [node name="UI" type="CanvasLayer" unique_id=955902580]
 script = ExtResource("1_p25nt")
@@ -211,6 +239,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Dialogue" type="MarginContainer" parent="." unique_id=1075161957]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBox" type="HBoxContainer" parent="Dialogue" unique_id=1770726805]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/HBox" unique_id=1422763765]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/HBox/MarginContainer" unique_id=313024545]
+layout_mode = 2
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_bottom = 35
+
+[node name="TimeBar" type="ColorRect" parent="Dialogue/HBox/MarginContainer/MarginContainer" unique_id=181212306]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0.16078432, 0.7764706, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Dialogue/HBox/MarginContainer" unique_id=320445559]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("4_gkwei")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Dialogue/HBox/MarginContainer" unique_id=518280847]
+layout_mode = 2
+theme_override_constants/margin_top = 34
+theme_override_constants/margin_bottom = 35
+
+[node name="FireAnimation" type="TextureRect" parent="Dialogue/HBox/MarginContainer/MarginContainer2" unique_id=1082419084]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AnimatedTexture_pa3om")
+stretch_mode = 4
 
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/CharacterButton" to="." method="_on_character_2_button_pressed"]
