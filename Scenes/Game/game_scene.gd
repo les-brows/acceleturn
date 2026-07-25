@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var uiMenu = $UI
-@onready var level = $level
+@onready var level = $Level
 
 func _on_ready():
 	uiMenu._on_choose_player.conect(level._on_player_choose_perso())

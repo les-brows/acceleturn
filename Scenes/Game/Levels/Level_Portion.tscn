@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_cp10e"]
 [ext_resource type="Script" uid="uid://hctaq4mhn7tw" path="res://Scenes/Game/Levels/level_portion.gd" id="1_tg1hv"]
-[ext_resource type="Script" uid="uid://dikir4iwtka4k" path="res://Objects/Joueur/player.gd" id="3_s18uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pr3o"]
 texture = ExtResource("1_cp10e")
@@ -150,6 +149,3 @@ tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
 tile_set = SubResource("TileSet_7pr3o")
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=191651886]
-script = ExtResource("3_s18uk")
