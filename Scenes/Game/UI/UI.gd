@@ -60,10 +60,13 @@ func _process(_delta) -> void:
 		
 	if timerStarted:
 		var remaining_time: float = timer.time_left
+		var min: int = int(remaining_time) / 60
 		var sec: int = int(remaining_time) % 60
-		var ms: int = int(remaining_time * 100) % 100
 		timerText.clear()
-		timerText.append_text("%02d:%02d" % [sec, ms])
+		if(min > 0):
+			timerText.append_text("%02d:%02d" % [min, sec])
+		else:
+			timerText.append_text("%02d" % [sec])
 
 
 # ------------ State Machine functions -------------------
@@ -74,7 +77,6 @@ func _on_state_started_received(state: Globals.StateTurn) -> void:
 		Globals.StateTurn.CHOICE_CHARACTER:
 			if tweenCharacter && tweenCharacter.is_running():
 				await tweenCharacter.finished
-
 			reset_timer()
 			start_timer(Globals.timerDuration)
 			hide_action_menu()
@@ -160,7 +162,10 @@ func reset_timer():
 	timer.stop()
 
 
-func start_timer(timeToFinish: int):
+func start_timer(timeToFinish: float):
+	print("Time to finish: %d" % timeToFinish)
+	if(timeToFinish < 0):
+		timeToFinish = 0.25
 	timer.wait_time = timeToFinish
 	timer.start()
 	if tweenTimeBarColor && tweenTimeBarSize && tweenFirePosition:
@@ -229,19 +234,19 @@ func _on_character_3_button_pressed() -> void:
 
 
 func _on_action_1_button_pressed() -> void:
-	_on_choose_action.emit(1)
+	_on_choose_action.emit(Globals.CharacterAction.ACTION1)
 
 
 func _on_action_2_button_pressed() -> void:
-	_on_choose_action.emit(2)
+	_on_choose_action.emit(Globals.CharacterAction.ACTION2)
 
 
 func _on_action_3_button_pressed() -> void:
-	_on_choose_action.emit(3)
+	_on_choose_action.emit(Globals.CharacterAction.ACTION3)
 
 
 func _on_action_4_button_pressed() -> void:
-	_on_choose_action.emit(4)
+	_on_choose_action.emit(Globals.CharacterAction.ACTION4)
 
 
 func _on_local_timer_end() -> void:

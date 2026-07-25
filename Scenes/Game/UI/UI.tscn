@@ -420,9 +420,10 @@ size_flags_stretch_ratio = 0.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/normal_font = ExtResource("4_75ja4")
 theme_override_font_sizes/normal_font_size = 40
-text = "10.34"
+text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
+justification_flags = 171
 
 [node name="Timer" type="Timer" parent="Time/VBoxContainer/MarginContainer2" unique_id=181310528]
 unique_name_in_owner = true
