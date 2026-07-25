@@ -18,6 +18,27 @@ func init_characters_positions():
 		if character is Character:
 			character.init_entity(get_parent())
 
+func get_current_character_node() -> Node2D:
+
+	match curr_character:
+		Globals.CharacterClass.GUNNER:
+			for child in get_children():
+				if child is Gunner:
+					return child
+		
+		Globals.CharacterClass.MAGE:
+			pass
+			#for child in get_children():
+				#if child is Mage:
+					#return child
+		
+		Globals.CharacterClass.TRAPPER:
+			pass
+			#for child in get_children():
+				#if child is Gunner:
+					#return child
+	return null
+
 
 
 func set_current_character(character : Globals.CharacterClass):
@@ -34,11 +55,7 @@ func process_character_turn():
 		Globals.timerDuration += 5
 		return;
 
-	print("Mes persos vont faire des trucs tkt")
 	if(curr_character == Globals.CharacterClass.GUNNER):
 		for child in get_children():
 			if child is Gunner:
 				child.act()
-		print("Je suis le gunner, mon gun est délicieux")
-	else:
-		print("Le personnage choisi n'a AUCUN BUZZ")

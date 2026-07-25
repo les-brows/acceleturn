@@ -34,8 +34,11 @@ func _on_player_choose_character(character: Globals.CharacterClass):
 	print("Choose player %d " % character)
 	characterChosen = character
 	characterManager.set_current_character(characterChosen)
+	set_player_move_ui(characterManager.get_current_character_node())
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_CHARACTER)
 	
+func set_player_move_ui(player_node: Node2D):
+	pass
 
 func _on_player_choose_action(action: Globals.CharacterAction):
 	print("Choose action %d " % action)
@@ -44,7 +47,6 @@ func _on_player_choose_action(action: Globals.CharacterAction):
 
 	
 func _on_state_finished(state: Globals.StateTurn):
-	print("State finished: %s" % state)
 	assert(state == curr_state)
 	
 	match state:
