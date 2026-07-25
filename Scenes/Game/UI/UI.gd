@@ -6,6 +6,9 @@ extends CanvasLayer
 var tweenCharacter: Tween
 var tweenAction: Tween
 
+signal _on_choose_character(playerIndex: int)
+signal _on_choose_action(action: Globals.CHARACTER_ACTION)
+
 
 func switch_to_character_menu():
 	tweenCharacter = get_tree().create_tween()
@@ -38,28 +41,35 @@ func switch_to_action_menu():
 
 
 func _on_character_1_button_pressed() -> void:
+	_on_choose_character.emit(1)
 	switch_to_action_menu()
 
 
 func _on_character_2_button_pressed() -> void:
+	_on_choose_character.emit(2)
 	switch_to_action_menu()
 
 
 func _on_character_3_button_pressed() -> void:
+	_on_choose_character.emit(3)
 	switch_to_action_menu()
 
 
 func _on_action_1_button_pressed() -> void:
+	_on_choose_action.emit(1)
 	switch_to_character_menu()
 
 
 func _on_action_2_button_pressed() -> void:
+	_on_choose_action.emit(2)
 	switch_to_character_menu()
 
 
 func _on_action_3_button_pressed() -> void:
+	_on_choose_action.emit(3)
 	switch_to_character_menu()
 
 
 func _on_action_4_button_pressed() -> void:
+	_on_choose_action.emit(4)
 	switch_to_character_menu()
