@@ -2,6 +2,7 @@ class_name CharacterManager
 extends Node2D
 
 var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
+var curr_action: Globals.CharacterAction = Globals.CharacterAction.DEFAULT
 
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started)
@@ -21,8 +22,18 @@ func init_characters_positions():
 
 func set_current_character(character : Globals.CharacterClass):
 	curr_character = character
+	
+func set_current_action(action: Globals.CharacterAction):
+	curr_action = action
+	
+func action_needs_target() -> bool:
+	return false
 
 func process_character_turn():
+	if(curr_action == Globals.CharacterAction.DEFAULT):
+		Globals.timerDuration += 5
+		return;
+
 	print("Mes persos vont faire des trucs tkt")
 	if(curr_character == Globals.CharacterClass.GUNNER):
 		for child in get_children():

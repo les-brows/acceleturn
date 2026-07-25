@@ -37,9 +37,9 @@ func _on_player_choose_character(character: Globals.CharacterClass):
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_CHARACTER)
 	
 
-func _on_player_choose_action(action: Globals.CHARACTER_ACTION):
+func _on_player_choose_action(action: Globals.CharacterAction):
 	print("Choose action %d " % action)
-	#Do action or ask input
+	characterManager.set_current_action(action)
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
 
 	
@@ -51,7 +51,7 @@ func _on_state_finished(state: Globals.StateTurn):
 		Globals.StateTurn.CHOICE_CHARACTER :
 			curr_state=Globals.StateTurn.CHOICE_ACTION
 		Globals.StateTurn.CHOICE_ACTION :
-			if(0):
+			if(characterManager.action_needs_target()):
 				curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
 				#set ACTION 
 			else:
@@ -125,12 +125,12 @@ func create_initial_map():
 	
 func get_type_case_from_position( columnIndex : int, lineIndex : int ) -> Globals.TypeCase :
 	if(lineIndex>=caseContent.size()):
-		print("Line INVALID !!!")
+		#print("Line INVALID !!!")
 		return  Globals.TypeCase.EMPTY
 	else :
 		var lineContent : Array = caseContent[lineIndex]
 		if(columnIndex>=lineContent.size()):
-			print("COLUMN INVALID !!!")
+			#print("COLUMN INVALID !!!")
 			return  Globals.TypeCase.EMPTY
 		else :
 			return lineContent[columnIndex]
@@ -138,12 +138,12 @@ func get_type_case_from_position( columnIndex : int, lineIndex : int ) -> Global
 func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase ) ->bool :
 	var success : bool =true
 	if(lineIndex>=caseContent.size()):
-		print("Line INVALID !!!")
+		#print("Line INVALID !!!")
 		success=false
 	else :
 		var lineContent : Array = caseContent[lineIndex]
 		if(columnIndex>=lineContent.size()):
-			print("COLUMN INVALID !!!")
+			#print("COLUMN INVALID !!!")
 			success = false
 		else :
 			lineContent[columnIndex] = newType

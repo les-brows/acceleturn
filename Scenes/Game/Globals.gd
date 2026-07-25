@@ -15,8 +15,9 @@ signal state_finished(state: StateTurn)
 signal state_started(state: StateTurn)
 
 
-enum CHARACTER_ACTION
-{ 
+enum CharacterAction
+{
+	DEFAULT,
 	MOVE_LEFT,
 	MOVE_RIGHT,
 	MOVE_UP,
@@ -25,7 +26,6 @@ enum CHARACTER_ACTION
 	ACTION2,
 	ACTION3,
 	ACTION4,
-	DEFAULT
 }
 
 enum CharacterClass
@@ -51,3 +51,5 @@ var NUMBER_CELL_X = 14
 var NUMBER_CELL_Y = 6
 var SIZE_CELL_X :int = 64
 var SIZE_CELL_Y :int = 64
+
+var timerDuration: int = 10
