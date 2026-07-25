@@ -18,9 +18,11 @@ func _init() -> void:
 func _process(_delta):
 	var clicked = false
 	if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
-		var position: Vector2 = get_map_position_from_mouse()
-		var test= get_type_case_from_position(position.y, position.x)
-		print(test)
+		var positionmouse: Vector2i = get_map_position_from_mouse()
+		get_type_case_from_position(positionmouse.x, positionmouse.y)
+		#print(result )
+		getPostionAbsoluteFromCoordinates(positionmouse.x, positionmouse.y)
+		#print("absolute , ", absoluteposition)
 		clicked = true
 	else :
 		clicked = false
@@ -66,7 +68,7 @@ func _on_state_finished(state: Globals.StateTurn):
 	Globals.state_started.emit(signal_to_send)
 
 
-func get_map_position_from_mouse() -> Vector2:
+func get_map_position_from_mouse() -> Vector2i:
 	var mouse_position = get_global_mouse_position()
 	var current_tile = get_node("TileMapGround").local_to_map(mouse_position)
 	var tile_position: Vector2
@@ -74,12 +76,25 @@ func get_map_position_from_mouse() -> Vector2:
 	var result : Vector2  
 
 	#print("Position_Click x=", tile_position.x," y=", tile_position.y , "Size tile",Globals.SIZE_CELL_X )
-	result.x= int(tile_position.x/float(64))
-	result.y= int(tile_position.y/float( 64))
+	@warning_ignore("integer_division")
+	result.x= tile_position.x/Globals.SIZE_CELL_X
+	@warning_ignore("integer_division")
+	result.y= tile_position.y/Globals.SIZE_CELL_Y 
 	
-	print("Position_Click x=", result.x," y=", result.y)
+	#print("Position_Click x=", result.x," y=", result.y)
 	
 	return result
+
+func getPostionAbsoluteFromCoordinates( columnIndex : int ,lineIndex : int ) -> Vector2i:
+	var postion = Vector2(columnIndex*64,lineIndex*64)
+	var current_tile = get_node("TileMapGround").local_to_map(postion)
+	var tile_position: Vector2
+	tile_position =  get_node("TileMapGround").map_to_local(current_tile)	
+	
+	#print("Position_tile x=", tile_position.x," y=", tile_position.y)
+	
+	return tile_position
+	
 	
 func create_initial_map():
 	#TODO 
@@ -96,7 +111,7 @@ func create_initial_map():
 	pass 
 	
 	
-func get_type_case_from_position(lineIndex : int , columnIndex : int) -> Globals.TypeCase :
+func get_type_case_from_position( columnIndex : int, lineIndex : int ) -> Globals.TypeCase :
 	if(caseContent.size()<lineIndex):
 		print("Line INVALID !!!")
 		return  Globals.TypeCase.EMPTY
