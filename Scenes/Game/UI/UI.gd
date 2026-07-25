@@ -18,6 +18,8 @@ extends CanvasLayer
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/ActionButton
 ]
 
+var trasitionDuration: float = 0.2
+
 var timerDuration: int = 10
 
 var initialFirePos: int = 0
@@ -77,7 +79,7 @@ func hide_character_menu():
 		button.disabled = true
 		
 	tweenCharacter = get_tree().create_tween()
-	tweenCharacter.tween_property(characterSelectionMenu, "position", Vector2(0, 300), 1.5).set_trans(Tween.TRANS_BACK)
+	tweenCharacter.tween_property(characterSelectionMenu, "position", Vector2(0, 300), trasitionDuration).set_trans(Tween.TRANS_BACK)
 	
 	# If the two Selection Menus overlap, the click doesn't propagate through
 	# We keep the tween at 300 for aesthetics, but then move it to 2000 to prevent overlap
@@ -90,7 +92,7 @@ func show_character_menu():
 	characterSelectionMenu.position = Vector2(0, 300)
 	
 	tweenCharacter = get_tree().create_tween()
-	tweenCharacter.tween_property(characterSelectionMenu, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_BACK)
+	tweenCharacter.tween_property(characterSelectionMenu, "position", Vector2(0, 0), trasitionDuration).set_trans(Tween.TRANS_BACK)
 	
 	await tweenCharacter.finished
 	for button in CharacterButtons:
@@ -102,7 +104,7 @@ func hide_action_menu():
 		button.disabled = true
 		
 	tweenAction = get_tree().create_tween()
-	tweenAction.tween_property(actionSelectionMenu, "position", Vector2(0, 300), 1.5).set_trans(Tween.TRANS_BACK)
+	tweenAction.tween_property(actionSelectionMenu, "position", Vector2(0, 300), trasitionDuration).set_trans(Tween.TRANS_BACK)
 	
 	# If the two Selection Menus overlap, the click doesn't propagate through
 	# We keep the tween at 300 for aesthetics, but then move it to 2000 to prevent overlap
@@ -115,7 +117,7 @@ func show_action_menu():
 	actionSelectionMenu.position = Vector2(0, 300)
 	
 	tweenAction = get_tree().create_tween()
-	tweenAction.tween_property(actionSelectionMenu, "position", Vector2(0, 0), 1.5).set_trans(Tween.TRANS_BACK)
+	tweenAction.tween_property(actionSelectionMenu, "position", Vector2(0, 0), trasitionDuration).set_trans(Tween.TRANS_BACK)
 	
 	await tweenAction.finished
 	for button in ActionButtons:
@@ -159,12 +161,10 @@ func stop_timer():
 
 func _on_character_1_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
-	start_timer(10)
 
 
 func _on_character_2_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.MAGE)
-	reset_timer()
 
 
 func _on_character_3_button_pressed() -> void:
