@@ -25,8 +25,6 @@ extends CanvasLayer
 
 var trasitionDuration: float = 0.2
 
-var timerDuration: int = 10
-
 var initialFirePos: int = 0
 var timerStarted: bool = false
 var timerEndTime: int = 0
@@ -39,7 +37,7 @@ var tweenFirePosition: Tween
 var tweenAllyDialog: Tween
 
 signal _on_choose_character(character: Globals.CharacterClass)
-signal _on_choose_action(action: Globals.CHARACTER_ACTION)
+signal _on_choose_action(action: Globals.CharacterAction)
 
 
 func _ready() -> void:
@@ -65,7 +63,7 @@ func _on_state_started_received(state: Globals.StateTurn) -> void:
 				await tweenCharacter.finished
 
 			reset_timer()
-			start_timer(timerDuration)
+			start_timer(Globals.timerDuration)
 			hide_action_menu()
 			show_character_menu()
 
@@ -78,7 +76,7 @@ func _on_state_finished_received(state: Globals.StateTurn) -> void:
 	match state:
 		Globals.StateTurn.CHOICE_CHARACTER:
 			if(!timerStarted):
-				start_timer(timerDuration)
+				start_timer(Globals.timerDuration)
 		Globals.StateTurn.CHOICE_ACTION:
 			hide_action_menu()
 
