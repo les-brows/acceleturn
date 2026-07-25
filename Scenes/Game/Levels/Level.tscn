@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="2_4lmyb"]
 [ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="3_1tmkh"]
 [ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_h6cj1"]
+[ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="5_qv7ba"]
+[ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="6_cxvpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pr3o"]
 texture = ExtResource("1_cp10e")
@@ -160,3 +162,7 @@ position = Vector2(601, 89)
 position = Vector2(940, 203)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("3_1tmkh")]
+script = ExtResource("5_qv7ba")
+
+[node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("6_cxvpv")]
+position = Vector2(210, 323)

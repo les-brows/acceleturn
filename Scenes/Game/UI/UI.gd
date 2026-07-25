@@ -91,19 +91,19 @@ func stop_timer():
 
 
 func _on_character_1_button_pressed() -> void:
-	_on_choose_character.emit(1)
+	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
 	switch_to_action_menu()
 	start_timer(10)
 
 
 func _on_character_2_button_pressed() -> void:
-	_on_choose_character.emit(2)
+	_on_choose_character.emit(Globals.CharacterClass.MAGE)
 	switch_to_action_menu()
 	reset_timer()
 
 
 func _on_character_3_button_pressed() -> void:
-	_on_choose_character.emit(3)
+	_on_choose_character.emit(Globals.CharacterClass.TRAPPER)
 	switch_to_action_menu()
 
 

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c2a7edly0fwrk"]
+
+[ext_resource type="Script" uid="uid://byk4avn2sklia" path="res://Objects/Characters/Gunner/gunner.gd" id="1_etuv5"]
+[ext_resource type="Texture2D" uid="uid://d1rijuqilcuvq" path="res://icon.svg" id="1_ujslk"]
+
+[node name="Gunner" type="Node2D" unique_id=1954873730]
+script = ExtResource("1_etuv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1972901024]
+modulate = Color(0, 0.8627451, 0.10980392, 1)
+texture = ExtResource("1_ujslk")
