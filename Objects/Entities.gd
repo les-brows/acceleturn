@@ -15,7 +15,7 @@ func update_visual():
 
 func move(move_direction: Vector2i): 
 	var stop :bool = false 
-	print("Move Global  : ", move_direction)
+	#print("Move Global  : ", move_direction)
 	while move_direction.x!=0 && !stop :
 		if(move_direction.x >=0 ):
 			stop=_move(Vector2i(1,0))
@@ -35,9 +35,9 @@ func move(move_direction: Vector2i):
 
 #move after 
 func _move(move_direction: Vector2i)-> bool : 
-	print("Move  : ", move_direction)
+	#print("Move  : ", move_direction)
 	var newCoords = caseCoords+ move_direction
-	print("caseCoords", caseCoords, "newCoords", newCoords)
+	#print("caseCoords", caseCoords, "newCoords", newCoords)
 	var TRAP_REPULSE
 	var move_after=true
 	#TODO test merge enemies 
@@ -53,27 +53,26 @@ func _move(move_direction: Vector2i)-> bool :
 				
 				_level.update_case(newCoords.x, newCoords.y, get_case_entity() )
 				caseCoords = newCoords
-				print("after compute ", caseCoords)
+				#print("after compute ", caseCoords)
 				update_visual()
 				
 				
 				if(case == Globals.TypeCase.TRAP_ICE ): 
 					#effet d' arrivée 
-					print("ICe trap  ")
+					#print("ICe trap  ")
 					put_ice_on_entity()
 				if( case ==Globals.TypeCase.TRAP_REPULSE):
-					print("TRAP_REPULSE trap  ")
+					#print("TRAP_REPULSE trap  ")
 					move(Vector2i(2,0)) #2 case  on the right 
 			else :
-			
-				print("Not move block")
+				#print("Not move block")
 				move_after=false
 		else :
 			
-			print("Not move block")
+			#print("Not move block")
 			move_after=false
 	else :
-		print("Limit map ")
+		#print("Limit map ")
 		move_after=true
 	return move_after 
 
