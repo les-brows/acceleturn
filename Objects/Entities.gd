@@ -78,8 +78,17 @@ func _move(move_direction: Vector2i)-> bool :
 	else :
 		#print("Limit map ")
 		move_after=true
-	return move_after 
+	return move_after
 
+func place_to_pos(tile: Vector2i):
+	_level.update_case(caseCoords.x, caseCoords.y, Globals.TypeCase.EMPTY)
+	caseCoords = tile
+	update_visual()
+	if(is_character()):
+		_level.update_case(tile.x, tile.y, Globals.TypeCase.CHARACTER)
+	else:
+		_level.update_case(tile.x, tile.y, Globals.TypeCase.ENEMIES)
+	
 func is_ghost():
 	return false 
 func put_ice_on_entity():

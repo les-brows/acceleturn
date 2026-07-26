@@ -265,7 +265,7 @@ func get_entities_in_zone(zone_start: Vector2i, zone_end: Vector2i) -> Array[Ent
 	for x in range(zone_start.x, zone_end.x + 1):
 		for y in range(zone_start.y, zone_end.y + 1):
 			var entity: Entity = get_entity_at_pos(Vector2i(x, y))
-			print("Search entity at ", Vector2i(x,y), " found ", entity)
+			# print("Search entity at ", Vector2i(x,y), " found ", entity)
 			if entity != null:
 				list_entities.append(entity)
 	return list_entities
