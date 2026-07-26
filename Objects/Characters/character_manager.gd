@@ -57,6 +57,11 @@ func can_choose_tile(tile: Vector2i) -> bool:
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION1):
 		if(!(typeCase == Globals.TypeCase.ENEMIES or typeCase == Globals.TypeCase.CHARACTER)):
 			return false
+
+	# Only ennemies
+	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION4):
+		if(!(typeCase == Globals.TypeCase.ENEMIES)):
+			return false
 			
 	
 	# Only horizontal

@@ -30,6 +30,13 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			place_to_pos(tile)
 			Globals.timerDuration += Globals.GUNNER_ACTION3_TIME_ADDED
 		Globals.CharacterAction.ACTION4:
+			var entity: Entity = _level.get_entity_at_pos(tile)
+			var final_pos_x = Globals.NUMBER_CELL_X - 1
+
+			while(_level.get_type_case_from_position(final_pos_x, entity.caseCoords.y) != Globals.TypeCase.EMPTY):
+				final_pos_x -= 1
+				
+			entity.place_to_pos(Vector2i(final_pos_x, entity.caseCoords.y))
 			Globals.timerDuration += Globals.GUNNER_ACTION4_TIME_ADDED
 
 signal _on_choose_character(character: Globals.CharacterClass)
