@@ -360,6 +360,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="CharacterBg2" type="NinePatchRect" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer" unique_id=323367340]
 layout_mode = 2
@@ -400,6 +401,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="CharacterBg3" type="NinePatchRect" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer" unique_id=2090353006]
 layout_mode = 2
@@ -440,6 +442,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="Controls" type="MarginContainer" parent="." unique_id=598309568]
 anchors_preset = 11
@@ -592,6 +595,7 @@ expand_mode = 2
 [node name="CancelAction" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/MarginContainer" unique_id=505578920]
 unique_name_in_owner = true
 layout_mode = 2
+flat = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons" unique_id=719525669]
 layout_mode = 2
@@ -638,6 +642,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ActionBg2" type="NinePatchRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer" unique_id=1379877523]
 layout_mode = 2
@@ -720,6 +725,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ActionBg4" type="NinePatchRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer" unique_id=1256893543]
 layout_mode = 2
@@ -770,6 +776,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ActionPopup" type="MarginContainer" parent="." unique_id=1488234960]
 visible = false

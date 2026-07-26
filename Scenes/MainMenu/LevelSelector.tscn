@@ -105,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=187879552]
 custom_minimum_size = Vector2(150, 150)
@@ -165,6 +166,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1094525567]
 custom_minimum_size = Vector2(150, 150)
@@ -225,6 +227,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1979292324]
 custom_minimum_size = Vector2(150, 150)
@@ -285,6 +288,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect5" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1917084859]
 custom_minimum_size = Vector2(150, 150)
@@ -345,6 +349,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect6" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1708732483]
 custom_minimum_size = Vector2(150, 150)
@@ -405,6 +410,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer" unique_id=1164038078]
 layout_mode = 2
@@ -471,6 +477,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=432779714]
 custom_minimum_size = Vector2(150, 150)
@@ -531,6 +538,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=1621104813]
 custom_minimum_size = Vector2(150, 150)
@@ -591,6 +599,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=322516697]
 custom_minimum_size = Vector2(150, 150)
@@ -651,6 +660,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect5" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=2131099539]
 custom_minimum_size = Vector2(150, 150)
@@ -711,6 +721,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [node name="ReferenceRect6" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=902119726]
 custom_minimum_size = Vector2(150, 150)
@@ -771,6 +782,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_1_mouse_entered"]
 [connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_1_mouse_exited"]
