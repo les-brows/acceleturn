@@ -15,20 +15,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		
-	if Input.is_action_just_pressed("input_down"):
-		current_selection += 1
-		if current_selection == MAX_SELECTION:
-			current_selection = 0
-			
-		set_current_selection(current_selection)
-		
-	if Input.is_action_just_pressed("input_up"):
-		current_selection -= 1
-		if current_selection < 0:
-			current_selection = MAX_SELECTION - 1
-			
-		set_current_selection(current_selection)
-		
 	if Input.is_action_just_pressed("ui_accept"):
 		handle_selection(current_selection)
 
