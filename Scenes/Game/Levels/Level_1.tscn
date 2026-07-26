@@ -289,7 +289,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Level" type="Node2D" unique_id=1804012200]
+[node name="Level2" type="Node2D" unique_id=1804012200]
 script = ExtResource("1_qwx8x")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]
@@ -318,17 +318,17 @@ position = Vector2(927, 94)
 scale = Vector2(1.8, 1.8)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("4_m2mfr")]
-position = Vector2(-124, 107)
+position = Vector2(-1, 0)
 script = ExtResource("5_225j5")
 
 [node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("6_p3am1")]
-position = Vector2(218, -6)
+position = Vector2(97, 99)
 
 [node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("7_ha5is")]
-position = Vector2(217, 57)
+position = Vector2(94, 164)
 
 [node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("8_2j44y")]
-position = Vector2(223, 122)
+position = Vector2(100, 227)
 
 [node name="MovementUI" type="Node" parent="." unique_id=1653607984]
 
