@@ -3,6 +3,7 @@ extends Node2D
 
 var caseCoords: Vector2i = Vector2(0,0)
 var _level: Level = null
+var lastCaseGhost=Globals.TypeCase.EMPTY
 
 func init_entity(level: Level):
 	_level = level
@@ -41,7 +42,7 @@ func _move(move_direction: Vector2i)-> bool :
 	#print("Move  : ", move_direction)
 	var newCoords = caseCoords+ move_direction
 	#print("caseCoords", caseCoords, "newCoords", newCoords)
-	var TRAP_REPULSE
+	
 	var move_after=true
 	#TODO test merge enemies 
 	
@@ -53,19 +54,24 @@ func _move(move_direction: Vector2i)-> bool :
 		if(case != Globals.TypeCase.ICE && case != Globals.TypeCase.CHARACTER ):
 			if(is_ghost() || (case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH)):
 				
-				_level.update_case(caseCoords.x, caseCoords.y,Globals.TypeCase.EMPTY )
 				
+				
+				_level.update_case(caseCoords.x, caseCoords.y,lastCaseGhost )
+				
+				if(is_ghost()):
+					lastCaseGhost=get_case_entity()
+					
 				_level.update_case(newCoords.x, newCoords.y, get_case_entity() )
 				caseCoords = newCoords
 				#print("after compute ", caseCoords)
 				update_visual()
 				
 				
-				if(case == Globals.TypeCase.TRAP_ICE ): 
+				if(!is_ghost() && case == Globals.TypeCase.TRAP_ICE ): 
 					#effet d' arrivée 
 					#print("ICe trap  ")
 					put_ice_on_entity()
-				if( case ==Globals.TypeCase.TRAP_REPULSE):
+				if(!is_ghost() && !is_push() &&  case ==Globals.TypeCase.TRAP_REPULSE):
 					#print("TRAP_REPULSE trap  ")
 					move(Vector2i(2,0)) #2 case  on the right 
 			else :
@@ -81,7 +87,9 @@ func _move(move_direction: Vector2i)-> bool :
 	return move_after
 
 func place_to_pos(tile: Vector2i):
-	_level.update_case(caseCoords.x, caseCoords.y, Globals.TypeCase.EMPTY)
+	if(is_ghost()):
+		lastCaseGhost=get_case_entity()
+	_level.update_case(caseCoords.x, caseCoords.y, lastCaseGhost)
 	caseCoords = tile
 	update_visual()
 	if(is_character()):
@@ -91,6 +99,8 @@ func place_to_pos(tile: Vector2i):
 	
 func is_ghost():
 	return false 
+func is_push():
+	return true 
 func put_ice_on_entity():
 	pass
 	
