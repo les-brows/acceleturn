@@ -79,6 +79,7 @@ grow_vertical = 2
 texture = ExtResource("2_0k768")
 
 [node name="Selected" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect" unique_id=1754265571]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,6 +97,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect" unique_id=990411870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=187879552]
 custom_minimum_size = Vector2(150, 150)
@@ -149,6 +158,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
 
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect2" unique_id=2045003054]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ReferenceRect3" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1094525567]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -200,6 +217,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect3" unique_id=50428812]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ReferenceRect4" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1979292324]
 custom_minimum_size = Vector2(150, 150)
@@ -253,6 +278,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
 
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect4" unique_id=1573682014]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ReferenceRect5" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1917084859]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -305,6 +338,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
 
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect5" unique_id=1559491550]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ReferenceRect6" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1708732483]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -356,6 +397,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect6" unique_id=1613845109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer" unique_id=1164038078]
 layout_mode = 2
@@ -415,6 +464,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
 
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect" unique_id=864657746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=432779714]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -466,6 +523,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect2" unique_id=108158210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=1621104813]
 custom_minimum_size = Vector2(150, 150)
@@ -519,6 +584,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
 
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect3" unique_id=1653992813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ReferenceRect4" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=322516697]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -570,6 +643,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect4" unique_id=1903622440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ReferenceRect5" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=2131099539]
 custom_minimum_size = Vector2(150, 150)
@@ -623,6 +704,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
 
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect5" unique_id=226539238]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ReferenceRect6" type="ReferenceRect" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=902119726]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -674,3 +763,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_va7ep")
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect6" unique_id=2010597111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_1_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect2/Button" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect2/Button" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect2/Button" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect3/Button" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect3/Button" to="." method="_on_button_3_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect3/Button" to="." method="_on_button_3_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect4/Button" to="." method="_on_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect4/Button" to="." method="_on_button_4_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect4/Button" to="." method="_on_button_4_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect5/Button" to="." method="_on_button_5_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect5/Button" to="." method="_on_button_5_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect5/Button" to="." method="_on_button_5_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect6/Button" to="." method="_on_button_6_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect6/Button" to="." method="_on_button_6_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/ReferenceRect6/Button" to="." method="_on_button_6_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_7_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_7_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect/Button" to="." method="_on_button_7_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect2/Button" to="." method="_on_button_8_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect2/Button" to="." method="_on_button_8_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect2/Button" to="." method="_on_button_8_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect3/Button" to="." method="_on_button_9_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect3/Button" to="." method="_on_button_9_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect3/Button" to="." method="_on_button_9_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect4/Button" to="." method="_on_button_10_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect4/Button" to="." method="_on_button_10_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect4/Button" to="." method="_on_button_10_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect5/Button" to="." method="_on_button_11_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect5/Button" to="." method="_on_button_11_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect5/Button" to="." method="_on_button_11_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect6/Button" to="." method="_on_button_12_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect6/Button" to="." method="_on_button_12_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ReferenceRect6/Button" to="." method="_on_button_12_pressed"]
