@@ -1,6 +1,8 @@
 extends Node
 
 var INITIAL_TIME: int = 30
+
+
 var GUNNER_ACTION1_TIME_ADDED: int = 0
 var GUNNER_ACTION1_PUSH_DISTANCE_CHARACTER: int = 2
 var GUNNER_ACTION1_PUSH_DISTANCE_ENNEMY: int = 4
@@ -9,16 +11,19 @@ var GUNNER_ACTION2_TIME_ADDED: int = -5
 var GUNNER_ACTION2_RANGE: int = 1
 var GUNNER_ACTION2_PUSH_DISTANCE: int = 2
 
-
 var GUNNER_ACTION3_TIME_ADDED: int = -1
 var GUNNER_ACTION4_TIME_ADDED: int = -20
+
 
 var MAGE_ACTION1_TIME_ADDED: int = 0
 var MAGE_ACTION1_RANGE: int = 3
 
 var MAGE_ACTION2_TIME_ADDED: int = 10
 var MAGE_ACTION3_TIME_MULT: int = 2
+
 var MAGE_ACTION4_TIME_MULT: float = 4
+var MAGE_ACTION4_DURATION: float = 3 + 1
+
 
 var TRAPPER_ACTION1_TIME_ADDED: int = 0
 var TRAPPER_ACTION2_TIME_ADDED: int = -2
@@ -100,3 +105,5 @@ var SIZE_CELL_X :int = 64
 var SIZE_CELL_Y :int = 64
 
 var timerDuration: float = INITIAL_TIME
+
+var timeFreezeTurns = 0

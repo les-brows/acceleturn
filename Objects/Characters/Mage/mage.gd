@@ -16,18 +16,22 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			_level.update_case(entity.caseCoords.x, entity.caseCoords.y, Globals.TypeCase.EMPTY)
 			entity.queue_free()
 			
-			Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
+			if(!Globals.timeFreezeTurns):
+				Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
 
 		Globals.CharacterAction.ACTION2:
-			Globals.timerDuration += Globals.MAGE_ACTION2_TIME_ADDED
+			if(!Globals.timeFreezeTurns):
+				Globals.timerDuration += Globals.MAGE_ACTION2_TIME_ADDED
 
 		Globals.CharacterAction.ACTION3:
 			# Move everyone to gain time
 			for entity in _level.get_all_entities():
 				entity.move(Vector2i(-1, 0))
-			Globals.timerDuration *= Globals.MAGE_ACTION3_TIME_MULT
+			if(!Globals.timeFreezeTurns):
+				Globals.timerDuration *= Globals.MAGE_ACTION3_TIME_MULT
 
 		Globals.CharacterAction.ACTION4:
+			Globals.timeFreezeTurns = Globals.MAGE_ACTION4_DURATION
 			Globals.timerDuration /= Globals.MAGE_ACTION4_TIME_MULT
 
 
@@ -35,6 +39,6 @@ signal _on_choose_character(character: Globals.CharacterClass)
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
-		print('Clicked the mage!')
+		#print('Clicked the mage!')
 		if(Globals.curr_state == Globals.StateTurn.CHOICE_CHARACTER):
 			_on_choose_character.emit(Globals.CharacterClass.MAGE)
