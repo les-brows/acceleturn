@@ -57,7 +57,7 @@ signal _on_timer_end()
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started_received)
 	Globals.state_finished.connect(_on_state_finished_received)
-	Globals.movement_hovered.connect(_on_hover_action)
+	Globals.movement_hovered.connect(_on_hover_movement)
 
 
 func _process(_delta) -> void:
@@ -229,18 +229,14 @@ func stop_timer():
 
 # ------------ Time Modificator functions -------------------
 
-func _on_hover_action(action: Globals.CharacterAction):
-	var movements = [
-		Globals.CharacterAction.MOVE_LEFT,
-		Globals.CharacterAction.MOVE_RIGHT,
-		Globals.CharacterAction.MOVE_UP,
-		Globals.CharacterAction.MOVE_DOWN
-	]
-	
-	if action in movements:
+func _on_hover_movement(currently_hovering: bool):
+	if currently_hovering:
 		display_text_modifier(Globals.Operations.SUB, 3)
+	else:
+		hide_text_modifier()
 		
 	
+func _on_hover_action(action: Globals.CharacterAction):
 	match Globals.curr_character:
 		Globals.CharacterClass.GUNNER:
 			match action:

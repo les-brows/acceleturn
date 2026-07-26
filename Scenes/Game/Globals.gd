@@ -37,7 +37,7 @@ signal state_finished(state: StateTurn)
 @warning_ignore("unused_signal")
 signal state_started(state: StateTurn)
 @warning_ignore("unused_signal")
-signal movement_hovered(action: Globals.CharacterAction)
+signal movement_hovered(currently_hovering: bool)
 
 
 enum CharacterAction
