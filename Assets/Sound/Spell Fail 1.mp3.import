@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhajl8gh7npcd"
+path="res://.godot/imported/Spell Fail 1.mp3-db7690152fad3eb0ce886c2952539774.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Spell Fail 1.mp3"
+dest_files=["res://.godot/imported/Spell Fail 1.mp3-db7690152fad3eb0ce886c2952539774.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

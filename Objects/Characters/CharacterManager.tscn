@@ -1,3 +1,56 @@
 [gd_scene format=3 uid="uid://v2lpue07e1c6"]
 
+[ext_resource type="AudioStream" uid="uid://dqrbccl8gjbqx" path="res://Assets/Sound/MMO_Game_Magic_Designed_Armor_Cast_15.wav" id="1_2g0gu"]
+[ext_resource type="AudioStream" uid="uid://h28hvm6ovlcc" path="res://Assets/Sound/gun_grenade_launcher_shot_03.wav" id="1_ea8mw"]
+[ext_resource type="AudioStream" uid="uid://bhajl8gh7npcd" path="res://Assets/Sound/Spell Fail 1.mp3" id="1_g5b26"]
+[ext_resource type="AudioStream" uid="uid://lgp128m8qu4w" path="res://Assets/Sound/MMO_Game_Magic_Designed_Holy_Area_09.wav" id="1_ni4kc"]
+[ext_resource type="AudioStream" uid="uid://bs5kyymw7ihqc" path="res://Assets/Sound/Drop 4_2.wav" id="1_o7hau"]
+[ext_resource type="AudioStream" uid="uid://c2oef2tspcpan" path="res://Assets/Sound/sci-fi_weapon_auto_turret_release_02.wav" id="1_r7yq1"]
+[ext_resource type="AudioStream" uid="uid://xgt0bf1ndorx" path="res://Assets/Sound/kys_now.wav" id="1_uooso"]
+[ext_resource type="AudioStream" uid="uid://c1tpt2xau1ogn" path="res://Assets/Sound/Explosion, rocky.wav" id="2_v8bfe"]
+[ext_resource type="AudioStream" uid="uid://cjwwmcsbr06pe" path="res://Assets/Sound/MMO_Game_Magic_Designed_Acid_Whoosh_02.wav" id="9_7lgfg"]
+[ext_resource type="AudioStream" uid="uid://burfixbmdjhua" path="res://Assets/Sound/MMO_Game_Magic_Designed_Earth_Cast_16.wav" id="10_ky6x1"]
+[ext_resource type="AudioStream" uid="uid://d4mp5aw065b3v" path="res://Assets/Sound/MMO_Game_Magic_Designed_Ice_Area_02.wav" id="10_mam77"]
+[ext_resource type="AudioStream" uid="uid://x03qpirxkuxt" path="res://Assets/Sound/za_warudo.wav" id="11_ky6x1"]
+[ext_resource type="AudioStream" uid="uid://c5a0ys6ai3s8" path="res://Assets/Sound/ArmorPickUp1.mp3" id="13_6436h"]
+
 [node name="CharacterManager" type="Node2D" unique_id=464431525]
+
+[node name="Backtracking" type="AudioStreamPlayer" parent="." unique_id=657157384]
+stream = ExtResource("1_ni4kc")
+
+[node name="MagicMissile" type="AudioStreamPlayer" parent="." unique_id=1477417296]
+stream = ExtResource("1_uooso")
+
+[node name="Teleport" type="AudioStreamPlayer" parent="." unique_id=1443330589]
+stream = ExtResource("1_2g0gu")
+
+[node name="PowerShot" type="AudioStreamPlayer" parent="." unique_id=457475808]
+stream = ExtResource("1_ea8mw")
+
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=659671448]
+stream = ExtResource("1_g5b26")
+
+[node name="BlackHole" type="AudioStreamPlayer" parent="." unique_id=674575456]
+stream = ExtResource("1_o7hau")
+
+[node name="NukePlayer" type="AudioStreamPlayer" parent="." unique_id=1572868299]
+stream = ExtResource("2_v8bfe")
+
+[node name="ScatterShotPlayer" type="AudioStreamPlayer" parent="." unique_id=2098337813]
+stream = ExtResource("1_r7yq1")
+
+[node name="TimeScramble" type="AudioStreamPlayer" parent="." unique_id=2089208163]
+stream = ExtResource("9_7lgfg")
+
+[node name="Tree" type="AudioStreamPlayer" parent="." unique_id=888205933]
+stream = ExtResource("10_ky6x1")
+
+[node name="Freeze" type="AudioStreamPlayer" parent="." unique_id=757611380]
+stream = ExtResource("10_mam77")
+
+[node name="TimeWarp" type="AudioStreamPlayer" parent="." unique_id=664494819]
+stream = ExtResource("11_ky6x1")
+
+[node name="PlaceTrap" type="AudioStreamPlayer" parent="." unique_id=522750660]
+stream = ExtResource("13_6436h")
