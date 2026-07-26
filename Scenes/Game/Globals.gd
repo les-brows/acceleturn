@@ -1,5 +1,21 @@
 extends Node
 
+var INITIAL_TIME: int = 10
+var GUNNER_ACTION1_TIME_ADDED: int = 0
+var GUNNER_ACTION2_TIME_ADDED: int = -5
+var GUNNER_ACTION3_TIME_ADDED: int = -1
+var GUNNER_ACTION4_TIME_ADDED: int = -20
+
+var MAGE_ACTION1_TIME_ADDED: int = 0
+var MAGE_ACTION2_TIME_ADDED: int = 10
+var MAGE_ACTION3_TIME_MULT: int = 2
+var MAGE_ACTION4_TIME_MULT: float = 1/4
+
+var TRAPPER_ACTION1_TIME_ADDED: int = 0
+var TRAPPER_ACTION2_TIME_ADDED: int = -2
+var TRAPPER_ACTION3_TIME_ADDED: int = -5
+var TRAPPER_ACTION4_TIME_ADDED: int = -30
+
 enum StateTurn
 {
 	CHOICE_CHARACTER,
@@ -57,4 +73,4 @@ var COLUMN_MAX_ENEMIES = 6
 var SIZE_CELL_X :int = 64
 var SIZE_CELL_Y :int = 64
 
-var timerDuration: int = 10
+var timerDuration: float = INITIAL_TIME

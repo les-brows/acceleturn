@@ -11,13 +11,15 @@ func act(action: Globals.CharacterAction):
 
 	match action:
 		Globals.CharacterAction.ACTION1:
-			Globals.timerDuration += 0
+			Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
 		Globals.CharacterAction.ACTION2:
-			Globals.timerDuration += 10
+			Globals.timerDuration += Globals.MAGE_ACTION2_TIME_ADDED
 		Globals.CharacterAction.ACTION3:
-			Globals.timerDuration *= 2
+			Globals.timerDuration *= Globals.MAGE_ACTION3_TIME_MULT
 		Globals.CharacterAction.ACTION4:
-			Globals.timerDuration /= 4
+			Globals.timerDuration /= Globals.MAGE_ACTION4_TIME_MULT
+
+
 signal _on_choose_character(character: Globals.CharacterClass)
 
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
