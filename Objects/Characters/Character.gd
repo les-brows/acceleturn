@@ -1,5 +1,5 @@
 class_name Character
-extends Entities
+extends Entity
 
 
 func act(action: Globals.CharacterAction, tile: Vector2i):
@@ -15,7 +15,8 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 		Globals.CharacterAction.MOVE_DOWN:
 			move(Vector2i(0, 1))
 
-
+func is_character() -> bool:
+	return true
 
 func get_case_entity() ->Globals.TypeCase:
 	return Globals.TypeCase.CHARACTER

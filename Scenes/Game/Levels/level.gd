@@ -232,7 +232,15 @@ func get_type_case_from_position( columnIndex : int, lineIndex : int ) -> Global
 			return  Globals.TypeCase.EMPTY
 		else :
 			return lineContent[columnIndex]
-			
+
+func get_entity_at_pos(tile_pos: Vector2i) -> Entity:
+	var entity: Entity = null
+	entity = characterManager.getEntityAtPos(tile_pos)
+	if(entity != null):
+		return entity
+	entity = enemyTurnManager.getEntityAtPos(tile_pos)
+	return entity
+
 func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase ) ->bool :
 	var success : bool =true
 	if(lineIndex>=caseContent.size()):
