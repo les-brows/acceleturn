@@ -26,6 +26,8 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 				entity.move(-diff.sign() * Globals.GUNNER_ACTION2_PUSH_DISTANCE)
 			Globals.timerDuration += Globals.GUNNER_ACTION2_TIME_ADDED
 		Globals.CharacterAction.ACTION3:
+			# Teleport vertical
+			place_to_pos(tile)
 			Globals.timerDuration += Globals.GUNNER_ACTION3_TIME_ADDED
 		Globals.CharacterAction.ACTION4:
 			Globals.timerDuration += Globals.GUNNER_ACTION4_TIME_ADDED
