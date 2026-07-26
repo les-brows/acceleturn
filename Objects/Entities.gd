@@ -42,6 +42,7 @@ func move(move_direction: Vector2i):
 
 #move after 
 func _move(move_direction: Vector2i)-> bool : 
+	_level.play_move_sound()
 	#print("Move  : ", move_direction)
 	var move_after=true
 	var newCoords = caseCoords+ move_direction

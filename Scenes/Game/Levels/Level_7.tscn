@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="11_aysru"]
 [ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="12_ik2h5"]
 [ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="13_2xjig"]
+[ext_resource type="AudioStream" uid="uid://cuvg5mvlk1uhq" path="res://Assets/Sound/GamejamAcceleturn.wav" id="16_2xjig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
 texture = ExtResource("1_54whd")
@@ -391,6 +392,9 @@ shape = SubResource("RectangleShape2D_jnq1e")
 visible = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wsumo")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=877282598]
+stream = ExtResource("16_2xjig")
 
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_right_movement_clicked"]
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_left_movement_clicked"]
