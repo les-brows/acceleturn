@@ -117,4 +117,6 @@ var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
 var curr_action: Globals.CharacterAction = Globals.CharacterAction.DEFAULT
 var selected_level: int = 0
 var timerDuration: float = INITIAL_TIME
+var CASE_TIME_PLUS = 10
+var CASE_TIME_MINUS = 5
 var timeFreezeTurns = 0
