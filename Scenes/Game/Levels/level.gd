@@ -128,6 +128,7 @@ func _on_state_finished(state: Globals.StateTurn):
 				show_target_choice_ui()
 				Globals.curr_state = Globals.StateTurn.CHOICE_TARGET_CHARACTER
 			else:
+				characterManager.set_current_tile(Vector2i(-1, -1))
 				Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 				
 		Globals.StateTurn.CHOICE_TARGET_CHARACTER :

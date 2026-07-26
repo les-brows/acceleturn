@@ -1,12 +1,12 @@
 class_name Trapper
 extends Character
 
-func act(action: Globals.CharacterAction):
+func act(action: Globals.CharacterAction, tile: Vector2i):
 	if(action == Globals.CharacterAction.MOVE_LEFT or 
 	   action == Globals.CharacterAction.MOVE_RIGHT or
 	   action == Globals.CharacterAction.MOVE_UP or
 	   action == Globals.CharacterAction.MOVE_DOWN):
-		super(action)
+		super(action, tile)
 		return
 
 	match action:

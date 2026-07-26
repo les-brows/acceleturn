@@ -1,16 +1,17 @@
 class_name Gunner
 extends Character
 
-func act(action: Globals.CharacterAction):
+func act(action: Globals.CharacterAction, tile: Vector2i):
 	if(action == Globals.CharacterAction.MOVE_LEFT or 
 	   action == Globals.CharacterAction.MOVE_RIGHT or
 	   action == Globals.CharacterAction.MOVE_UP or
 	   action == Globals.CharacterAction.MOVE_DOWN):
-		super(action)
+		super(action, tile)
 		return
 
 	match action:
 		Globals.CharacterAction.ACTION1:
+			# Shoot and move
 			Globals.timerDuration += Globals.GUNNER_ACTION1_TIME_ADDED
 		Globals.CharacterAction.ACTION2:
 			Globals.timerDuration += Globals.GUNNER_ACTION2_TIME_ADDED
