@@ -59,7 +59,8 @@ func can_choose_tile(tile: Vector2i) -> bool:
 			return false
 
 	# Only ennemies
-	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION4):
+	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION4 or 
+	   Globals.curr_character == Globals.CharacterClass.MAGE && Globals.curr_action == Globals.CharacterAction.ACTION1 ):
 		if(!(typeCase == Globals.TypeCase.ENEMIES)):
 			return false
 			
@@ -74,6 +75,14 @@ func can_choose_tile(tile: Vector2i) -> bool:
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION3):
 		# Check for the gunner
 		if(tile.x != get_gunner().caseCoords.x):
+			return false
+			
+	#Only nearby
+	if(Globals.curr_character == Globals.CharacterClass.MAGE && Globals.curr_action == Globals.CharacterAction.ACTION1 ):
+		# Check for the mage
+		var diff: Vector2i = get_mage().caseCoords - tile
+		print(diff, abs(diff.x), abs(diff.y))
+		if(abs(diff.x) + abs(diff.y) > Globals.MAGE_ACTION1_RANGE):
 			return false
 
 	return true
