@@ -10,7 +10,6 @@ size = Vector2(750.0002, 1050.0001)
 script = ExtResource("1_etuv5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1972901024]
-modulate = Color(0, 0.8627451, 0.10980392, 1)
 texture = ExtResource("2_etuv5")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=2134170275]
