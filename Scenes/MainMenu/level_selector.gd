@@ -50,49 +50,6 @@ func _process(_delta: float) -> void:
 		var main_menu_scene = load("res://Scenes/MainMenu/main_menu.tscn")
 		get_parent().add_child(main_menu_scene.instantiate())
 		queue_free()
-	
-	if Input.is_action_just_pressed("input_right"):
-		# If level is unselectable
-		if current_selection + 1 >= max_unlocked_level:
-			return
-			
-		# If selected level is on the border
-		if current_selection % 6 == 5:
-			return
-			
-		current_selection += 1
-		set_selected_level(previous_selection, current_selection)
-		
-	if Input.is_action_just_pressed("input_left"):
-		# If selected level is on the border
-		if current_selection % 6 == 0:
-			return
-			
-		current_selection -= 1
-		set_selected_level(previous_selection, current_selection)
-		
-	if Input.is_action_just_pressed("input_down"):
-		# If level is unselectable
-		if current_selection + 6 >= max_unlocked_level:
-			return
-			
-		# if selected level is on the border
-		if current_selection + 6 >= NUM_OF_LEVELS:
-			return
-			
-		current_selection += 6
-		set_selected_level(previous_selection, current_selection)
-		
-	if Input.is_action_just_pressed("input_up"):
-		# if selected level is on the border
-		if current_selection - 6 < 0:
-			return
-			
-		current_selection -= 6
-		set_selected_level(previous_selection, current_selection)
-		
-	if Input.is_action_just_pressed("ui_accept"):
-		handle_level_selection(current_selection)
 		
 func set_selected_level(previous_level: int, level: int) -> void:
 	unset_selected_level(previous_level)
@@ -107,6 +64,10 @@ func unset_selected_level(level: int) -> void:
 
 
 func handle_level_selection(level: int) -> void:
+	for i in range(0, NUM_OF_LEVELS):
+		var selector = selectors[i]
+		selector.get_node("Button").disabled = true
+			
 	var level_node
 	var game_scene_node = game_scene.instantiate()
 	
