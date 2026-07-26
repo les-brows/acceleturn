@@ -318,17 +318,17 @@ position = Vector2(927, 94)
 scale = Vector2(1.8, 1.8)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("4_oli3l")]
-position = Vector2(-124, 107)
+position = Vector2(2, 2)
 script = ExtResource("5_ajd37")
 
 [node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("6_7bqlc")]
-position = Vector2(158, -4)
+position = Vector2(33, 97)
 
 [node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("7_r5bfk")]
-position = Vector2(155, 58)
+position = Vector2(29, 161)
 
 [node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("8_pcb2y")]
-position = Vector2(158, 122)
+position = Vector2(31, 226)
 
 [node name="MovementUI" type="Node" parent="." unique_id=1653607984]
 
