@@ -11,6 +11,8 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 
 	match action:
 		Globals.CharacterAction.ACTION1:
+			var entity: Entity = _level.get_entity_at_pos(tile)
+			entity.put_ice_on_entity()
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.TRAPPER_ACTION1_TIME_ADDED
 
