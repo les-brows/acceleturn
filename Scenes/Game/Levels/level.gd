@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var TileMapGround: TileMapLayer = $TileMapGround
 @onready var CharacterSelectionAnimation: AnimatedSprite2D = $MovementUI/CharacterSelection
+@onready var TargetSelectionAnimation: AnimatedSprite2D = $TargetChoiceUI/TargetSelection
 
 @onready var enemyTurnManager: EnemyTurnManager = $EnemyTurnManager
 @onready var characterManager: CharacterManager = $CharacterManager
@@ -19,6 +20,9 @@ func _init() -> void:
 	
 	
 func _process(_delta):
+	if(TargetSelectionAnimation.visible):
+		var characterTileCoordinates = TileMapGround.local_to_map(get_global_mouse_position() - TileMapGround.get_parent().position)
+		TargetSelectionAnimation.position = TileMapGround.map_to_local(characterTileCoordinates) + TileMapGround.get_parent().position
 	#var clicked = false
 	#if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
 		#var positionmouse: Vector2i = get_map_position_from_mouse()
@@ -92,6 +96,13 @@ func hide_player_move_ui():
 	for node in neighbooringNodes:
 		node.visible = false
 
+func show_target_choice_ui():
+	TargetSelectionAnimation.visible = true
+	
+func hide_target_choice_ui():
+	TargetSelectionAnimation.visible = false
+
+
 func _on_player_choose_action(action: Globals.CharacterAction):
 	print("Choose action %d " % action)
 	characterManager.set_current_action(action)
@@ -107,11 +118,13 @@ func _on_state_finished(state: Globals.StateTurn):
 		Globals.StateTurn.CHOICE_ACTION :
 			hide_player_move_ui()
 			if(characterManager.action_needs_target()):
+				show_target_choice_ui()
 				Globals.curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
 			else:
 				Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 				
 		Globals.StateTurn.CHOICE_TARGET_CHARACTER :
+			hide_target_choice_ui()
 			Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 
 		Globals.StateTurn.ACTION_CHARACTER :
@@ -225,6 +238,7 @@ func _on_level_timer_end():
 	Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 	Globals.state_started.emit(Globals.StateTurn.ACTION_CHARACTER)
 	hide_player_move_ui()
+	hide_target_choice_ui()
 	
 #return next position and sizePath 
 func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement : bool) ->Array :

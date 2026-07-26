@@ -252,6 +252,14 @@ texture = ExtResource("11_xuo1q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" unique_id=1605461623]
 shape = SubResource("RectangleShape2D_pa3om")
 
+[node name="TargetChoiceUI" type="Node" parent="." unique_id=1857521489]
+
+[node name="TargetSelection" type="AnimatedSprite2D" parent="TargetChoiceUI" unique_id=813714084]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pa3om")
+frame_progress = 0.51570284
+
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_right_movement_clicked"]
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_left_movement_clicked"]
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" to="." method="_on_down_movement_clicked"]
