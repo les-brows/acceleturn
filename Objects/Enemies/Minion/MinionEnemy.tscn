@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cclyrlx32tngd"]
+
+[ext_resource type="Script" uid="uid://r80188h68urq" path="res://Objects/Enemies/Minion/minion_enemy.gd" id="1_xp8vw"]
+[ext_resource type="Texture2D" uid="uid://d1rijuqilcuvq" path="res://icon.svg" id="2_k2q4n"]
+
+[node name="BasicEnemy" type="Node2D" unique_id=2125422060]
+script = ExtResource("1_xp8vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_k2q4n")
