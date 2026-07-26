@@ -6,9 +6,12 @@ var _level: Level = null
 
 func init_entity(level: Level):
 	_level = level
+	
 	caseCoords = _level.getCoordinatesFromPostionAbsolute(position)
+	_level.update_case(caseCoords.x, caseCoords.y,get_case_entity())
 	update_visual()
-
+	print("Init entities ", caseCoords)
+	
 func update_visual():
 	position = _level.getPostionAbsoluteFromCoordinates(caseCoords.x, caseCoords.y)
 
@@ -46,7 +49,8 @@ func _move(move_direction: Vector2i)-> bool :
 	if(newCoords.x >= 0 && newCoords.y >= 0 && newCoords.x < Globals.NUMBER_CELL_X && newCoords.y < Globals.NUMBER_CELL_Y ):
 		var case :Globals.TypeCase= _level.get_type_case_from_position(newCoords.x, newCoords.y)
 		# if possible
-		if(case != Globals.TypeCase.ICE ):
+		# && case != Globals.TypeCase.CHARACTER
+		if(case != Globals.TypeCase.ICE  ):
 			if(is_ghost() || (case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH)):
 				
 				_level.update_case(caseCoords.x, caseCoords.y,Globals.TypeCase.EMPTY )

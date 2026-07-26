@@ -6,7 +6,7 @@ var curr_tile: Vector2i = Vector2i(-1, -1)
 
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started)
-	init_characters_positions()
+	#init_characters_positions()
 
 func _on_state_started(state: Globals.StateTurn):
 	if(state == Globals.StateTurn.ACTION_CHARACTER):
@@ -14,6 +14,7 @@ func _on_state_started(state: Globals.StateTurn):
 		Globals.state_finished.emit(Globals.StateTurn.ACTION_CHARACTER)
 
 func init_characters_positions():
+	position=Vector2(0,0)
 	for character in get_children():
 		if character is Character:
 			character.init_entity(get_parent())
