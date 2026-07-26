@@ -51,9 +51,11 @@ func _move(move_direction: Vector2i)-> bool :
 		print("Blocked By Mud")
 		move_after=false 
 		isBlockedbyMud=false
+		_level.set_tile(caseCoords, Globals.TypeCase.EMPTY )
+		_level.update_case(caseCoords.x, caseCoords.y, get_case_entity() )
+		
 	else :
-		
-		
+
 		#Outside Map 
 		if(newCoords.x >= 0 && newCoords.y >= 0 && newCoords.x < Globals.NUMBER_CELL_X && newCoords.y < Globals.NUMBER_CELL_Y ):
 			var case :Globals.TypeCase= _level.get_type_case_from_position(newCoords.x, newCoords.y)
@@ -80,7 +82,7 @@ func _move(move_direction: Vector2i)-> bool :
 					#remove tile before update perso 
 					if(!is_ghost() && case == Globals.TypeCase.TRAP_ICE ): 
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
-					if(!is_ghost() && case == Globals.TypeCase.TRAP_ICE ): 
+					if(!is_ghost() && case == Globals.TypeCase.TRAP_REPULSE ): 
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
 						
 					if(!is_ghost() && case==Globals.TypeCase.TIME_PLUS):
@@ -94,7 +96,7 @@ func _move(move_direction: Vector2i)-> bool :
 						
 					if(!is_ghost() && case==Globals.TypeCase.MUD):
 						isBlockedbyMud=true 
-						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
+						
 						
 						
 					_level.update_case(caseCoords.x, caseCoords.y,lastCaseGhost )
@@ -113,7 +115,7 @@ func _move(move_direction: Vector2i)-> bool :
 						#print("ICe trap  ")
 						
 						put_ice_on_entity()
-					if(!is_ghost() && case == Globals.TypeCase.TRAP_ICE ): 
+					if(!is_ghost() && case == Globals.TypeCase.TRAP_REPULSE ): 
 						
 						
 						move(Vector2i(2,0)) #2 case  on the right 

@@ -54,7 +54,7 @@ func set_current_tile(tile: Vector2i):
 func can_choose_tile(tile: Vector2i) -> bool:
 	var typeCase: Globals.TypeCase = get_parent().get_type_case_from_position(tile.x, tile.y)
 	var canChoose: bool = true
-	print(typeCase)
+	print("canChoosetypeCase", canChoose)
 	
 	# Only entities
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION1):
