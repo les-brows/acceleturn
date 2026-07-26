@@ -11,6 +11,11 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 
 	match action:
 		Globals.CharacterAction.ACTION1:
+			# U should kill yourself, NOW
+			var entity: Entity = _level.get_entity_at_pos(tile)
+			_level.update_case(entity.caseCoords.x, entity.caseCoords.y, Globals.TypeCase.EMPTY)
+			entity.queue_free()
+			
 			Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
 		Globals.CharacterAction.ACTION2:
 			Globals.timerDuration += Globals.MAGE_ACTION2_TIME_ADDED
