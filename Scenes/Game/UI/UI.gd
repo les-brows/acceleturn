@@ -52,6 +52,7 @@ var timerEndTime: int = 0
 var first_process_run: bool = true
 var should_popup_follow_mouse: bool = false
 var game_ended: bool = false
+var muted_popups: bool = false
 
 var tweenCharacter: Tween
 var tweenAction: Tween
@@ -85,7 +86,7 @@ func _process(_delta) -> void:
 		initialFirePos = fireAnimation.position
 		first_process_run = false
 		
-	if should_popup_follow_mouse:
+	if should_popup_follow_mouse and not muted_popups:
 		actionPopup.global_position = get_viewport().get_mouse_position() + Vector2(-15, 15) - Vector2(0, actionPopup.size.y)
 		
 	if timerStarted:
@@ -345,6 +346,9 @@ func hide_text_modifier():
 
 
 func display_popup(text: String):
+	if(muted_popups):
+		return
+	
 	should_popup_follow_mouse = true
 	actionPopup.visible = true
 	actionPopupLabel.text = text
@@ -502,3 +506,11 @@ func _on_action_3_button_mouse_exited() -> void:
 func _on_action_4_button_mouse_exited() -> void:
 	display_text_modifier(Globals.Operations.ADD, 5)
 	hide_popup()
+
+
+func _on_skip_turn_pressed() -> void:
+	_on_timer_end.emit()
+
+
+func _on_mute_popups_toggled(toggled_on: bool) -> void:
+	muted_popups = toggled_on

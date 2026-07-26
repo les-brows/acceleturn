@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://dria87eroy00p" path="res://Assets/UI/Group 4 - 3_7.png" id="11_sunpx"]
 [ext_resource type="Texture2D" uid="uid://bpxctn4a2vq1s" path="res://Assets/UI/tile_0004.png" id="11_y2e3d"]
 [ext_resource type="Texture2D" uid="uid://cbrkwylar8pir" path="res://Assets/UI/Group 4 - 3_8.png" id="12_o4pdo"]
+[ext_resource type="Texture2D" uid="uid://blpaoud6dasig" path="res://Assets/UI/20240709dragonButtonA-Sheet/tile_0002.png" id="17_y2e3d"]
+[ext_resource type="Texture2D" uid="uid://5iqwshtbv1s5" path="res://Assets/UI/20240709dragonButtonA-Sheet/tile_0003.png" id="18_5r64m"]
 [ext_resource type="Texture2D" uid="uid://cn1vy11l3kh4w" path="res://Assets/UI/20240707dragon9SlicesB.png" id="21_n02lb"]
 [ext_resource type="Texture2D" uid="uid://62hm00q41th8" path="res://Assets/UI/forbidden_sign.png" id="21_sq541"]
 
@@ -437,6 +439,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Controls" type="MarginContainer" parent="." unique_id=598309568]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = 446.0
+offset_bottom = -122.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls" unique_id=728856307]
+layout_mode = 2
+alignment = 2
+
+[node name="NinePatchRect" type="TextureButton" parent="Controls/HBoxContainer" unique_id=1276983504]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+texture_normal = ExtResource("17_y2e3d")
+texture_pressed = ExtResource("18_5r64m")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/HBoxContainer/NinePatchRect" unique_id=1387358404]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Skip Turn"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect2" type="TextureButton" parent="Controls/HBoxContainer" unique_id=363577114]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("17_y2e3d")
+texture_pressed = ExtResource("18_5r64m")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/HBoxContainer/NinePatchRect2" unique_id=1712675707]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Mute Popups"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ActionSelection" type="MarginContainer" parent="." unique_id=1557234401]
 anchors_preset = 15
 anchor_right = 1.0
@@ -445,6 +514,7 @@ offset_top = 20000.0
 offset_bottom = 20000.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -778,6 +848,8 @@ vertical_alignment = 1
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/CharacterButton" to="." method="_on_character_2_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3/CharacterButton" to="." method="_on_character_3_button_pressed"]
+[connection signal="pressed" from="Controls/HBoxContainer/NinePatchRect" to="." method="_on_skip_turn_pressed"]
+[connection signal="toggled" from="Controls/HBoxContainer/NinePatchRect2" to="." method="_on_mute_popups_toggled"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/MarginContainer/CancelAction" to="." method="_on_cancel_action_pressed"]
 [connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton" to="." method="_on_action_1_button_mouse_entered"]
 [connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton" to="." method="_on_action_1_button_mouse_exited"]
