@@ -282,37 +282,46 @@ func _on_hover_action(action: Globals.CharacterAction):
 		Globals.CharacterClass.GUNNER:
 			match action:
 				Globals.CharacterAction.ACTION1:
+					display_popup("Push an ally or an ennemy in a straight line in front of you two or four case on the right respectively")
 					display_text_modifier(Globals.Operations.ADD, 0)
 				Globals.CharacterAction.ACTION2:
-					display_popup("Hiii!")
+					display_popup("Throw a bomb that repulse ennemies two tiles away from the point of impact!\n-5sec")
 					display_text_modifier(Globals.Operations.SUB, 5)
 				Globals.CharacterAction.ACTION3:
-					display_popup("tgrmrlpvt!")
+					display_popup("Teleport the gunner on any tile vertically, ideal for repositionning!\n-1sec")
 					display_text_modifier(Globals.Operations.SUB, 1)
 				Globals.CharacterAction.ACTION4:
-					display_popup("tgrmrlpvt!")
+					display_popup("Send an ennemies back to the rightmost available case! \n-20sec")
 					display_text_modifier(Globals.Operations.SUB, 20)
 					
 		Globals.CharacterClass.MAGE:
 			match action:
 				Globals.CharacterAction.ACTION1:
+					display_popup("Send a fireball that kill any ennemies 4 or less tiles away")
 					display_text_modifier(Globals.Operations.ADD, 0)
 				Globals.CharacterAction.ACTION2:
+					display_popup("Create 1 tiles of bad time near the goal on the ally side \n+10 sec")
 					display_text_modifier(Globals.Operations.ADD, 10)
 				Globals.CharacterAction.ACTION3:
+					display_popup("Move every allies and ennemies one tile on the left\nx2 sec")
 					display_text_modifier(Globals.Operations.MUL, 2)
 				Globals.CharacterAction.ACTION4:
+					display_popup("The next three turn you will play will not apply the max timer modification \n ÷4sec")
 					display_text_modifier(Globals.Operations.DIV, 4)
 					
 		Globals.CharacterClass.TRAPPER:
 			match action:
 				Globals.CharacterAction.ACTION1:
+					display_popup("Create a freeze trap tha will froze an ennemy for 3 turns")
 					display_text_modifier(Globals.Operations.ADD, 0)
 				Globals.CharacterAction.ACTION2:
+					display_popup("Create a trap that will push the ennemy/ally on it two tile on the right\n-2sec")
 					display_text_modifier(Globals.Operations.SUB, 2)
 				Globals.CharacterAction.ACTION3:
+					display_popup("Create a tree tile \n-5sec")
 					display_text_modifier(Globals.Operations.SUB, 5)
 				Globals.CharacterAction.ACTION4:
+					display_popup("Place a blackhole tile that pull every ennemy adjacent to it toward that tile \n-30sec")
 					display_text_modifier(Globals.Operations.SUB, 30)
 
 func display_text_modifier(operation: Globals.Operations, value: int):
