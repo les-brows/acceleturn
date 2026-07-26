@@ -95,7 +95,8 @@ func can_choose_tile(tile: Vector2i) -> bool:
 			return false
 			
 	# Only empty tiles
-	if(Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION2 &&
+	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION3 &&
+		Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION2 &&
 		Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION3):
 		if(!(typeCase == Globals.TypeCase.EMPTY)):
 			$FailSound.play()
