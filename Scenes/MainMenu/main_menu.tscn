@@ -13,6 +13,7 @@ script = ExtResource("1_gpndq")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1143009387]
 layout_mode = 2
+mouse_filter = 1
 color = Color(0.333333, 0.266667, 0.4, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1552441792]
@@ -53,10 +54,19 @@ text = "> "
 
 [node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer" unique_id=360207829]
 layout_mode = 2
+mouse_filter = 1
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_hx24q")
 theme_override_font_sizes/font_size = 100
 text = "Level selection"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Option" unique_id=464062276]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer" unique_id=1979585066]
 layout_mode = 2
@@ -75,7 +85,23 @@ text = "> "
 [node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer" unique_id=1729980566]
 custom_minimum_size = Vector2(694, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_hx24q")
 theme_override_font_sizes/font_size = 100
 text = "exit"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Option" unique_id=493511339]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Option/Button" to="." method="_on_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Option/Button" to="." method="_on_button_1_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Option/Button" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Option/Button" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Option/Button" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Option/Button" to="." method="_on_button_2_pressed"]

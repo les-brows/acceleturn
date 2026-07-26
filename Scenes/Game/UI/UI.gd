@@ -392,6 +392,9 @@ func sleep(seconds: float)->void:
 
 
 func play_end_game(victory: bool):
+	if(game_ended):
+		return
+		
 	reset_timer()
 	game_ended = true
 	victoryBackground.visible = true
