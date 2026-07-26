@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2a7edly0fwrk"]
 
 [ext_resource type="Script" uid="uid://byk4avn2sklia" path="res://Objects/Characters/Gunner/gunner.gd" id="1_etuv5"]
-[ext_resource type="Texture2D" uid="uid://d1rijuqilcuvq" path="res://icon.svg" id="1_ujslk"]
+[ext_resource type="Texture2D" uid="uid://csv8njv4y2l8b" path="res://Assets/Sprite/Cowboy base.png" id="2_etuv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etuv5"]
 size = Vector2(2600.0005, 2600.0005)
@@ -12,7 +12,7 @@ script = ExtResource("1_etuv5")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1972901024]
 modulate = Color(0, 0.8627451, 0.10980392, 1)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_ujslk")
+texture = ExtResource("2_etuv5")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=2134170275]
 scale = Vector2(0.05, 0.05)
@@ -23,3 +23,4 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_etuv5")
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]
+

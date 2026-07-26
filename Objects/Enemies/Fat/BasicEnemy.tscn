@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cbnmavlqh36sn"]
+
+[ext_resource type="Script" uid="uid://bkxq6efj25d5h" path="res://Objects/Enemies/Fat/basic_enemy.gd" id="1_tvf75"]
+[ext_resource type="Texture2D" uid="uid://dxlww1isnnvnm" path="res://Assets/Sprite/knight.png" id="2_tvf75"]
+
+[node name="BasicEnemy" type="Node2D" unique_id=2125422060]
+script = ExtResource("1_tvf75")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
+texture = ExtResource("2_tvf75")
+flip_h = true

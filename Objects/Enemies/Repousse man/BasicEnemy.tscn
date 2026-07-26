@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d4k5yswyeyq4k"]
+
+[ext_resource type="Script" uid="uid://cadvuwkthbmg0" path="res://Objects/Enemies/Repousse man/basic_enemy.gd" id="1_le5e2"]
+[ext_resource type="Texture2D" uid="uid://d1rijuqilcuvq" path="res://icon.svg" id="2_jt122"]
+
+[node name="BasicEnemy" type="Node2D" unique_id=2125422060]
+script = ExtResource("1_le5e2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_jt122")

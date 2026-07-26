@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dw83x5j3abh85"]
+
+[ext_resource type="Script" uid="uid://cq2ondsx22mni" path="res://Objects/Enemies/Speed/basic_enemy.gd" id="1_0fgvv"]
+[ext_resource type="Texture2D" uid="uid://xje16op68mfv" path="res://Assets/Sprite/Rabbit.png" id="2_0fgvv"]
+
+[node name="BasicEnemy" type="Node2D" unique_id=2125422060]
+script = ExtResource("1_0fgvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
+texture = ExtResource("2_0fgvv")

@@ -189,7 +189,7 @@ position = Vector2(835, 257)
 script = ExtResource("5_qv7ba")
 
 [node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("6_mhcxe")]
-position = Vector2(127, 218)
+position = Vector2(99, 225)
 
 [node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("7_fpcu7")]
 

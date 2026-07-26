@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dehcpyo4u001j"]
 
 [ext_resource type="Script" uid="uid://ewpxxvi6nrus" path="res://Objects/Characters/Trapper/trapper.gd" id="1_lprvd"]
-[ext_resource type="Texture2D" uid="uid://blu0dpvabt2r7" path="res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg" id="2_pcart"]
+[ext_resource type="Texture2D" uid="uid://dqlqn1qkcepu4" path="res://Assets/Sprite/Traper.png" id="2_pcart"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3om"]
 size = Vector2(1080.0002, 1080.0001)
@@ -10,7 +10,6 @@ size = Vector2(1080.0002, 1080.0001)
 script = ExtResource("1_lprvd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443612665]
-scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_pcart")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=363738700]
