@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dria87eroy00p" path="res://Assets/UI/Group 4 - 3_7.png" id="11_sunpx"]
 [ext_resource type="Texture2D" uid="uid://bpxctn4a2vq1s" path="res://Assets/UI/tile_0004.png" id="11_y2e3d"]
 [ext_resource type="Texture2D" uid="uid://cbrkwylar8pir" path="res://Assets/UI/Group 4 - 3_8.png" id="12_o4pdo"]
+[ext_resource type="Texture2D" uid="uid://cn1vy11l3kh4w" path="res://Assets/UI/20240707dragon9SlicesB.png" id="21_n02lb"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pa3om"]
 frames = 8
@@ -660,6 +661,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ActionPopup" type="MarginContainer" parent="." unique_id=1488234960]
+visible = false
+custom_minimum_size = Vector2(300, 150)
+offset_right = 300.0
+offset_bottom = 150.0
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ActionPopup" unique_id=241312102]
+layout_mode = 2
+texture = ExtResource("21_n02lb")
+patch_margin_left = 24
+patch_margin_top = 20
+patch_margin_right = 24
+patch_margin_bottom = 21
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionPopup/NinePatchRect" unique_id=498253020]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PopupLabel" type="RichTextLabel" parent="ActionPopup/NinePatchRect/MarginContainer" unique_id=458994337]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Saucisse"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Time/HBoxContainer/VBoxContainer/MarginContainer2/Timer" to="." method="_on_local_timer_end"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
