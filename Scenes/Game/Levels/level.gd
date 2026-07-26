@@ -26,8 +26,10 @@ func _ready()-> void :
 
 func _process(_delta):
 	if Input.is_action_just_pressed("input_cancel"):
-		characterManager.set_current_action(Globals.CharacterAction.CANCEL)
-		Globals.state_finished.emit(Globals.curr_state)
+		# You can only cancel from the action selection and target selection states
+		if Globals.curr_state == Globals.StateTurn.CHOICE_ACTION or Globals.curr_state == Globals.StateTurn.CHOICE_TARGET_CHARACTER:
+			characterManager.set_current_action(Globals.CharacterAction.CANCEL)
+			Globals.state_finished.emit(Globals.curr_state)
 
 	if(TargetSelectionAnimation.visible):
 		var characterTileCoordinates = get_map_position_from_mouse()
