@@ -1,16 +1,21 @@
 [gd_scene format=4 uid="uid://chs5y1vhh8qnv"]
 
-[ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_prloo"]
-[ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="2_vdigg"]
-[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_nfh1h"]
-[ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="4_cipqj"]
-[ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="5_4r7rl"]
-[ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="6_v7h32"]
-[ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="7_3hwqs"]
-[ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="8_bjdmj"]
+[ext_resource type="Script" uid="uid://hctaq4mhn7tw" path="res://Scenes/Game/Levels/level.gd" id="1_v7h32"]
+[ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_vdigg"]
+[ext_resource type="Texture2D" uid="uid://8ndbci42u57r" path="res://Assets/TileMap/TilesheetV1.png" id="2_nfh1h"]
+[ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="3_cipqj"]
+[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="4_4r7rl"]
+[ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="5_v7h32"]
+[ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="6_3hwqs"]
+[ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="7_bjdmj"]
+[ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="8_8urwo"]
+[ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="9_dy0pk"]
+[ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="11_3hwqs"]
+[ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="12_bjdmj"]
+[ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="13_8urwo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
-texture = ExtResource("1_prloo")
+texture = ExtResource("1_vdigg")
 texture_region_size = Vector2i(64, 64)
 2:1/0 = 0
 5:1/0 = 0
@@ -76,22 +81,132 @@ texture_region_size = Vector2i(64, 64)
 9:14/0 = 0
 11:14/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2mfr"]
+texture = ExtResource("2_nfh1h")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:1/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+9:1/0 = 0
+8:1/0 = 0
+7:1/0 = 0
+6:1/0 = 0
+6:2/0 = 0
+5:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+9:3/0 = 0
+8:3/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_225j5"]
+texture = ExtResource("2_nfh1h")
+margins = Vector2i(0, 2)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_h6cj1"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_ymddk")
+sources/3 = SubResource("TileSetAtlasSource_m2mfr")
+sources/4 = SubResource("TileSetAtlasSource_225j5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cp10e"]
-texture = ExtResource("1_prloo")
+texture = ExtResource("1_vdigg")
 texture_region_size = Vector2i(64, 64)
 11:9/0 = 0
 12:9/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwdmh"]
+texture = ExtResource("2_nfh1h")
+margins = Vector2i(0, 2)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_cp10e"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_cp10e")
+sources/1 = SubResource("TileSetAtlasSource_fwdmh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8yj7"]
-texture = ExtResource("1_prloo")
+texture = ExtResource("1_vdigg")
 texture_region_size = Vector2i(64, 64)
 5:6/0 = 0
 6:6/0 = 0
@@ -143,33 +258,115 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_q8yj7")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1affv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3hwqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bjdmj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnq1e"]
+size = Vector2(30, 30)
+
 [node name="Level" type="Node2D" unique_id=1804012200]
+script = ExtResource("1_v7h32")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]
-tile_map_data = PackedByteArray("AAAAAAAAAAACAAYAAAAAAAEAAAADAAIAAAAAAAIAAAACAAYAAAAAAAMAAAADAAIAAAAAAAQAAAACAAYAAAAAAAUAAAADAAIAAAABAAAAAAADAAIAAAABAAIAAAADAAIAAAABAAMAAAACAAYAAAABAAQAAAADAAIAAAABAAUAAAACAAYAAAACAAAAAAACAAYAAAACAAEAAAADAAIAAAACAAIAAAACAAYAAAACAAMAAAADAAIAAAACAAQAAAACAAYAAAACAAUAAAADAAIAAAADAAAAAAADAAIAAAADAAEAAAACAAYAAAADAAIAAAADAAIAAAADAAMAAAACAAYAAAADAAQAAAADAAIAAAADAAUAAAACAAYAAAAEAAAAAAACAAYAAAAEAAEAAAADAAIAAAAEAAIAAAACAAYAAAAEAAMAAAADAAIAAAAEAAQAAAACAAYAAAAEAAUAAAADAAIAAAAFAAAAAAADAAIAAAAFAAEAAAACAAYAAAAFAAIAAAADAAIAAAAFAAMAAAACAAYAAAAFAAQAAAADAAIAAAAFAAUAAAACAAYAAAAGAAAAAAAHAA4AAAAGAAEAAAAHAA4AAAAGAAIAAAAHAA4AAAAGAAMAAAAHAA4AAAAGAAQAAAAHAA4AAAAGAAUAAAAHAA4AAAAHAAAAAAAJAA4AAAAHAAEAAAAJAA4AAAAHAAIAAAAJAA4AAAAHAAMAAAAJAA4AAAAHAAQAAAAJAA4AAAAHAAUAAAAJAA4AAAAIAAAAAAACAAYAAAAIAAEAAAADAAIAAAAIAAIAAAACAAYAAAAIAAMAAAADAAIAAAAIAAQAAAACAAYAAAAIAAUAAAADAAIAAAAJAAAAAAADAAIAAAAJAAEAAAACAAYAAAAJAAIAAAADAAIAAAAJAAMAAAACAAYAAAAJAAQAAAADAAIAAAAJAAUAAAACAAYAAAAKAAAAAAACAAYAAAAKAAEAAAADAAIAAAAKAAIAAAACAAYAAAAKAAMAAAADAAIAAAAKAAQAAAACAAYAAAAKAAUAAAADAAIAAAALAAAAAAADAAIAAAALAAEAAAACAAYAAAALAAIAAAADAAIAAAALAAMAAAACAAYAAAALAAQAAAADAAIAAAALAAUAAAACAAYAAAAMAAAAAAACAAYAAAAMAAEAAAADAAIAAAAMAAIAAAACAAYAAAAMAAMAAAADAAIAAAAMAAQAAAACAAYAAAAMAAUAAAADAAIAAAANAAAAAAADAAIAAAANAAEAAAACAAYAAAANAAQAAAADAAIAAAANAAUAAAACAAYAAAABAAEAAAACAAYAAAANAAMAAAACAAYAAAANAAIAAAADAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAABAABAAIAAAAAAAEABAABAAQAAAAAAAIABAACAAQAAAAAAAMABAABAAIAAAAAAAQABAABAAQAAAAAAAUABAACAAIAAAABAAAABAABAAMAAAABAAIABAACAAMAAAABAAMABAACAAQAAAABAAQABAACAAQAAAABAAUABAABAAMAAAACAAAABAABAAQAAAACAAEABAABAAQAAAACAAIABAACAAIAAAACAAMABAACAAQAAAACAAQABAACAAQAAAACAAUABAACAAMAAAADAAAABAABAAIAAAADAAEABAACAAMAAAADAAIABAACAAQAAAADAAMABAABAAMAAAADAAQABAACAAMAAAADAAUABAABAAIAAAAEAAAABAACAAIAAAAEAAEABAABAAIAAAAEAAIABAABAAMAAAAEAAMABAABAAIAAAAEAAQABAABAAQAAAAEAAUABAACAAMAAAAFAAAABAABAAIAAAAFAAEABAACAAMAAAAFAAIABAABAAMAAAAFAAMABAACAAIAAAAFAAUABAABAAMAAAAHAAAABAAAAAIAAAAHAAEABAAAAAIAAAAHAAIABAAAAAIAAAAHAAMABAAAAAIAAAAHAAQABAAAAAIAAAAHAAUABAAAAAIAAAAIAAAABAACAAIAAAAIAAEABAABAAMAAAAIAAIABAABAAIAAAAIAAMABAACAAMAAAAIAAQABAACAAQAAAAIAAUABAABAAQAAAAJAAAABAACAAIAAAAJAAEABAACAAIAAAAJAAIABAABAAMAAAAJAAMABAACAAQAAAAJAAQABAABAAQAAAAJAAUABAACAAIAAAAKAAAABAACAAQAAAAKAAEABAACAAIAAAAKAAIABAABAAQAAAAKAAMABAABAAQAAAAKAAQABAACAAIAAAAKAAUABAACAAQAAAALAAAABAABAAIAAAALAAEABAABAAIAAAALAAIABAACAAIAAAALAAMABAABAAMAAAALAAQABAABAAMAAAALAAUABAACAAIAAAAMAAAABAABAAIAAAAMAAEABAABAAMAAAAMAAIABAACAAIAAAAMAAMABAACAAIAAAAMAAQABAABAAIAAAAMAAUABAACAAIAAAANAAAABAACAAQAAAANAAEABAACAAIAAAANAAQABAABAAIAAAANAAUABAACAAMAAAABAAEABAACAAQAAAANAAMABAABAAQAAAANAAIABAACAAIAAAAFAAQABAABAAMAAAAOAAUABAABAAIAAAAOAAQABAACAAIAAAAOAAMABAABAAQAAAAOAAIABAABAAQAAAAOAAEABAACAAQAAAAOAAAABAACAAIAAAAGAAUABAABAAIAAAAGAAQABAABAAMAAAAGAAMABAABAAQAAAAGAAIABAABAAMAAAAGAAEABAACAAIAAAAGAAAABAACAAQAAAA=")
 tile_set = SubResource("TileSet_h6cj1")
 
 [node name="TileMapDecor" type="TileMapLayer" parent="." unique_id=1405313040]
+tile_map_data = PackedByteArray("AAAFAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAADAAAAAQAEAAQAAAACAAAAAQAEAAQAAAABAAAAAQAEAAQAAAAAAAAAAQAEAAQAAAAAAAUAAQAEAAQAAAABAAUAAQAEAAQAAAACAAUAAQAEAAQAAAADAAUAAQAEAAQAAAAEAAUAAQAEAAQAAAAFAAUAAQAEAAQAAAAKAAEAAQAEAAQAAAAKAAAAAQAEAAQAAAAMAAAAAQAEAAQAAAAMAAEAAQAEAAQAAAAKAAQAAQAEAAQAAAAKAAUAAQAEAAQAAAAMAAQAAQAEAAQAAAAMAAUAAQAEAAQAAAAMAAIAAQAEAAMAAAAKAAMAAQAEAAMAAAAGAAUAAQAEAAQAAAAGAAAAAQAEAAQAAAAAAAEAAQAEAAQAAAAAAAIAAQAEAAQAAAAAAAMAAQAEAAQAAAAAAAQAAQAEAAQAAAA=")
 tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
 tile_set = SubResource("TileSet_7pr3o")
 
-[node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("2_vdigg")]
+[node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("3_cipqj")]
 
-[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("3_nfh1h")]
-position = Vector2(639, 133)
+[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("4_4r7rl")]
+position = Vector2(930, 161)
+scale = Vector2(1.8, 1.8)
 
-[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("3_nfh1h")]
-position = Vector2(835, 257)
+[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("4_4r7rl")]
+position = Vector2(928, 289)
+scale = Vector2(1.8, 1.8)
 
-[node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("4_cipqj")]
-script = ExtResource("5_4r7rl")
+[node name="BasicEnemy3" parent="EnemyTurnManager" unique_id=1254000337 instance=ExtResource("4_4r7rl")]
+position = Vector2(927, 94)
+scale = Vector2(1.8, 1.8)
 
-[node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("6_v7h32")]
-position = Vector2(99, 225)
+[node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("5_v7h32")]
+position = Vector2(-124, 107)
+script = ExtResource("6_3hwqs")
 
-[node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("7_3hwqs")]
+[node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("7_bjdmj")]
+position = Vector2(218, -6)
 
-[node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("8_bjdmj")]
-position = Vector2(225, 98)
+[node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("8_8urwo")]
+position = Vector2(217, 57)
+
+[node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("9_dy0pk")]
+position = Vector2(223, 122)
+
+[node name="MovementUI" type="Node" parent="." unique_id=1653607984]
+
+[node name="CharacterSelection" type="AnimatedSprite2D" parent="MovementUI" unique_id=1744634498]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1affv")
+
+[node name="TileSelectionSpriteRight" type="Node2D" parent="MovementUI" unique_id=1032732036]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteRight" unique_id=1366430826]
+scale = Vector2(2, 2)
+texture = ExtResource("13_8urwo")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteRight/Sprite2D" unique_id=905818015]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" unique_id=1603703075]
+shape = SubResource("RectangleShape2D_jnq1e")
+
+[node name="TileSelectionSpriteLeft" type="Node2D" parent="MovementUI" unique_id=1272537214]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteLeft" unique_id=1456257966]
+scale = Vector2(2, 2)
+texture = ExtResource("13_8urwo")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteLeft/Sprite2D" unique_id=316033697]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" unique_id=1887663545]
+shape = SubResource("RectangleShape2D_jnq1e")
+
+[node name="TileSelectionSpriteDown" type="Node2D" parent="MovementUI" unique_id=624315958]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteDown" unique_id=2049859832]
+scale = Vector2(2, 2)
+texture = ExtResource("13_8urwo")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteDown/Sprite2D" unique_id=930746308]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" unique_id=413343515]
+shape = SubResource("RectangleShape2D_jnq1e")
+
+[node name="TileSelectionSpriteUp" type="Node2D" parent="MovementUI" unique_id=941323388]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteUp" unique_id=408593819]
+scale = Vector2(2, 2)
+texture = ExtResource("13_8urwo")
+
+[node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D" unique_id=222282406]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" unique_id=264444238]
+shape = SubResource("RectangleShape2D_jnq1e")

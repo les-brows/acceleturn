@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://b4yneicejlwuf"]
 
 [ext_resource type="Script" uid="uid://ctarsgmudxkqb" path="res://Scenes/Game/game_scene.gd" id="1_afrlh"]
-[ext_resource type="PackedScene" uid="uid://dqhg6dytqs761" path="res://Scenes/Game/Levels/Level.tscn" id="1_c3lgb"]
+[ext_resource type="PackedScene" uid="uid://4x4jak6pftfs" path="res://Scenes/Game/Levels/Level_1.tscn" id="2_afrlh"]
 [ext_resource type="PackedScene" uid="uid://fn5o3c23jali" path="res://Scenes/Game/UI/UI.tscn" id="2_t0q61"]
-[ext_resource type="Script" uid="uid://hctaq4mhn7tw" path="res://Scenes/Game/Levels/level.gd" id="3_oytey"]
 
 [node name="GameScene" type="Node2D" unique_id=740814672]
 script = ExtResource("1_afrlh")
 
-[node name="Level" parent="." unique_id=1804012200 instance=ExtResource("1_c3lgb")]
-position = Vector2(100, 70)
-script = ExtResource("3_oytey")
+[node name="Level" parent="." unique_id=1804012200 instance=ExtResource("2_afrlh")]
 
 [node name="UI" parent="." unique_id=955902580 instance=ExtResource("2_t0q61")]
