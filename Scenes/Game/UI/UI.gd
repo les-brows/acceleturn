@@ -48,6 +48,7 @@ var timerStarted: bool = false
 var timerEndTime: int = 0
 var first_process_run: bool = true
 var should_popup_follow_mouse: bool = false
+var game_ended: bool = false
 
 var tweenCharacter: Tween
 var tweenAction: Tween
@@ -68,7 +69,9 @@ func _ready() -> void:
 	Globals.state_finished.connect(_on_state_finished_received)
 	Globals.movement_hovered.connect(_on_hover_movement)
 	Globals.open_popup.connect(show_ally_dialog)
+	Globals.level_finished.connect(play_end_game)
 	display_text_modifier(Globals.Operations.ADD, 5)
+	timerText.text = str(Globals.INITIAL_TIME)
 
 
 func _process(_delta) -> void:
@@ -203,17 +206,25 @@ func update_action_menu_labels():
 func reset_timer():
 	timeBar.color = Color8(41, 198, 0)
 	timeBar.scale = Vector2(1, 1)
-	tweenTimeBarColor.kill()
-	tweenTimeBarColor = null
-	tweenTimeBarSize.kill()
-	tweenTimeBarSize = null
-	tweenFirePosition.kill()
-	tweenFirePosition = null
+	
+	if(tweenTimeBarColor):
+		tweenTimeBarColor.kill()
+		tweenTimeBarColor = null
+	if(tweenTimeBarSize):
+		tweenTimeBarSize.kill()
+		tweenTimeBarSize = null
+	if(tweenFirePosition):
+		tweenFirePosition.kill()
+		tweenFirePosition = null
+		
 	timerStarted = false
 	timer.stop()
 
 
 func start_timer(timeToFinish: float):
+	if(game_ended):
+		return
+		
 	if(timeToFinish <= 0):
 		timeToFinish = 0.25
 	timer.wait_time = timeToFinish
@@ -370,7 +381,8 @@ func sleep(seconds: float)->void:
 
 
 func play_end_game(victory: bool):
-	stop_timer()
+	reset_timer()
+	game_ended = true
 	victoryBackground.visible = true
 	
 	if(victory):
@@ -404,7 +416,6 @@ func play_end_game(victory: bool):
 
 func _on_character_1_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
-	play_end_game(true)
 
 
 func _on_character_2_button_pressed() -> void:
@@ -418,13 +429,11 @@ func _on_character_3_button_pressed() -> void:
 func _on_action_1_button_pressed() -> void:
 	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION1)
-	show_ally_dialog("Gunner", "To me! My allies!", Globals.CharacterClass.GUNNER)
 
 
 func _on_action_2_button_pressed() -> void:
 	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION2)
-	Globals.open_popup.emit("Gaster", "I'm green for an amazing reason", Globals.CharacterClass.MAGE)
 
 
 func _on_action_3_button_pressed() -> void:

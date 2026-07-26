@@ -134,8 +134,6 @@ func _on_player_choose_action(action: Globals.CharacterAction):
 
 	
 func _on_state_finished(state: Globals.StateTurn):
-	print(state)
-	print(Globals.curr_state)
 	assert(state == Globals.curr_state)
 	
 	match state:
