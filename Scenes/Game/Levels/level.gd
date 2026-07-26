@@ -56,7 +56,7 @@ func _on_player_choose_character(character: Globals.CharacterClass):
 	
 func show_player_move_ui(player_node: Node2D):
 	var characterTileCoordinates = TileMapGround.local_to_map(player_node.position)
-	print(characterTileCoordinates)
+	#print(characterTileCoordinates)
 	CharacterSelectionAnimation.position = TileMapGround.map_to_local(characterTileCoordinates) + TileMapGround.get_parent().position
 	CharacterSelectionAnimation.visible = true
 	CharacterSelectionAnimation.play("default")
@@ -90,7 +90,7 @@ func can_player_move_to_coordinates(coordinates: Vector2):
 	var tileType: Globals.TypeCase = get_type_case_from_position(int(coordinates.x), int(coordinates.y))
 	if(tileType != Globals.TypeCase.EMPTY and tileType != Globals.TypeCase.ENEMIES):
 		# EXTREMELY INCORRECT !!! We're waiting for get_type_case_from_position to be fixed
-		return true
+		return false
 	
 	return true
 
@@ -116,7 +116,7 @@ func hide_target_choice_ui():
 
 
 func _on_player_choose_action(action: Globals.CharacterAction):
-	#print("Choose action %d " % action)
+	print("Choose action %d " % action)
 	characterManager.set_current_action(action)
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
 
