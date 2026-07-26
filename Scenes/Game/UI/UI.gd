@@ -212,7 +212,7 @@ func update_action_menu_labels():
 			ActionButtonLabels[0].text = "Freeze, don't move"
 			ActionButtonLabels[1].text = "Repulse Trap"
 			ActionButtonLabels[2].text = "Tree Conjuring"
-			ActionButtonLabels[3].text = "Black Hole Trap"
+			ActionButtonLabels[3].text = "Black Hole"
 	return false
 
 # ------------ Timer functions -------------------
