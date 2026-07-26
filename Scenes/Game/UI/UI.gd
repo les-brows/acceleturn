@@ -519,3 +519,7 @@ func _on_skip_turn_pressed() -> void:
 
 func _on_mute_popups_toggled(toggled_on: bool) -> void:
 	muted_popups = toggled_on
+
+
+func _on_exit_level_pressed() -> void:
+	play_end_game(false)
