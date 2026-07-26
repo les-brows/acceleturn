@@ -80,13 +80,20 @@ func can_choose_tile(tile: Vector2i) -> bool:
 		if(tile.x != get_gunner().caseCoords.x):
 			return false
 			
-	#Only nearby
+	# Only nearby
 	if(Globals.curr_character == Globals.CharacterClass.MAGE && Globals.curr_action == Globals.CharacterAction.ACTION1 ):
 		# Check for the mage
 		var diff: Vector2i = get_mage().caseCoords - tile
 		print(diff, abs(diff.x), abs(diff.y))
 		if(abs(diff.x) + abs(diff.y) > Globals.MAGE_ACTION1_RANGE):
 			return false
+			
+	# Only empty tiles
+	if(Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION2 &&
+		Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION3):
+		if(!(typeCase == Globals.TypeCase.EMPTY)):
+			return false
+
 
 	return true
 

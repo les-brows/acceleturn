@@ -396,8 +396,6 @@ func _on_movement_area_mouse_exited() -> void:
 func set_tile(positionTile:Vector2i, typeTile:Globals.TypeCase):
 	var success: bool = update_case(positionTile.x, positionTile.y, typeTile)
 
-	print("Set tile ", typeTile, " at ", positionTile, " success:", success)
-
 	if(!success):
 		return;
 

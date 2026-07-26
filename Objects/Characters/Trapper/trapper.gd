@@ -15,10 +15,15 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 				Globals.timerDuration += Globals.TRAPPER_ACTION1_TIME_ADDED
 
 		Globals.CharacterAction.ACTION2:
+			# Set repulse trap
+			_level.set_tile(tile, Globals.TypeCase.TRAP_REPULSE)
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.TRAPPER_ACTION2_TIME_ADDED
 
 		Globals.CharacterAction.ACTION3:
+			# Set tree
+			_level.set_tile(tile, Globals.TypeCase.TREE)
+			# TODO: Set if block pathfind
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.TRAPPER_ACTION3_TIME_ADDED
 				
