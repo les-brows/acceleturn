@@ -19,6 +19,13 @@ extends CanvasLayer
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/ActionButton
 ]
 
+@onready var ActionButtonLabels = [
+	$%ActionLabel1,
+	$%ActionLabel2,
+	$%ActionLabel3,
+	$%ActionLabel4
+]
+
 @onready var allyDialogText = $%DialogueText
 @onready var allyDialogName = $%CharacterName
 @onready var allyDialogImage = $%DialogueImage
@@ -138,6 +145,8 @@ func hide_action_menu():
 
 
 func show_action_menu():
+	update_action_menu_labels()
+	
 	# Move the menu from 2000 to 300
 	actionSelectionMenu.position = Vector2(0, 300)
 	
@@ -148,6 +157,26 @@ func show_action_menu():
 	for button in ActionButtons:
 		button.disabled = false
 
+
+func update_action_menu_labels():
+	
+	match Globals.curr_character:
+		Globals.CharacterClass.GUNNER:
+			ActionButtonLabels[0].text = "Scattering Shot"
+			ActionButtonLabels[1].text = "Nuclear Bomb"
+			ActionButtonLabels[2].text = "Teleportation"
+			ActionButtonLabels[3].text = "Powerful Scattering Shot"
+		Globals.CharacterClass.MAGE:
+			ActionButtonLabels[0].text = "Magic Missile"
+			ActionButtonLabels[1].text = "Enemy Duplication"
+			ActionButtonLabels[2].text = "Backtracking"
+			ActionButtonLabels[3].text = "Time Warp"
+		Globals.CharacterClass.TRAPPER:
+			ActionButtonLabels[0].text = "Ice Trap"
+			ActionButtonLabels[1].text = "Spring Trap"
+			ActionButtonLabels[2].text = "Tree Conjuring"
+			ActionButtonLabels[3].text = "Black Hole Trap"
+	return false
 
 # ------------ Timer functions -------------------
 

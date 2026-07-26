@@ -199,6 +199,29 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
+[node name="MarginContainer" type="MarginContainer" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1" unique_id=798042426]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/MarginContainer" unique_id=658021168]
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 58
+text = "Gunner"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CharacterButton" type="Button" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1" unique_id=2100859790]
 layout_mode = 1
 anchors_preset = 15
@@ -216,6 +239,29 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
+[node name="MarginContainer" type="MarginContainer" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2" unique_id=1153432015]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/MarginContainer" unique_id=1884660855]
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 58
+text = "Mage"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CharacterButton" type="Button" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2" unique_id=1468357205]
 layout_mode = 1
 anchors_preset = 15
@@ -232,6 +278,29 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3" unique_id=1066956668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3/MarginContainer" unique_id=168860239]
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 58
+text = "Trapper"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CharacterButton" type="Button" parent="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3" unique_id=764572942]
 layout_mode = 1
@@ -294,6 +363,30 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
+[node name="MarginContainer" type="MarginContainer" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg1" unique_id=1116097086]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ActionLabel1" type="RichTextLabel" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg1/MarginContainer" unique_id=2004847042]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Gunner"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg1" unique_id=182835009]
 layout_mode = 1
 anchors_preset = 15
@@ -310,6 +403,30 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg2" unique_id=1200619298]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ActionLabel2" type="RichTextLabel" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg2/MarginContainer" unique_id=530875631]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Gunner"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg2" unique_id=855999738]
 layout_mode = 1
@@ -328,6 +445,30 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
+[node name="MarginContainer" type="MarginContainer" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg3" unique_id=717166786]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ActionLabel3" type="RichTextLabel" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg3/MarginContainer" unique_id=508107359]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Gunner"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg3" unique_id=1513188838]
 layout_mode = 1
 anchors_preset = 15
@@ -344,6 +485,30 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4" unique_id=1921133300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ActionLabel4" type="RichTextLabel" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/MarginContainer" unique_id=1867122555]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
+text = "Gunner"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4" unique_id=273868532]
 layout_mode = 1
