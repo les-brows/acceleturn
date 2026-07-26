@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7fhpkk6tbum8" path="res://Assets/Sprite/Mage.png" id="2_oqi3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqi3k"]
-size = Vector2(304.05414, 304.05414)
+size = Vector2(620.0001, 1100.0002)
 
 [node name="Mage" type="Node2D" unique_id=893759127]
 script = ExtResource("1_7anr4")
@@ -16,8 +16,8 @@ texture = ExtResource("2_oqi3k")
 scale = Vector2(0.05, 0.05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=657015745]
-position = Vector2(3.3783774, 150.47298)
-scale = Vector2(0.99999976, 0.99999976)
+position = Vector2(49.99998, -69.999954)
+scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_oqi3k")
 
 [connection signal="input_event" from="Sprite2D/Area2D" to="." method="_on_area_2d_input_event"]

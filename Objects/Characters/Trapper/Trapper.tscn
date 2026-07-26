@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqlqn1qkcepu4" path="res://Assets/Sprite/Traper.png" id="2_pcart"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3om"]
-size = Vector2(1080.0002, 1080.0001)
+size = Vector2(40.000008, 51.000015)
 
 [node name="Trapper" type="Node2D" unique_id=638839594]
 script = ExtResource("1_lprvd")
@@ -15,7 +15,7 @@ texture = ExtResource("2_pcart")
 [node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=363738700]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=158306833]
-position = Vector2(3.8146965e-05, 3.8146965e-05)
+position = Vector2(2, -3.5)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_pa3om")
 
