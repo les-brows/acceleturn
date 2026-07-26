@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="11_iu2e6"]
 [ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="12_aharu"]
 [ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="13_il47b"]
-[ext_resource type="AudioStream" uid="uid://cuvg5mvlk1uhq" path="res://Assets/Sound/GamejamAcceleturn.wav" id="14_iu2e6"]
+[ext_resource type="AudioStream" uid="uid://dbdn8kywa8kmc" path="res://Assets/Sound/GamejamAcceleturnBoss.wav" id="14_iu2e6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
 texture = ExtResource("1_x1ugw")
@@ -290,7 +290,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Level" type="Node2D" unique_id=1804012200]
+[node name="Level2" type="Node2D" unique_id=1804012200]
 script = ExtResource("1_2xsbf")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]

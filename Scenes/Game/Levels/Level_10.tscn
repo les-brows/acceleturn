@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="11_3hwqs"]
 [ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="12_bjdmj"]
 [ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="13_8urwo"]
-[ext_resource type="AudioStream" uid="uid://cuvg5mvlk1uhq" path="res://Assets/Sound/GamejamAcceleturn.wav" id="15_bjdmj"]
+[ext_resource type="AudioStream" uid="uid://dbdn8kywa8kmc" path="res://Assets/Sound/GamejamAcceleturnBoss.wav" id="15_bjdmj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
 texture = ExtResource("1_vdigg")

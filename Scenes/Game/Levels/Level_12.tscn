@@ -1,22 +1,24 @@
-[gd_scene format=4 uid="uid://cfmi3ftk3uilx"]
+[gd_scene format=4 uid="uid://cjvwhj5prpm7i"]
 
-[ext_resource type="Script" uid="uid://hctaq4mhn7tw" path="res://Scenes/Game/Levels/level.gd" id="1_8ahwu"]
-[ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_g24vr"]
-[ext_resource type="Texture2D" uid="uid://8ndbci42u57r" path="res://Assets/TileMap/TilesheetV1.png" id="2_sg7un"]
-[ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="3_py1l6"]
-[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="4_wl6re"]
-[ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="5_8ahwu"]
-[ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="6_eyg5l"]
-[ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="7_qc8k6"]
-[ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="8_w5waa"]
-[ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="9_5ao5k"]
-[ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="11_eyg5l"]
-[ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="12_qc8k6"]
-[ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="13_w5waa"]
+[ext_resource type="Script" uid="uid://hctaq4mhn7tw" path="res://Scenes/Game/Levels/level.gd" id="1_a06tg"]
+[ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="2_vg8y6"]
+[ext_resource type="Texture2D" uid="uid://8ndbci42u57r" path="res://Assets/TileMap/TilesheetV1.png" id="3_n30r8"]
+[ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="4_bh6lb"]
+[ext_resource type="PackedScene" uid="uid://d4k5yswyeyq4k" path="res://Objects/Enemies/RepousseMan/RepousseManEnemy.tscn" id="5_lq0xf"]
+[ext_resource type="PackedScene" uid="uid://cbnmavlqh36sn" path="res://Objects/Enemies/Fat/FatEnemy.tscn" id="5_w5waa"]
+[ext_resource type="PackedScene" uid="uid://durgmijs7tf4f" path="res://Objects/Enemies/Ghost/GhostEnemy.tscn" id="6_5ao5k"]
+[ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="6_318jn"]
+[ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="7_l7gbe"]
+[ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="8_yjn5a"]
+[ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="9_gei7h"]
+[ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="10_y4dnd"]
+[ext_resource type="Texture2D" uid="uid://kvqwyyp35h4r" path="res://Assets/UI/character_select.png" id="11_fkrey"]
+[ext_resource type="Texture2D" uid="uid://k2xbidnoqrvu" path="res://Assets/UI/character_select_2.png" id="12_xxfrr"]
+[ext_resource type="Texture2D" uid="uid://cuu1san1gojdj" path="res://Assets/UI/tile_movement_sprite.png" id="13_j7rtq"]
 [ext_resource type="AudioStream" uid="uid://dbdn8kywa8kmc" path="res://Assets/Sound/GamejamAcceleturnBoss.wav" id="14_eyg5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymddk"]
-texture = ExtResource("1_g24vr")
+texture = ExtResource("2_vg8y6")
 texture_region_size = Vector2i(64, 64)
 2:1/0 = 0
 5:1/0 = 0
@@ -83,7 +85,7 @@ texture_region_size = Vector2i(64, 64)
 11:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2mfr"]
-texture = ExtResource("2_sg7un")
+texture = ExtResource("3_n30r8")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -128,7 +130,7 @@ texture_region_size = Vector2i(32, 32)
 5:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_225j5"]
-texture = ExtResource("2_sg7un")
+texture = ExtResource("3_n30r8")
 margins = Vector2i(0, 2)
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
@@ -165,13 +167,13 @@ sources/3 = SubResource("TileSetAtlasSource_m2mfr")
 sources/4 = SubResource("TileSetAtlasSource_225j5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cp10e"]
-texture = ExtResource("1_g24vr")
+texture = ExtResource("2_vg8y6")
 texture_region_size = Vector2i(64, 64)
 11:9/0 = 0
 12:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwdmh"]
-texture = ExtResource("2_sg7un")
+texture = ExtResource("3_n30r8")
 margins = Vector2i(0, 2)
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
@@ -207,7 +209,7 @@ sources/0 = SubResource("TileSetAtlasSource_cp10e")
 sources/1 = SubResource("TileSetAtlasSource_fwdmh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8yj7"]
-texture = ExtResource("1_g24vr")
+texture = ExtResource("2_vg8y6")
 texture_region_size = Vector2i(64, 64)
 5:6/0 = 0
 6:6/0 = 0
@@ -263,10 +265,10 @@ sources/1 = SubResource("TileSetAtlasSource_q8yj7")
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_eyg5l")
+"texture": ExtResource("11_fkrey")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_qc8k6")
+"texture": ExtResource("12_xxfrr")
 }],
 "loop": 1,
 "name": &"default",
@@ -276,14 +278,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnq1e"]
 size = Vector2(30, 30)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8ahwu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xsbf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_eyg5l")
+"texture": ExtResource("11_fkrey")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_qc8k6")
+"texture": ExtResource("12_xxfrr")
 }],
 "loop": 1,
 "name": &"default",
@@ -291,45 +293,51 @@ animations = [{
 }]
 
 [node name="Level" type="Node2D" unique_id=1804012200]
-script = ExtResource("1_8ahwu")
+script = ExtResource("1_a06tg")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]
 tile_map_data = PackedByteArray("AAAAAAAABAABAAIAAAAAAAEABAABAAQAAAAAAAIABAACAAQAAAAAAAMABAABAAIAAAAAAAQABAABAAQAAAAAAAUABAACAAIAAAABAAAABAABAAMAAAABAAIABAACAAMAAAABAAMABAACAAQAAAABAAQABAACAAQAAAABAAUABAABAAMAAAACAAAABAABAAQAAAACAAEABAABAAQAAAACAAIABAACAAIAAAACAAMABAACAAQAAAACAAQABAACAAQAAAACAAUABAACAAMAAAADAAAABAABAAIAAAADAAEABAACAAMAAAADAAIABAACAAQAAAADAAMABAABAAMAAAADAAQABAACAAMAAAADAAUABAABAAIAAAAEAAAABAACAAIAAAAEAAEABAABAAIAAAAEAAIABAABAAMAAAAEAAMABAABAAIAAAAEAAQABAABAAQAAAAEAAUABAACAAMAAAAFAAAABAABAAIAAAAFAAEABAACAAMAAAAFAAIABAABAAMAAAAFAAMABAACAAIAAAAFAAUABAABAAMAAAAHAAAABAAAAAIAAAAHAAEABAAAAAIAAAAHAAIABAAAAAIAAAAHAAMABAAAAAIAAAAHAAQABAAAAAIAAAAHAAUABAAAAAIAAAAIAAAABAACAAIAAAAIAAEABAABAAMAAAAIAAIABAABAAIAAAAIAAMABAACAAMAAAAIAAQABAACAAQAAAAIAAUABAABAAQAAAAJAAAABAACAAIAAAAJAAEABAACAAIAAAAJAAIABAABAAMAAAAJAAMABAACAAQAAAAJAAQABAABAAQAAAAJAAUABAACAAIAAAAKAAAABAACAAQAAAAKAAEABAACAAIAAAAKAAIABAABAAQAAAAKAAMABAABAAQAAAAKAAQABAACAAIAAAAKAAUABAACAAQAAAALAAAABAABAAIAAAALAAEABAABAAIAAAALAAIABAACAAIAAAALAAMABAABAAMAAAALAAQABAABAAMAAAALAAUABAACAAIAAAAMAAAABAABAAIAAAAMAAEABAABAAMAAAAMAAIABAACAAIAAAAMAAMABAACAAIAAAAMAAQABAABAAIAAAAMAAUABAACAAIAAAANAAAABAACAAQAAAANAAEABAACAAIAAAANAAQABAABAAIAAAANAAUABAACAAMAAAABAAEABAACAAQAAAANAAMABAABAAQAAAANAAIABAACAAIAAAAFAAQABAABAAMAAAAOAAUABAABAAIAAAAOAAQABAACAAIAAAAOAAMABAABAAQAAAAOAAIABAABAAQAAAAOAAEABAACAAQAAAAOAAAABAACAAIAAAAGAAUABAABAAIAAAAGAAQABAABAAMAAAAGAAMABAABAAQAAAAGAAIABAABAAMAAAAGAAEABAACAAIAAAAGAAAABAACAAQAAAA=")
 tile_set = SubResource("TileSet_h6cj1")
 
 [node name="TileMapDecor" type="TileMapLayer" parent="." unique_id=1405313040]
-tile_map_data = PackedByteArray("AAAFAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAADAAAAAQAEAAQAAAACAAAAAQAEAAQAAAABAAAAAQAEAAQAAAAAAAAAAQAEAAQAAAAAAAUAAQAEAAQAAAABAAUAAQAEAAQAAAACAAUAAQAEAAQAAAADAAUAAQAEAAQAAAAEAAUAAQAEAAQAAAAFAAUAAQAEAAQAAAAKAAEAAQAEAAQAAAAKAAAAAQAEAAQAAAAMAAAAAQAEAAQAAAAMAAEAAQAEAAQAAAAKAAQAAQAEAAQAAAAKAAUAAQAEAAQAAAAMAAQAAQAEAAQAAAAMAAUAAQAEAAQAAAAMAAIAAQAEAAMAAAAKAAMAAQAEAAMAAAAGAAUAAQAEAAQAAAAGAAAAAQAEAAQAAAAAAAEAAQAEAAQAAAAAAAIAAQAEAAQAAAAAAAMAAQAEAAQAAAAAAAQAAQAEAAQAAAAHAAUAAQAAAAIAAAAHAAQAAQAAAAIAAAAHAAMAAQAAAAIAAAAHAAIAAQAAAAIAAAAHAAEAAQAAAAIAAAAHAAAAAQAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAAHAAEAAQAAAAIAAAAHAAIAAQAAAAIAAAAHAAMAAQAAAAIAAAAHAAQAAQAAAAIAAAAHAAUAAQAAAAIAAAAHAAAAAQAAAAIAAAAIAAIAAQAEAAMAAAAIAAMAAQAEAAMAAAAKAAAAAQAEAAMAAAAKAAUAAQAEAAMAAAAEAAUAAQAEAAIAAAAEAAQAAQAEAAIAAAAEAAMAAQAEAAIAAAAEAAIAAQAEAAIAAAAEAAEAAQAEAAIAAAAEAAAAAQAEAAIAAAACAAUAAQAEAAMAAAACAAQAAQAEAAMAAAAGAAMAAQAEAAMAAAAGAAIAAQAEAAMAAAACAAEAAQAEAAMAAAACAAAAAQAEAAMAAAA=")
 tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
 tile_set = SubResource("TileSet_7pr3o")
 
-[node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("3_py1l6")]
+[node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("4_bh6lb")]
 
-[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("4_wl6re")]
-position = Vector2(930, 161)
-scale = Vector2(1.8, 1.8)
+[node name="RepousseManEnemy2" parent="EnemyTurnManager" unique_id=1744385016 instance=ExtResource("5_lq0xf")]
+position = Vector2(927, 225)
 
-[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("4_wl6re")]
-position = Vector2(928, 289)
-scale = Vector2(1.8, 1.8)
+[node name="RepousseManEnemy3" parent="EnemyTurnManager" unique_id=719159654 instance=ExtResource("5_lq0xf")]
+position = Vector2(929, 162)
 
-[node name="BasicEnemy3" parent="EnemyTurnManager" unique_id=1254000337 instance=ExtResource("4_wl6re")]
-position = Vector2(927, 94)
-scale = Vector2(1.8, 1.8)
+[node name="GhostEnemy" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("6_5ao5k")]
+position = Vector2(925, 33)
 
-[node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("5_8ahwu")]
-position = Vector2(-3, 0)
-script = ExtResource("6_eyg5l")
+[node name="GhostEnemy2" parent="EnemyTurnManager" unique_id=1695583326 instance=ExtResource("6_5ao5k")]
+position = Vector2(925, 354)
 
-[node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("7_qc8k6")]
-position = Vector2(98, 162)
+[node name="FatEnemy" parent="EnemyTurnManager" unique_id=1810597355 instance=ExtResource("5_w5waa")]
+position = Vector2(925, 287)
 
-[node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("8_w5waa")]
-position = Vector2(99, 224)
+[node name="FatEnemy2" parent="EnemyTurnManager" unique_id=1140905176 instance=ExtResource("5_w5waa")]
+position = Vector2(922, 96)
 
-[node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("9_5ao5k")]
-position = Vector2(95, 291)
+[node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("6_318jn")]
+position = Vector2(2, 0)
+script = ExtResource("7_l7gbe")
+
+[node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("8_yjn5a")]
+position = Vector2(29, 164)
+
+[node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("9_gei7h")]
+position = Vector2(29, 228)
+
+[node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("10_y4dnd")]
+position = Vector2(33, 102)
 
 [node name="MovementUI" type="Node" parent="." unique_id=1653607984]
 
@@ -343,7 +351,7 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteRight" unique_id=1366430826]
 scale = Vector2(2, 2)
-texture = ExtResource("13_w5waa")
+texture = ExtResource("13_j7rtq")
 
 [node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteRight/Sprite2D" unique_id=905818015]
 
@@ -355,7 +363,7 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteLeft" unique_id=1456257966]
 scale = Vector2(2, 2)
-texture = ExtResource("13_w5waa")
+texture = ExtResource("13_j7rtq")
 
 [node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteLeft/Sprite2D" unique_id=316033697]
 
@@ -367,7 +375,7 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteDown" unique_id=2049859832]
 scale = Vector2(2, 2)
-texture = ExtResource("13_w5waa")
+texture = ExtResource("13_j7rtq")
 
 [node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteDown/Sprite2D" unique_id=930746308]
 
@@ -379,21 +387,21 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="MovementUI/TileSelectionSpriteUp" unique_id=408593819]
 scale = Vector2(2, 2)
-texture = ExtResource("13_w5waa")
+texture = ExtResource("13_j7rtq")
 
 [node name="Area2D" type="Area2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D" unique_id=222282406]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" unique_id=264444238]
 shape = SubResource("RectangleShape2D_jnq1e")
 
-[node name="TargetChoiceUI" type="Node" parent="." unique_id=199958907]
+[node name="TargetChoiceUI" type="Node" parent="." unique_id=1806502160]
 
-[node name="TargetSelection" type="AnimatedSprite2D" parent="TargetChoiceUI" unique_id=34098201]
+[node name="TargetSelection" type="AnimatedSprite2D" parent="TargetChoiceUI" unique_id=628161820]
 visible = false
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_8ahwu")
+sprite_frames = SubResource("SpriteFrames_2xsbf")
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1958870716]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=770767424]
 stream = ExtResource("14_eyg5l")
 
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_right_movement_clicked"]
