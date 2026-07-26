@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="3_m8pw0"]
 [ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="4_ark8o"]
 [ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="5_t4awb"]
+[ext_resource type="PackedScene" uid="uid://durgmijs7tf4f" path="res://Objects/Enemies/Ghost/GhostEnemy.tscn" id="6_fqi5y"]
 [ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="6_hf3n7"]
 [ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="7_fqi5y"]
 [ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="8_oskas"]
@@ -283,7 +284,7 @@ tile_map_data = PackedByteArray("AAAAAAAABAABAAIAAAAAAAEABAABAAQAAAAAAAIABAACAAQ
 tile_set = SubResource("TileSet_h6cj1")
 
 [node name="TileMapDecor" type="TileMapLayer" parent="." unique_id=1405313040]
-tile_map_data = PackedByteArray("AAAFAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAADAAAAAQAEAAQAAAACAAAAAQAEAAQAAAABAAAAAQAEAAQAAAAAAAAAAQAEAAQAAAAAAAUAAQAEAAQAAAABAAUAAQAEAAQAAAACAAUAAQAEAAQAAAADAAUAAQAEAAQAAAAEAAUAAQAEAAQAAAAFAAUAAQAEAAQAAAAKAAEAAQAEAAQAAAAKAAAAAQAEAAQAAAAMAAAAAQAEAAQAAAAMAAEAAQAEAAQAAAAKAAQAAQAEAAQAAAAKAAUAAQAEAAQAAAAMAAQAAQAEAAQAAAAMAAUAAQAEAAQAAAAMAAIAAQAEAAMAAAAKAAMAAQAEAAMAAAAGAAUAAQAEAAQAAAAGAAAAAQAEAAQAAAAAAAEAAQAEAAQAAAAAAAIAAQAEAAQAAAAAAAMAAQAEAAQAAAAAAAQAAQAEAAQAAAA=")
+tile_map_data = PackedByteArray("AAACAAMAAQAEAAMAAAACAAIAAQAEAAMAAAACAAEAAQAEAAMAAAACAAAAAQAEAAMAAAADAAAAAQAEAAMAAAADAAEAAQAEAAMAAAADAAMAAQAEAAMAAAAFAAIAAQAEAAMAAAAGAAIAAQAEAAMAAAAGAAMAAQAEAAMAAAAGAAQAAQAEAAMAAAAGAAUAAQAEAAMAAAAFAAUAAQAEAAMAAAAFAAQAAQAEAAMAAAAEAAQAAQAAAAEAAAAEAAEAAQAAAAEAAAAHAAUAAQAAAAIAAAAHAAQAAQAAAAIAAAAHAAMAAQAAAAIAAAAHAAIAAQAAAAIAAAAHAAEAAQAAAAIAAAAHAAAAAQAAAAIAAAAKAAQAAQAEAAIAAAAKAAUAAQAEAAIAAAALAAMAAQAEAAMAAAALAAIAAQAEAAMAAAALAAEAAQAEAAMAAAALAAAAAQAEAAMAAAA=")
 tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
@@ -296,25 +297,35 @@ position = Vector2(930, 161)
 scale = Vector2(1.8, 1.8)
 
 [node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("4_ark8o")]
-position = Vector2(928, 289)
+position = Vector2(925.00006, 229)
 scale = Vector2(1.8, 1.8)
 
 [node name="BasicEnemy3" parent="EnemyTurnManager" unique_id=1254000337 instance=ExtResource("4_ark8o")]
-position = Vector2(927, 94)
+position = Vector2(868, 223)
 scale = Vector2(1.8, 1.8)
+
+[node name="BasicEnemy4" parent="EnemyTurnManager" unique_id=168077976 instance=ExtResource("4_ark8o")]
+position = Vector2(866, 99)
+scale = Vector2(2, 2)
+
+[node name="GhostEnemy" parent="EnemyTurnManager" unique_id=1050597358 instance=ExtResource("6_fqi5y")]
+position = Vector2(928, 96)
+
+[node name="GhostEnemy2" parent="EnemyTurnManager" unique_id=108944311 instance=ExtResource("6_fqi5y")]
+position = Vector2(927, 33)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("5_t4awb")]
 position = Vector2(-124, 107)
 script = ExtResource("6_hf3n7")
 
 [node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("7_fqi5y")]
-position = Vector2(218, -6)
+position = Vector2(158, 249)
 
 [node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("8_oskas")]
-position = Vector2(217, 57)
+position = Vector2(218, -71)
 
 [node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("9_gfuue")]
-position = Vector2(223, 122)
+position = Vector2(158, 187)
 
 [node name="MovementUI" type="Node" parent="." unique_id=1653607984]
 

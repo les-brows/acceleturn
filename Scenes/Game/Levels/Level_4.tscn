@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_vqwd8"]
 [ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="2_2pdfm"]
 [ext_resource type="Texture2D" uid="uid://8ndbci42u57r" path="res://Assets/TileMap/TilesheetV1.png" id="2_e1dyk"]
-[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="3_e1dyk"]
 [ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="4_nvihr"]
 [ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="5_78djy"]
+[ext_resource type="PackedScene" uid="uid://cbnmavlqh36sn" path="res://Objects/Enemies/Fat/FatEnemy.tscn" id="5_au8m5"]
 [ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="6_au8m5"]
 [ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="7_yeuls"]
 [ext_resource type="PackedScene" uid="uid://c2a7edly0fwrk" path="res://Objects/Characters/Gunner/Gunner.tscn" id="8_4bpxa"]
@@ -283,7 +283,7 @@ tile_map_data = PackedByteArray("AAAAAAAABAABAAIAAAAAAAEABAABAAQAAAAAAAIABAACAAQ
 tile_set = SubResource("TileSet_h6cj1")
 
 [node name="TileMapDecor" type="TileMapLayer" parent="." unique_id=1405313040]
-tile_map_data = PackedByteArray("AAAAAAAAAQAEAAQAAAACAAUAAQAEAAQAAAALAAUAAQAEAAQAAAAMAAAAAQAEAAQAAAALAAAAAQAEAAQAAAAMAAUAAQAEAAQAAAALAAIAAQAEAAMAAAAKAAIAAQAEAAMAAAALAAQAAQAEAAIAAAALAAMAAQAEAAIAAAALAAEAAQAEAAIAAAAFAAEAAQAEAAIAAAAFAAIAAQAEAAIAAAAFAAMAAQAEAAIAAAAFAAQAAQAEAAIAAAAEAAQAAQAEAAIAAAAEAAMAAQAEAAIAAAAEAAIAAQAEAAIAAAAEAAEAAQAEAAIAAAAGAAAAAQAEAAMAAAAGAAUAAQAEAAMAAAACAAIAAQAEAAMAAAACAAAAAQAEAAMAAAAAAAUAAQAEAAMAAAACAAQAAQAAAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAEAAQAAAACAAUAAQAEAAQAAAALAAUAAQAEAAQAAAAMAAAAAQAEAAQAAAALAAAAAQAEAAQAAAAMAAUAAQAEAAQAAAALAAIAAQAEAAMAAAAKAAIAAQAEAAMAAAALAAQAAQAEAAIAAAALAAMAAQAEAAIAAAALAAEAAQAEAAIAAAAFAAEAAQAEAAIAAAAFAAIAAQAEAAIAAAAFAAMAAQAEAAIAAAAFAAQAAQAEAAIAAAAEAAQAAQAEAAIAAAAEAAMAAQAEAAIAAAAEAAIAAQAEAAIAAAAEAAEAAQAEAAIAAAAGAAAAAQAEAAMAAAAGAAUAAQAEAAMAAAACAAIAAQAEAAMAAAACAAAAAQAEAAMAAAAAAAUAAQAEAAMAAAACAAQAAQAAAAMAAAAHAAAAAQAAAAIAAAAHAAEAAQAAAAIAAAAHAAIAAQAAAAIAAAAHAAMAAQAAAAIAAAAHAAQAAQAAAAIAAAAHAAUAAQAAAAIAAAA=")
 tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
@@ -291,17 +291,14 @@ tile_set = SubResource("TileSet_7pr3o")
 
 [node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("2_2pdfm")]
 
-[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("3_e1dyk")]
-position = Vector2(930, 161)
-scale = Vector2(1.8, 1.8)
+[node name="FatEnemy3" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("5_au8m5")]
+position = Vector2(926, 224)
 
-[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("3_e1dyk")]
-position = Vector2(928, 289)
-scale = Vector2(1.8, 1.8)
+[node name="FatEnemy" parent="EnemyTurnManager" unique_id=717004839 instance=ExtResource("5_au8m5")]
+position = Vector2(927, 160)
 
-[node name="BasicEnemy3" parent="EnemyTurnManager" unique_id=1254000337 instance=ExtResource("3_e1dyk")]
-position = Vector2(927, 94)
-scale = Vector2(1.8, 1.8)
+[node name="FatEnemy2" parent="EnemyTurnManager" unique_id=168419011 instance=ExtResource("5_au8m5")]
+position = Vector2(927, 97)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("4_nvihr")]
 position = Vector2(-124, 107)
