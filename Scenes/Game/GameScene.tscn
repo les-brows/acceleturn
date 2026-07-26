@@ -12,3 +12,11 @@ script = ExtResource("1_afrlh")
 [node name="Walk" type="AudioStreamPlayer" parent="." unique_id=707358834]
 stream = ExtResource("3_afrlh")
 volume_db = -10.947
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=278334192]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26585603, 0.40198198, 0.13424036, 1)
