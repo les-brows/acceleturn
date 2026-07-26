@@ -30,6 +30,12 @@ var TRAPPER_ACTION2_TIME_ADDED: int = -2
 var TRAPPER_ACTION3_TIME_ADDED: int = -5
 var TRAPPER_ACTION4_TIME_ADDED: int = -30
 
+var NUMBER_CELL_X = 15
+var NUMBER_CELL_Y = 6
+var COLUMN_MAX_ENEMIES = 7
+var SIZE_CELL_X :int = 64
+var SIZE_CELL_Y :int = 64
+
 enum StateTurn
 {
 	CHOICE_CHARACTER,
@@ -100,13 +106,5 @@ enum Operations
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
 var curr_action: Globals.CharacterAction = Globals.CharacterAction.DEFAULT
-
-var NUMBER_CELL_X = 15
-var NUMBER_CELL_Y = 6
-var COLUMN_MAX_ENEMIES = 7
-var SIZE_CELL_X :int = 64
-var SIZE_CELL_Y :int = 64
-
 var timerDuration: float = INITIAL_TIME
-
 var timeFreezeTurns = 0
