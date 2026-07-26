@@ -183,13 +183,13 @@ func create_initial_map_from_scene():
 			
 			var IdTile = TileMapDecor.get_cell_atlas_coords(initial_pos)
 			
-			if (IdTile==Vector2i(0,3)):
+			if (IdTile==Vector2i(0,4)):
 				line.append(Globals.TypeCase.TRAP_REPULSE)
 			elif (IdTile==Vector2i(0,1)) :
 				line.append(Globals.TypeCase.TIME_PLUS)
 			elif (IdTile==Vector2i(0,2)) :
 				line.append(Globals.TypeCase.MIDDLE)
-			elif (IdTile==Vector2i(0,0)) :
+			elif (IdTile==Vector2i(0,3)) :
 				line.append(Globals.TypeCase.TIME_MINUS)
 			elif (IdTile==Vector2i(4,3)) :
 				line.append(Globals.TypeCase.BUSH)
@@ -412,7 +412,7 @@ func set_tile(positionTile:Vector2i, typeTile:Globals.TypeCase):
 		Globals.TypeCase.TRAP_ICE:
 			TileMapDecor.set_cell(positionTile, 1, Vector2i(1,0), 0)
 		Globals.TypeCase.TIME_PLUS:
-			TileMapDecor.set_cell(positionTile, 1, Vector2i(0,2), 0)
+			TileMapDecor.set_cell(positionTile, 1, Vector2i(0,3), 0)
 		Globals.TypeCase.TIME_MINUS:
 			TileMapDecor.set_cell(positionTile, 1, Vector2i(0,1), 0)
 		Globals.TypeCase.BUSH:
