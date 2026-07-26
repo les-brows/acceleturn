@@ -20,6 +20,7 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 				Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
 
 		Globals.CharacterAction.ACTION2:
+			# Give time but set time traps
 			var trapPos = Vector2i(6, caseCoords.y)
 			
 			while(_level.get_type_case_from_position(trapPos.x, trapPos.y) != Globals.TypeCase.EMPTY):
@@ -45,6 +46,7 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 				Globals.timerDuration *= Globals.MAGE_ACTION3_TIME_MULT
 
 		Globals.CharacterAction.ACTION4:
+			# Freeze the time change during 3 turns
 			Globals.timeFreezeTurns = Globals.MAGE_ACTION4_DURATION
 			Globals.timerDuration /= Globals.MAGE_ACTION4_TIME_MULT
 

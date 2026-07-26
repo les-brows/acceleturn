@@ -378,13 +378,11 @@ func _on_character_3_button_pressed() -> void:
 func _on_action_1_button_pressed() -> void:
 	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION1)
-	show_ally_dialog("Gunner", "To me! My allies!", Globals.CharacterClass.GUNNER)
 
 
 func _on_action_2_button_pressed() -> void:
 	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION2)
-	Globals.open_popup.emit("Gaster", "I'm green for an amazing reason", Globals.CharacterClass.MAGE)
 
 
 func _on_action_3_button_pressed() -> void:
