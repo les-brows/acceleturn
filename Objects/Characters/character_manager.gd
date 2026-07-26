@@ -59,12 +59,14 @@ func can_choose_tile(tile: Vector2i) -> bool:
 	# Only entities
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION1):
 		if(!(typeCase == Globals.TypeCase.ENEMIES or typeCase == Globals.TypeCase.CHARACTER)):
+			$FailSound.play()
 			return false
 
 	# Only ennemies
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION4 or 
 	   Globals.curr_character == Globals.CharacterClass.MAGE && Globals.curr_action == Globals.CharacterAction.ACTION1 ):
 		if(!(typeCase == Globals.TypeCase.ENEMIES)):
+			$FailSound.play()
 			return false
 			
 	
@@ -72,12 +74,14 @@ func can_choose_tile(tile: Vector2i) -> bool:
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION1):
 		# Check for the gunner
 		if(tile.y != get_gunner().caseCoords.y):
+			$FailSound.play()
 			return false
 	
 	# Only vertical
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION3):
 		# Check for the gunner
 		if(tile.x != get_gunner().caseCoords.x):
+			$FailSound.play()
 			return false
 			
 	# Only nearby
@@ -86,12 +90,14 @@ func can_choose_tile(tile: Vector2i) -> bool:
 		var diff: Vector2i = get_mage().caseCoords - tile
 		print(diff, abs(diff.x), abs(diff.y))
 		if(abs(diff.x) + abs(diff.y) > Globals.MAGE_ACTION1_RANGE):
+			$FailSound.play()
 			return false
 			
 	# Only empty tiles
 	if(Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION2 &&
 		Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION3):
 		if(!(typeCase == Globals.TypeCase.EMPTY)):
+			$FailSound.play()
 			return false
 
 
@@ -149,12 +155,15 @@ func process_character_turn():
 
 	if(Globals.curr_character == Globals.CharacterClass.TRAPPER):
 		get_trapper().act(Globals.curr_action, curr_tile)
-				
+
 	#update freeze
 	get_gunner().updateFreeze()
 	get_mage().updateFreeze()
 	get_trapper().updateFreeze()
 	
+	play_sound()
+
+
 func get_gunner() -> Entity:
 	for child in get_children():
 		if child is Gunner:
@@ -186,3 +195,37 @@ func getAllCharacters() -> Array[Entity]:
 		if child is Entity:
 			all_enemies.append(child)
 	return all_enemies
+
+func play_sound():
+	match Globals.curr_character:
+		Globals.CharacterClass.GUNNER:
+			match Globals.curr_action:
+				Globals.CharacterAction.ACTION1:
+					$ScatterShotPlayer.play()
+				Globals.CharacterAction.ACTION2:
+					$NukePlayer.play()
+				Globals.CharacterAction.ACTION3:
+					$Teleport.play()
+				Globals.CharacterAction.ACTION4:
+					$PowerShot.play()
+		Globals.CharacterClass.MAGE:
+			match Globals.curr_action:
+				Globals.CharacterAction.ACTION1:
+					$MagicMissile.play()
+				Globals.CharacterAction.ACTION2:
+					$TimeScramble.play()
+				Globals.CharacterAction.ACTION3:
+					$Backtracking.play()
+				Globals.CharacterAction.ACTION4:
+					$TimeWarp.play()
+		Globals.CharacterClass.TRAPPER:
+			match Globals.curr_action:
+				Globals.CharacterAction.ACTION1:
+					$Freeze.play()
+				Globals.CharacterAction.ACTION2:
+					$PlaceTrap.play()
+				Globals.CharacterAction.ACTION3:
+					$Tree.play()
+				Globals.CharacterAction.ACTION4:
+					$BlackHole.play()
+	

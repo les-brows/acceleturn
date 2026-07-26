@@ -22,8 +22,7 @@ SceneTransition="*uid://8dc2ml5j56wu"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
 
 [input]
 
