@@ -61,6 +61,7 @@ func _ready() -> void:
 	Globals.state_started.connect(_on_state_started_received)
 	Globals.state_finished.connect(_on_state_finished_received)
 	Globals.movement_hovered.connect(_on_hover_movement)
+	display_text_modifier(Globals.Operations.ADD, 5)
 
 
 func _process(_delta) -> void:
@@ -98,6 +99,7 @@ func _on_state_started_received(state: Globals.StateTurn) -> void:
 				start_timer(Globals.timerDuration)
 			hide_action_menu()
 			show_character_menu()
+			display_text_modifier(Globals.Operations.ADD, 5)
 
 		Globals.StateTurn.CHOICE_ACTION:
 			hide_character_menu()
@@ -247,7 +249,7 @@ func _on_hover_action(action: Globals.CharacterAction):
 		Globals.CharacterClass.GUNNER:
 			match action:
 				Globals.CharacterAction.ACTION1:
-					pass # TODO : Unclear ?
+					display_text_modifier(Globals.Operations.ADD, 0)
 				Globals.CharacterAction.ACTION2:
 					display_popup("Hiii!")
 					display_text_modifier(Globals.Operations.SUB, 5)
@@ -261,7 +263,7 @@ func _on_hover_action(action: Globals.CharacterAction):
 		Globals.CharacterClass.MAGE:
 			match action:
 				Globals.CharacterAction.ACTION1:
-					pass # TODO : Unclear ?
+					display_text_modifier(Globals.Operations.ADD, 0)
 				Globals.CharacterAction.ACTION2:
 					display_text_modifier(Globals.Operations.ADD, 10)
 				Globals.CharacterAction.ACTION3:
@@ -272,7 +274,7 @@ func _on_hover_action(action: Globals.CharacterAction):
 		Globals.CharacterClass.TRAPPER:
 			match action:
 				Globals.CharacterAction.ACTION1:
-					pass # TODO : Unclear ?
+					display_text_modifier(Globals.Operations.ADD, 0)
 				Globals.CharacterAction.ACTION2:
 					display_text_modifier(Globals.Operations.SUB, 2)
 				Globals.CharacterAction.ACTION3:
@@ -282,10 +284,14 @@ func _on_hover_action(action: Globals.CharacterAction):
 
 func display_text_modifier(operation: Globals.Operations, value: int):
 	# Set color
+	textModifier["theme_override_colors/default_color"] = Color8(242,0,15)
+	
 	if operation == Globals.Operations.ADD or operation == Globals.Operations.MUL:
 		textModifier["theme_override_colors/default_color"] = Color8(26,255,15)
-	else:
-		textModifier["theme_override_colors/default_color"] = Color8(242,0,15)
+		
+	if value == 0:
+		textModifier["theme_override_colors/default_color"] = Color8(255,255,255)
+		
 		
 	# Set operator
 	var operator_text = ""
@@ -405,20 +411,20 @@ func _on_action_4_button_mouse_entered() -> void:
 
 
 func _on_action_1_button_mouse_exited() -> void:
-	hide_text_modifier()
+	display_text_modifier(Globals.Operations.ADD, 5)
 	hide_popup()
 
 
 func _on_action_2_button_mouse_exited() -> void:
-	hide_text_modifier()
+	display_text_modifier(Globals.Operations.ADD, 5)
 	hide_popup()
 
 
 func _on_action_3_button_mouse_exited() -> void:
-	hide_text_modifier()
+	display_text_modifier(Globals.Operations.ADD, 5)
 	hide_popup()
 
 
 func _on_action_4_button_mouse_exited() -> void:
-	hide_text_modifier()
+	display_text_modifier(Globals.Operations.ADD, 5)
 	hide_popup()
