@@ -96,8 +96,7 @@ func can_player_move_to_coordinates(coordinates: Vector2):
 		return false
 		
 	var tileType: Globals.TypeCase = get_type_case_from_position(int(coordinates.x), int(coordinates.y))
-	if(tileType != Globals.TypeCase.EMPTY and tileType != Globals.TypeCase.ENEMIES):
-		# EXTREMELY INCORRECT !!! We're waiting for get_type_case_from_position to be fixed
+	if(tileType == Globals.TypeCase.CHARACTER or tileType == Globals.TypeCase.TREE or  tileType == Globals.TypeCase.BUSH or tileType == Globals.TypeCase.ICE):
 		return false
 	
 	return true
