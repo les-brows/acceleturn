@@ -23,7 +23,11 @@ func _init() -> void:
 	
 func _ready()-> void :
 	create_initial_map_from_scene()
-
+	
+	enemyTurnManager.init_enemies_positions()
+	characterManager.init_characters_positions()
+	
+	
 func _process(_delta):
 	if Input.is_action_just_pressed("input_cancel"):
 		# You can only cancel from the action selection and target selection states
@@ -58,6 +62,7 @@ func _on_player_choose_character(character: Globals.CharacterClass):
 	
 func show_player_move_ui(player_node: Node2D):
 	var characterTileCoordinates = TileMapGround.local_to_map(player_node.position)
+	print(characterTileCoordinates)
 	CharacterSelectionAnimation.position = TileMapGround.map_to_local(characterTileCoordinates) + TileMapGround.get_parent().position
 	CharacterSelectionAnimation.visible = true
 	CharacterSelectionAnimation.play("default")
@@ -161,6 +166,7 @@ func get_map_position_from_mouse() -> Vector2i:
 func create_initial_map_from_scene():
 	var initial_pos:Vector2
 	var line :Array 
+	caseContent=[]
 	for i in range(Globals.NUMBER_CELL_Y):
 		initial_pos.y=i
 		for j in range(Globals.NUMBER_CELL_X):
@@ -192,15 +198,16 @@ func create_initial_map_from_scene():
 
 	
 func getCoordinatesFromPostionAbsolute(initial_pos: Vector2) -> Vector2i:
-	var current_tile = get_node("TileMapGround").local_to_map(initial_pos)
-	var tile_position: Vector2
-	tile_position =  get_node("TileMapGround").map_to_local(current_tile)
-	var result : Vector2  
-
-	result.x = tile_position.x / Globals.SIZE_CELL_X
-	result.y = tile_position.y / Globals.SIZE_CELL_Y 
-
-	return result
+	#var current_tile = get_node("TileMapGround").local_to_map(initial_pos)
+	#var tile_position: Vector2
+	#tile_position =  get_node("TileMapGround").map_to_local(current_tile)
+	#var result : Vector2  
+#
+	#result.x = tile_position.x / Globals.SIZE_CELL_X
+	#result.y = tile_position.y / Globals.SIZE_CELL_Y 
+	#print(initial_pos)- TileMapGround.get_parent().positio
+	return TileMapGround.local_to_map(initial_pos)
+	
 
 func getPostionAbsoluteFromCoordinates( columnIndex : int ,lineIndex : int ) -> Vector2i:
 	var postion = Vector2(columnIndex*64,lineIndex*64)
@@ -219,9 +226,9 @@ func create_initial_map():
 	for i in range(Globals.NUMBER_CELL_Y):
 		for j in range(Globals.NUMBER_CELL_X):
 			if(j==3):
-				line.append(Globals.TypeCase.BUSH)
+				line.append(Globals.TypeCase.EMPTY)
 			elif (i==2 && j==4) :
-				line.append(Globals.TypeCase.TREE)
+				line.append(Globals.TypeCase.EMPTY)
 			else :
 				line.append(Globals.TypeCase.EMPTY)
 				

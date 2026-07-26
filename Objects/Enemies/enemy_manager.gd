@@ -3,7 +3,7 @@ extends Node2D
 
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started)
-	init_enemies_positions()
+	#init_enemies_positions()
 
 
 func _on_state_started(state: Globals.StateTurn):
