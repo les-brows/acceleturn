@@ -556,63 +556,62 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Time" type="MarginContainer" parent="." unique_id=1075161957]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -90.579956
-offset_right = -0.57995605
-grow_horizontal = 0
+offset_right = 70.0
 grow_vertical = 2
 theme_override_constants/margin_bottom = 140
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Time" unique_id=732379093]
+[node name="HBoxContainer" type="HBoxContainer" parent="Time" unique_id=109927335]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Time/VBoxContainer" unique_id=1422763765]
+[node name="VBoxContainer" type="VBoxContainer" parent="Time/HBoxContainer" unique_id=732379093]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Time/HBoxContainer/VBoxContainer" unique_id=1422763765]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Time/VBoxContainer/MarginContainer" unique_id=313024545]
+[node name="MarginContainer" type="MarginContainer" parent="Time/HBoxContainer/VBoxContainer/MarginContainer" unique_id=313024545]
 layout_mode = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 34
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 35
+theme_override_constants/margin_bottom = 50
 
-[node name="TimeBar" type="ColorRect" parent="Time/VBoxContainer/MarginContainer/MarginContainer" unique_id=181212306]
+[node name="TimeBar" type="ColorRect" parent="Time/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=181212306]
 unique_name_in_owner = true
 layout_mode = 2
 color = Color(0.16078432, 0.7764706, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="Time/VBoxContainer/MarginContainer" unique_id=320445559]
+[node name="TextureRect" type="TextureRect" parent="Time/HBoxContainer/VBoxContainer/MarginContainer" unique_id=320445559]
 texture_filter = 3
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 texture = ExtResource("4_gkwei")
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="Time/VBoxContainer/MarginContainer" unique_id=518280847]
+[node name="MarginContainer2" type="MarginContainer" parent="Time/HBoxContainer/VBoxContainer/MarginContainer" unique_id=518280847]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 34
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 35
 
-[node name="FireAnimation" type="TextureRect" parent="Time/VBoxContainer/MarginContainer/MarginContainer2" unique_id=1082419084]
+[node name="FireAnimation" type="TextureRect" parent="Time/HBoxContainer/VBoxContainer/MarginContainer/MarginContainer2" unique_id=1082419084]
 unique_name_in_owner = true
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AnimatedTexture_pa3om")
 stretch_mode = 4
 
-[node name="MarginContainer2" type="MarginContainer" parent="Time/VBoxContainer" unique_id=1385725970]
+[node name="MarginContainer2" type="MarginContainer" parent="Time/HBoxContainer/VBoxContainer" unique_id=1385725970]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="TimerText" type="RichTextLabel" parent="Time/VBoxContainer/MarginContainer2" unique_id=733172208]
+[node name="TimerText" type="RichTextLabel" parent="Time/HBoxContainer/VBoxContainer/MarginContainer2" unique_id=733172208]
 unique_name_in_owner = true
 clip_contents = false
 layout_mode = 2
@@ -627,16 +626,55 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 171
 
-[node name="Timer" type="Timer" parent="Time/VBoxContainer/MarginContainer2" unique_id=181310528]
+[node name="Timer" type="Timer" parent="Time/HBoxContainer/VBoxContainer/MarginContainer2" unique_id=181310528]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="VBox2" type="VBoxContainer" parent="Time/HBoxContainer" unique_id=1578362287]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="EmptyText" type="RichTextLabel" parent="Time/HBoxContainer/VBox2" unique_id=1683786257]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Time/HBoxContainer/VBox2" unique_id=178441163]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="ModifierText" type="RichTextLabel" parent="Time/HBoxContainer/VBox2/MarginContainer2" unique_id=47196596]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/default_color = Color(0.9490196, 0, 0.05882353, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 40
+vertical_alignment = 1
+justification_flags = 171
 
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/CharacterButton" to="." method="_on_character_2_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3/CharacterButton" to="." method="_on_character_3_button_pressed"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/MarginContainer/CancelAction" to="." method="_on_cancel_action_pressed"]
+[connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton" to="." method="_on_action_1_button_mouse_entered"]
+[connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton" to="." method="_on_action_1_button_mouse_exited"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton" to="." method="_on_action_1_button_pressed"]
+[connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg2/ActionButton" to="." method="_on_action_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg2/ActionButton" to="." method="_on_action_2_button_mouse_exited"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg2/ActionButton" to="." method="_on_action_2_button_pressed"]
+[connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton" to="." method="_on_action_3_button_mouse_entered"]
+[connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton" to="." method="_on_action_3_button_mouse_exited"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton" to="." method="_on_action_3_button_pressed"]
+[connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton" to="." method="_on_action_4_button_mouse_entered"]
+[connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton" to="." method="_on_action_4_button_mouse_exited"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton" to="." method="_on_action_4_button_pressed"]
-[connection signal="timeout" from="Time/VBoxContainer/MarginContainer2/Timer" to="." method="_on_local_timer_end"]
+[connection signal="timeout" from="Time/HBoxContainer/VBoxContainer/MarginContainer2/Timer" to="." method="_on_local_timer_end"]
