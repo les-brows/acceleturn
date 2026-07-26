@@ -61,15 +61,19 @@ func _move(move_direction: Vector2i)-> bool :
 			if(case==Globals.TypeCase.ENEMIES):
 				##Suprime le node d'arrivé
 				var toDel: Entity  = _level.get_entity_at_pos(newCoords)
-				print("Del enemies", toDel,_level.caseContent, newCoords )
+				#print("Del enemies", toDel,_level.caseContent, newCoords )
 				if(toDel != null):
 					toDel.queue_free()
-			
-			
 				
 			if(case == Globals.TypeCase.MIDDLE):
-				print("END !!!! obectif_game_over()", obectif_game_over())
-				Globals.level_finished.emit(obectif_game_over())
+				if(WinIfMiddle()):
+					print("END !!!! obectif_game_over()", obectif_game_over())
+					Globals.level_finished.emit(obectif_game_over())
+					
+				else :
+					Globals.timerDuration=0
+					queue_free()
+					return false
 			# if possible
 			if(case != Globals.TypeCase.ICE && case != Globals.TypeCase.CHARACTER ):
 				if(is_ghost() || (case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH)):
@@ -78,18 +82,21 @@ func _move(move_direction: Vector2i)-> bool :
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
 					if(!is_ghost() && case == Globals.TypeCase.TRAP_ICE ): 
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
+						
 					if(!is_ghost() && case==Globals.TypeCase.TIME_PLUS):
 						Globals.timerDuration+=Globals.CASE_TIME_PLUS
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
+					
 					if(!is_ghost() && case==Globals.TypeCase.TIME_MINUS):
 						Globals.timerDuration=-Globals.CASE_TIME_MINUS
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
-					if(!is_ghost() && case==Globals.TypeCase.TIME_MINUS):
-						Globals.timerDuration=-Globals.CASE_TIME_MINUS
-						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
+						
+						
 					if(!is_ghost() && case==Globals.TypeCase.MUD):
 						isBlockedbyMud=true 
 						_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
+						
+						
 					_level.update_case(caseCoords.x, caseCoords.y,lastCaseGhost )
 
 					if(is_ghost()):
@@ -160,3 +167,7 @@ func obectif_game_over()->bool:
 func get_case_entity() ->Globals.TypeCase:
 	print("Default get_case_entity :: ERROR !!!!")
 	return  Globals.TypeCase.ENEMIES
+
+
+func WinIfMiddle()-> bool :
+	return true
