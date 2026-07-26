@@ -61,6 +61,8 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 174.0
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_bottom = 140
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Time" unique_id=109927335]
@@ -169,6 +171,7 @@ offset_left = -500.0
 offset_right = -500.0
 offset_bottom = 190.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 800
