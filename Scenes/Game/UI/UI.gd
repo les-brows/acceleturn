@@ -168,7 +168,7 @@ func update_action_menu_labels():
 			ActionButtonLabels[3].text = "Powerful Scattering Shot"
 		Globals.CharacterClass.MAGE:
 			ActionButtonLabels[0].text = "Magic Missile"
-			ActionButtonLabels[1].text = "Enemy Duplication"
+			ActionButtonLabels[1].text = "Time scramble"
 			ActionButtonLabels[2].text = "Backtracking"
 			ActionButtonLabels[3].text = "Time Warp"
 		Globals.CharacterClass.TRAPPER:
