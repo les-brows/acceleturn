@@ -36,6 +36,8 @@ enum StateTurn
 signal state_finished(state: StateTurn)
 @warning_ignore("unused_signal")
 signal state_started(state: StateTurn)
+@warning_ignore("unused_signal")
+signal movement_hovered(action: Globals.CharacterAction)
 
 
 enum CharacterAction
@@ -75,6 +77,14 @@ enum TypeCase
 	TIME_PLUS,
 	TIME_MINUS,
 	MUD
+}
+
+enum Operations
+{
+	ADD,
+	SUB,
+	MUL,
+	DIV
 }
 
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER

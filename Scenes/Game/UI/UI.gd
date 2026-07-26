@@ -33,6 +33,8 @@ extends CanvasLayer
 @onready var timer = $%Timer
 @onready var timerText = $%TimerText
 
+@onready var textModifier = $%ModifierText
+
 var trasitionDuration: float = 0.2
 
 var initialFirePos: Vector2 = Vector2(0,0)
@@ -55,13 +57,14 @@ signal _on_timer_end()
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started_received)
 	Globals.state_finished.connect(_on_state_finished_received)
+	Globals.movement_hovered.connect(_on_hover_action)
 
 
 func _process(_delta) -> void:
 	if first_process_run:
 		timeBar.rotation_degrees = 180
 		timeBar.position += timeBar.size
-		fireAnimation.position.y -= 110 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
+		fireAnimation.position.y -= 55 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
 		initialFirePos = fireAnimation.position
 		first_process_run = false
 		
@@ -211,7 +214,7 @@ func start_timer(timeToFinish: float):
 
 	# We want to keep the X size but set Y to 0
 	fireAnimation.position.y = initialFirePos.y
-	var targetPosition: Vector2 = Vector2(initialFirePos.x, fireAnimation.size.y + fireAnimation.position.y)
+	var targetPosition: Vector2 = Vector2(initialFirePos.x, fireAnimation.size.y + fireAnimation.position.y - 25)
 
 	tweenTimeBarColor.tween_property(timeBar, "color", Color8(178, 0, 43), timeToFinish).set_trans(Tween.TRANS_LINEAR)
 	tweenTimeBarSize.tween_property(timeBar, "scale", Vector2(1, 0), timeToFinish).set_trans(Tween.TRANS_LINEAR)
@@ -223,6 +226,79 @@ func stop_timer():
 	tweenTimeBarColor.pause()
 	tweenTimeBarSize.pause()
 	tweenFirePosition.pause()
+
+# ------------ Time Modificator functions -------------------
+
+func _on_hover_action(action: Globals.CharacterAction):
+	var movements = [
+		Globals.CharacterAction.MOVE_LEFT,
+		Globals.CharacterAction.MOVE_RIGHT,
+		Globals.CharacterAction.MOVE_UP,
+		Globals.CharacterAction.MOVE_DOWN
+	]
+	
+	if action in movements:
+		display_text_modifier(Globals.Operations.SUB, 3)
+		
+	
+	match Globals.curr_character:
+		Globals.CharacterClass.GUNNER:
+			match action:
+				Globals.CharacterAction.ACTION1:
+					pass # TODO : Unclear ?
+				Globals.CharacterAction.ACTION2:
+					display_text_modifier(Globals.Operations.SUB, 5)
+				Globals.CharacterAction.ACTION3:
+					display_text_modifier(Globals.Operations.SUB, 1)
+				Globals.CharacterAction.ACTION4:
+					display_text_modifier(Globals.Operations.SUB, 20)
+					
+		Globals.CharacterClass.MAGE:
+			match action:
+				Globals.CharacterAction.ACTION1:
+					pass # TODO : Unclear ?
+				Globals.CharacterAction.ACTION2:
+					display_text_modifier(Globals.Operations.ADD, 10)
+				Globals.CharacterAction.ACTION3:
+					display_text_modifier(Globals.Operations.MUL, 2)
+				Globals.CharacterAction.ACTION4:
+					display_text_modifier(Globals.Operations.DIV, 4)
+					
+		Globals.CharacterClass.TRAPPER:
+			match action:
+				Globals.CharacterAction.ACTION1:
+					pass # TODO : Unclear ?
+				Globals.CharacterAction.ACTION2:
+					display_text_modifier(Globals.Operations.SUB, 2)
+				Globals.CharacterAction.ACTION3:
+					display_text_modifier(Globals.Operations.SUB, 5)
+				Globals.CharacterAction.ACTION4:
+					display_text_modifier(Globals.Operations.SUB, 30)
+
+func display_text_modifier(operation: Globals.Operations, value: int):
+	# Set color
+	if operation == Globals.Operations.ADD or operation == Globals.Operations.MUL:
+		textModifier["theme_override_colors/default_color"] = Color8(26,255,15)
+	else:
+		textModifier["theme_override_colors/default_color"] = Color8(242,0,15)
+		
+	# Set operator
+	var operator_text = ""
+	match operation:
+		Globals.Operations.ADD:
+			operator_text = "+"
+		Globals.Operations.SUB:
+			operator_text = "-"
+		Globals.Operations.MUL:
+			operator_text = "x"
+		Globals.Operations.DIV:
+			operator_text = "/"
+			
+	textModifier.text = operator_text + str(value)
+
+
+func hide_text_modifier():
+	textModifier.text = ""
 
 
 # ------------ Dialogue functions -------------------
@@ -287,3 +363,35 @@ func _on_local_timer_end() -> void:
 
 func _on_cancel_action_pressed() -> void:
 	_on_choose_action.emit(Globals.CharacterAction.CANCEL)
+
+
+func _on_action_1_button_mouse_entered() -> void:
+	_on_hover_action(Globals.CharacterAction.ACTION1)
+
+
+func _on_action_2_button_mouse_entered() -> void:
+	_on_hover_action(Globals.CharacterAction.ACTION2)
+
+
+func _on_action_3_button_mouse_entered() -> void:
+	_on_hover_action(Globals.CharacterAction.ACTION3)
+
+
+func _on_action_4_button_mouse_entered() -> void:
+	_on_hover_action(Globals.CharacterAction.ACTION4)
+
+
+func _on_action_1_button_mouse_exited() -> void:
+	hide_text_modifier()
+
+
+func _on_action_2_button_mouse_exited() -> void:
+	hide_text_modifier()
+
+
+func _on_action_3_button_mouse_exited() -> void:
+	hide_text_modifier()
+
+
+func _on_action_4_button_mouse_exited() -> void:
+	hide_text_modifier()

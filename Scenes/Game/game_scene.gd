@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var uiMenu = $UI
 @onready var level = $Level
