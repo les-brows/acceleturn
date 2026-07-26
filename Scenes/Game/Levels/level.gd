@@ -28,7 +28,7 @@ func _ready()-> void :
 	characterManager.init_characters_positions()
 	
 	
-	position = Vector2(185, 60)
+	position = Vector2(150, 60)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("input_cancel"):
