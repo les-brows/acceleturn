@@ -48,7 +48,15 @@ func set_current_tile(tile: Vector2i):
 	curr_tile = tile
 
 func can_choose_tile(tile: Vector2i) -> bool:
-	return true;
+	var typeCase: Globals.TypeCase = get_parent().get_type_case_from_position(tile.x, tile.y)
+	print(typeCase)
+	# Only entities
+	
+	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION1):
+		if(typeCase == Globals.TypeCase.ENEMIES or typeCase == Globals.TypeCase.CHARACTER):
+			return true
+		return false
+	return true
 
 func action_needs_target() -> bool:
 	match Globals.curr_character:
