@@ -162,3 +162,10 @@ func getEntityAtPos(tile : Vector2i) -> Entity:
 			if(child.caseCoords == tile):
 				return	child
 	return null
+
+func getAllCharacters() -> Array[Entity]:
+	var all_enemies : Array[Entity] = []
+	for child in get_children():
+		if child is Entity:
+			all_enemies.append(child)
+	return all_enemies
