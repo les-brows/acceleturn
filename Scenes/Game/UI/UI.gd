@@ -61,6 +61,7 @@ func _ready() -> void:
 	Globals.state_started.connect(_on_state_started_received)
 	Globals.state_finished.connect(_on_state_finished_received)
 	Globals.movement_hovered.connect(_on_hover_movement)
+	Globals.open_popup.connect(show_ally_dialog)
 	display_text_modifier(Globals.Operations.ADD, 5)
 
 
@@ -330,25 +331,33 @@ func hide_popup():
 
 
 func show_ally_dialog(characterName: String, text: String, character: Globals.CharacterClass):
-	allyDialogName = characterName
-	allyDialogText = text
+	allyDialogName.text = characterName
+	allyDialogText.text = text
 	
 	match character:
 		Globals.CharacterClass.GUNNER:
-			allyDialogImage = "res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg"
+			allyDialogImage.texture = load("res://Assets/Sprite/Cowboy base.png")
 		
 		Globals.CharacterClass.MAGE:
-			allyDialogImage = "res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg"
+			allyDialogImage.texture = load("res://Assets/Sprite/Mage.png")
 		
 		Globals.CharacterClass.TRAPPER:
-			allyDialogImage = "res://Assets/UI/artworks-byEI1Ks9SQr13Gn3-zZIJGw-t1080x1080.jpg"
+			allyDialogImage.texture = load("res://Assets/Sprite/Traper.png")
 	
 	tweenAllyDialog = get_tree().create_tween()
 	tweenAllyDialog.tween_property(dialogAlly, "position", Vector2(0, 0), trasitionDuration).set_trans(Tween.TRANS_BACK)
+	
+	await sleep(3.0)
+	hide_ally_dialog()
+
 
 func hide_ally_dialog():
 	tweenAllyDialog = get_tree().create_tween()
 	tweenAllyDialog.tween_property(dialogAlly, "position", Vector2(-500, 0), trasitionDuration).set_trans(Tween.TRANS_BACK)
+
+
+func sleep(seconds: float)->void:
+	await get_tree().create_timer(seconds).timeout
 
 
 # ------------ Button Callbacks functions -------------------
@@ -369,11 +378,13 @@ func _on_character_3_button_pressed() -> void:
 func _on_action_1_button_pressed() -> void:
 	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION1)
+	show_ally_dialog("Gunner", "To me! My allies!", Globals.CharacterClass.GUNNER)
 
 
 func _on_action_2_button_pressed() -> void:
 	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION2)
+	Globals.open_popup.emit("Gaster", "I'm green for an amazing reason", Globals.CharacterClass.MAGE)
 
 
 func _on_action_3_button_pressed() -> void:
