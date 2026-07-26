@@ -33,7 +33,7 @@ func _process(_delta):
 				var positionmouse: Vector2i = get_map_position_from_mouse()
 				get_type_case_from_position(positionmouse.x, positionmouse.y)
 				getPostionAbsoluteFromCoordinates(positionmouse.x, positionmouse.y)
-				print("absolute , ", positionmouse)
+				#print("absolute , ", positionmouse)
 				clicked = true
 				if(characterManager.can_choose_tile(positionmouse)):
 					characterManager.set_current_tile(positionmouse)
@@ -44,7 +44,7 @@ func _process(_delta):
 
 
 func _on_player_choose_character(character: Globals.CharacterClass):
-	print("Choose player %d " % character)
+	#print("Choose player %d " % character)
 	characterChosen = character
 	characterManager.set_current_character(characterChosen)
 	show_player_move_ui(characterManager.get_current_character_node())
@@ -111,7 +111,7 @@ func hide_target_choice_ui():
 
 
 func _on_player_choose_action(action: Globals.CharacterAction):
-	print("Choose action %d " % action)
+	#print("Choose action %d " % action)
 	characterManager.set_current_action(action)
 	Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
 
@@ -240,6 +240,18 @@ func get_entity_at_pos(tile_pos: Vector2i) -> Entity:
 		return entity
 	entity = enemyTurnManager.getEntityAtPos(tile_pos)
 	return entity
+
+# Zone start < Zone end
+func get_entities_in_zone(zone_start: Vector2i, zone_end: Vector2i) -> Array[Entity]:
+	var list_entities: Array[Entity] = []
+	for x in range(zone_start.x, zone_end.x + 1):
+		for y in range(zone_start.y, zone_end.y + 1):
+			var entity: Entity = get_entity_at_pos(Vector2i(x, y))
+			print("Search entity at ", Vector2i(x,y), " found ", entity)
+			if entity != null:
+				list_entities.append(entity)
+	return list_entities
+
 
 func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase ) ->bool :
 	var success : bool =true

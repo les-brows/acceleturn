@@ -15,9 +15,15 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			var entity: Entity = _level.get_entity_at_pos(tile)
 			var pushDistance: int =  Globals.GUNNER_ACTION1_PUSH_DISTANCE_CHARACTER if entity.is_character() else Globals.GUNNER_ACTION1_PUSH_DISTANCE_ENNEMY
 			var diff = caseCoords - entity.caseCoords
-			entity.move(-diff.sign() * pushDistance)
+			entity.move(Vector2i(-diff.sign().x * pushDistance, 0))
 			Globals.timerDuration += Globals.GUNNER_ACTION1_TIME_ADDED
 		Globals.CharacterAction.ACTION2:
+			# Nuke
+			var zoneStart = tile - Vector2i(Globals.GUNNER_ACTION2_RANGE, Globals.GUNNER_ACTION2_RANGE)
+			var zoneEnd = tile + Vector2i(Globals.GUNNER_ACTION2_RANGE, Globals.GUNNER_ACTION2_RANGE)
+			for entity in _level.get_entities_in_zone(zoneStart, zoneEnd):
+				var diff = tile - entity.caseCoords
+				entity.move(-diff.sign() * Globals.GUNNER_ACTION2_PUSH_DISTANCE)
 			Globals.timerDuration += Globals.GUNNER_ACTION2_TIME_ADDED
 		Globals.CharacterAction.ACTION3:
 			Globals.timerDuration += Globals.GUNNER_ACTION3_TIME_ADDED

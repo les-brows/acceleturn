@@ -15,7 +15,7 @@ func update_visual():
 
 func move(move_direction: Vector2i): 
 	var move_after: bool = true 
-	print("Move Global  : ", move_direction)
+	#print("Move Global  : ", move_direction)
 	while move_direction.x != 0 && move_after :
 		if(move_direction.x >= 0 ):
 			move_after = _move(Vector2i(1,0))
@@ -35,7 +35,7 @@ func move(move_direction: Vector2i):
 
 #move after 
 func _move(move_direction: Vector2i)-> bool : 
-	print("Move  : ", move_direction)
+	#print("Move  : ", move_direction)
 	var newCoords = caseCoords+ move_direction
 	#print("caseCoords", caseCoords, "newCoords", newCoords)
 	var TRAP_REPULSE
@@ -74,7 +74,6 @@ func _move(move_direction: Vector2i)-> bool :
 	else :
 		#print("Limit map ")
 		move_after=true
-	print("Move after: ", move_after)
 	return move_after 
 
 func is_ghost():
