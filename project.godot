@@ -22,6 +22,8 @@ SceneTransition="*uid://8dc2ml5j56wu"
 
 [display]
 
+window/size/mode=3
+window/size/borderless=true
 window/stretch/mode="viewport"
 
 [input]
