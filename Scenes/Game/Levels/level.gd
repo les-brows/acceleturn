@@ -2,6 +2,7 @@ class_name Level
 extends Node2D
 
 @onready var TileMapGround: TileMapLayer = $TileMapGround
+@onready var TileMapDecor: TileMapLayer = $TileMapDecor
 @onready var CharacterSelectionAnimation: AnimatedSprite2D = $MovementUI/CharacterSelection
 @onready var TargetSelectionAnimation: AnimatedSprite2D = $TargetChoiceUI/TargetSelection
 
@@ -20,6 +21,9 @@ func _init() -> void:
 	await SceneTransition.open_circle()
 	
 	
+func _ready()-> void :
+	create_initial_map_from_scene()
+
 func _process(_delta):
 	if(TargetSelectionAnimation.visible):
 		var characterTileCoordinates = get_map_position_from_mouse()
@@ -142,6 +146,39 @@ func _on_state_finished(state: Globals.StateTurn):
 func get_map_position_from_mouse() -> Vector2i:
 	return TileMapGround.local_to_map(get_global_mouse_position() - TileMapGround.get_parent().position)
 
+func create_initial_map_from_scene():
+	var initial_pos:Vector2
+	var line :Array 
+	for i in range(Globals.NUMBER_CELL_Y):
+		initial_pos.y=i
+		for j in range(Globals.NUMBER_CELL_X):
+			initial_pos.x=j
+			#var nodeDecor = get_node("TileMapDecor") # : TileMapLayer
+			
+			var IdTile = TileMapDecor.get_cell_atlas_coords(initial_pos)
+			
+			if (IdTile==Vector2i(0,3)):
+				line.append(Globals.TypeCase.TRAP_REPULSE)
+			elif (IdTile==Vector2i(0,1)) :
+				line.append(Globals.TypeCase.TIME_PLUS)
+			elif (IdTile==Vector2i(0,2)) :
+				line.append(Globals.TypeCase.MIDDLE)
+			elif (IdTile==Vector2i(0,0)) :
+				line.append(Globals.TypeCase.TIME_MINUS)
+			elif (IdTile==Vector2i(4,3)) :
+				line.append(Globals.TypeCase.BUSH)
+			elif (IdTile==Vector2i(4,4)) :
+				line.append(Globals.TypeCase.TREE)
+			elif (IdTile==Vector2i(4,2)) :
+				line.append(Globals.TypeCase.MUD)
+			else :
+				line.append(Globals.TypeCase.EMPTY)
+				
+		caseContent.append(line)
+		line=[]
+	print(caseContent)
+
+	
 func getCoordinatesFromPostionAbsolute(initial_pos: Vector2) -> Vector2i:
 	var current_tile = get_node("TileMapGround").local_to_map(initial_pos)
 	var tile_position: Vector2
