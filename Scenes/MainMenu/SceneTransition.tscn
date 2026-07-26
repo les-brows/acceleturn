@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://8dc2ml5j56wu"]
+
+[ext_resource type="Shader" uid="uid://ceeh17namdrb3" path="res://Scenes/MainMenu/SceneTransition.gdshader" id="1_g4e43"]
+[ext_resource type="Script" uid="uid://pd1plehx3bg4" path="res://Scenes/MainMenu/scene_transition.gd" id="1_mgxex"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv7jm"]
+shader = ExtResource("1_g4e43")
+shader_parameter/circle_size = 0.0
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+
+[sub_resource type="Animation" id="Animation_kw50f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ejmu7"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.05, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6ydxh"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.05]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bg0w"]
+_data = {
+&"RESET": SubResource("Animation_kw50f"),
+&"close": SubResource("Animation_ejmu7"),
+&"open": SubResource("Animation_6ydxh")
+}
+
+[node name="SceneTransition" type="Control" unique_id=1128053812]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgxex")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112974603]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=552525619]
+material = SubResource("ShaderMaterial_dv7jm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect" unique_id=1932135201]
+libraries/ = SubResource("AnimationLibrary_1bg0w")

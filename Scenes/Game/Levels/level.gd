@@ -17,6 +17,7 @@ var caseContent : Array[Array]=[]
 func _init() -> void:
 	Globals.state_finished.connect(_on_state_finished)
 	create_initial_map()
+	await SceneTransition.open_circle()
 	
 	
 func _process(_delta):

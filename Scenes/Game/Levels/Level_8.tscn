@@ -276,6 +276,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnq1e"]
 size = Vector2(30, 30)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_731si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d1em6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4h53x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="Level" type="Node2D" unique_id=1804012200]
 script = ExtResource("1_731si")
 
@@ -370,3 +384,10 @@ texture = ExtResource("13_av7ms")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" unique_id=264444238]
 shape = SubResource("RectangleShape2D_jnq1e")
+
+[node name="TargetChoiceUI" type="Node" parent="." unique_id=2119830987]
+
+[node name="TargetSelection" type="AnimatedSprite2D" parent="TargetChoiceUI" unique_id=1149723446]
+visible = false
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_731si")
