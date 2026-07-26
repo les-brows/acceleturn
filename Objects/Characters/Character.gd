@@ -3,7 +3,7 @@ extends Entities
 
 
 func act(action: Globals.CharacterAction):
-
+	print("act:", action)
 	match action:
 		Globals.CharacterAction.MOVE_LEFT:
 			move(Vector2i(-1, 0))

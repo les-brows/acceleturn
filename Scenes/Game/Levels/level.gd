@@ -281,15 +281,23 @@ func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement :
 func _on_right_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
 		print('clicked right!')
+		characterManager.set_current_action(Globals.CharacterAction.MOVE_RIGHT)
+		Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
 
 func _on_left_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
 		print('clicked left!')
+		characterManager.set_current_action(Globals.CharacterAction.MOVE_LEFT)
+		Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
 
 func _on_down_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
 		print('clicked down!')
+		characterManager.set_current_action(Globals.CharacterAction.MOVE_DOWN)
+		Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
 		
 func _on_top_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.is_pressed():
 		print('clicked up!')
+		characterManager.set_current_action(Globals.CharacterAction.MOVE_UP)
+		Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)

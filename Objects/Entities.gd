@@ -30,7 +30,7 @@ func move(move_direction: Vector2i):
 		
 			move_direction.y-=1
 		else : 
-			stop=_move(Vector2i())
+			stop=_move(Vector2i(0, 1))
 			move_direction.y+=1
 
 #move after 
