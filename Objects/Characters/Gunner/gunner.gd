@@ -15,8 +15,11 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			var entity: Entity = _level.get_entity_at_pos(tile)
 			var pushDistance: int =  Globals.GUNNER_ACTION1_PUSH_DISTANCE_CHARACTER if entity.is_character() else Globals.GUNNER_ACTION1_PUSH_DISTANCE_ENNEMY
 			var diff = caseCoords - entity.caseCoords
-			entity.move(Vector2i(-diff.sign().x * pushDistance, 0))
-
+			if(entity.is_push()):
+				entity.move(Vector2i(-diff.sign().x * pushDistance, 0))
+			else :
+				print("Can't be pushed (BIG enemies )")
+				
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.GUNNER_ACTION1_TIME_ADDED
 
@@ -26,11 +29,12 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			var zoneEnd = tile + Vector2i(Globals.GUNNER_ACTION2_RANGE, Globals.GUNNER_ACTION2_RANGE)
 			for entity in _level.get_entities_in_zone(zoneStart, zoneEnd):
 				var diff = tile - entity.caseCoords
-				entity.move(-diff.sign() * Globals.GUNNER_ACTION2_PUSH_DISTANCE)
-
+				if(entity.is_push()):
+					entity.move(-diff.sign() * Globals.GUNNER_ACTION2_PUSH_DISTANCE)
+				else :
+					print("Can't be pushed (BIG enemies )")
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.GUNNER_ACTION2_TIME_ADDED
-
 		Globals.CharacterAction.ACTION3:
 			# Teleport vertical
 			place_to_pos(tile)
@@ -42,12 +46,14 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			# Push at the end
 			var entity: Entity = _level.get_entity_at_pos(tile)
 			var final_pos_x = Globals.NUMBER_CELL_X - 1
-
-			while(_level.get_type_case_from_position(final_pos_x, entity.caseCoords.y) != Globals.TypeCase.EMPTY):
-				final_pos_x -= 1
-
-			entity.place_to_pos(Vector2i(final_pos_x, entity.caseCoords.y))
-
+			if(entity.is_push()):
+				
+				while(_level.get_type_case_from_position(final_pos_x, entity.caseCoords.y) != Globals.TypeCase.EMPTY):
+					final_pos_x -= 1
+					
+				entity.place_to_pos(Vector2i(final_pos_x, entity.caseCoords.y))
+			else :
+				print("Can't be pushed (BIG enemies )")
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.GUNNER_ACTION4_TIME_ADDED
 
