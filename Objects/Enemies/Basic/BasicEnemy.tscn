@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://c4ke02l0rvs16"]
 
 [ext_resource type="Script" uid="uid://bhm3cx6kjry3t" path="res://Objects/Enemies/Basic/basic_enemy.gd" id="1_y54tr"]
-[ext_resource type="Texture2D" uid="uid://d1rijuqilcuvq" path="res://icon.svg" id="2_m23dd"]
+[ext_resource type="Texture2D" uid="uid://dtxsd7jfjre7" path="res://Assets/Sprite/goblin.png" id="2_m23dd"]
 
 [node name="BasicEnemy" type="Node2D" unique_id=2125422060]
 script = ExtResource("1_y54tr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_m23dd")
