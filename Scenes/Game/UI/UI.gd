@@ -13,10 +13,10 @@ extends CanvasLayer
 ]
 
 @onready var ActionButtons = [
-	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg1/ActionButton,
-	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg2/ActionButton,
-	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg3/ActionButton,
-	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/ActionBg4/ActionButton
+	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton,
+	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg2/ActionButton,
+	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton,
+	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton
 ]
 
 @onready var ActionButtonLabels = [
@@ -84,8 +84,9 @@ func _on_state_started_received(state: Globals.StateTurn) -> void:
 		Globals.StateTurn.CHOICE_CHARACTER:
 			if tweenCharacter && tweenCharacter.is_running():
 				await tweenCharacter.finished
-			reset_timer()
-			start_timer(Globals.timerDuration)
+			if Globals.curr_action != Globals.CharacterAction.CANCEL:
+				reset_timer()
+				start_timer(Globals.timerDuration)
 			hide_action_menu()
 			show_character_menu()
 
@@ -282,3 +283,7 @@ func _on_action_4_button_pressed() -> void:
 
 func _on_local_timer_end() -> void:
 	_on_timer_end.emit()
+
+
+func _on_cancel_action_pressed() -> void:
+	_on_choose_action.emit(Globals.CharacterAction.CANCEL)
