@@ -72,6 +72,7 @@ mouse_filter = 2
 script = ExtResource("1_mgxex")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=112974603]
+layer = 99
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=552525619]
 material = SubResource("ShaderMaterial_dv7jm")
