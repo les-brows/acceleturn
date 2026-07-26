@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bhm3cx6kjry3t" path="res://Objects/Enemies/Basic/basic_enemy.gd" id="1_y54tr"]
 [ext_resource type="Texture2D" uid="uid://dtxsd7jfjre7" path="res://Assets/Sprite/goblin.png" id="2_m23dd"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="2_rwbee"]
 
 [node name="BasicEnemy" type="Node2D" unique_id=2125422060]
 script = ExtResource("1_y54tr")
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=996264008]
+visible = false
+position = Vector2(-1.0000008, -0.49999982)
+scale = Vector2(0.024074076, 0.025)
+texture = ExtResource("2_rwbee")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
 texture = ExtResource("2_m23dd")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cadvuwkthbmg0" path="res://Objects/Enemies/RepousseMan/repousse_man_enemy.gd" id="1_le5e2"]
 [ext_resource type="Texture2D" uid="uid://0uolxi45ayuw" path="res://Assets/Sprite/repousse-man.png" id="2_saci7"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="3_sjff2"]
 
 [node name="RepousseManEnemy" type="Node2D" unique_id=2125422060]
 script = ExtResource("1_le5e2")
@@ -9,3 +10,9 @@ script = ExtResource("1_le5e2")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1933672099]
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("2_saci7")
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=2042325515]
+visible = false
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(0.08087069, 0.0708174)
+texture = ExtResource("3_sjff2")

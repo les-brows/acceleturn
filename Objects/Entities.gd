@@ -6,7 +6,7 @@ var _level: Level = null
 var lastCaseGhost=Globals.TypeCase.EMPTY
 var isFreezedLeft :int =0 
 @onready var sprite: Sprite2D = $Sprite2D
-
+@onready var spriteIced: Sprite2D = $Freeze
 func init_entity(level: Level):
 	_level = level
 	
@@ -114,6 +114,8 @@ func put_ice_on_entity():
 	_level.update_case(caseCoords.x, caseCoords.y, Globals.TypeCase.ICE)
 	
 	#change Icone 
+	spriteIced.show()
+	sprite.hide()
 	#Sprite2D.mas
 	
 	

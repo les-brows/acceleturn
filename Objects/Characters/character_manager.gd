@@ -132,6 +132,7 @@ func action_needs_target() -> bool:
 	return false
 
 func process_character_turn():
+	
 	if(action_needs_target() && curr_tile == Vector2i(-1, -1)):
 		Globals.curr_action = Globals.CharacterAction.DEFAULT
 
@@ -149,6 +150,11 @@ func process_character_turn():
 	if(Globals.curr_character == Globals.CharacterClass.TRAPPER):
 		get_trapper().act(Globals.curr_action, curr_tile)
 				
+	#update freeze
+	get_gunner().updateFreeze()
+	get_mage().updateFreeze()
+	get_trapper().updateFreeze()
+	
 func get_gunner() -> Entity:
 	for child in get_children():
 		if child is Gunner:

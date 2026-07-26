@@ -25,7 +25,8 @@ func act():
 		if(isFreezedLeft==0):
 			#rmove freeze 
 			_level.update_case(caseCoords.x, caseCoords.y, get_case_entity() )
-			
+			spriteIced.hide()
+			sprite.show()
 		
 func get_case_entity() ->Globals.TypeCase:
 	return Globals.TypeCase.ENEMIES

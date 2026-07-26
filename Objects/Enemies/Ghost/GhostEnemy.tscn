@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxmalo74hoeu7" path="res://Objects/Enemies/Ghost/ghost_enemy.gd" id="1_oy283"]
 [ext_resource type="Texture2D" uid="uid://h55q6w16hfyr" path="res://Assets/Sprite/Ghost.png" id="2_tdl12"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="3_tdl12"]
 
 [node name="GhostEnemy" type="Node2D" unique_id=2125422060]
 script = ExtResource("1_oy283")
@@ -10,3 +11,9 @@ script = ExtResource("1_oy283")
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_tdl12")
 flip_h = true
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=1567430992]
+visible = false
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(0.08087069, 0.0708174)
+texture = ExtResource("3_tdl12")
