@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://u8ckqn1eknte"]
 
 [ext_resource type="Script" uid="uid://bgkflxvtlvsfx" path="res://Objects/Characters/Mage/mage.gd" id="1_7anr4"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="2_i3iar"]
 [ext_resource type="Texture2D" uid="uid://7fhpkk6tbum8" path="res://Assets/Sprite/Mage.png" id="2_oqi3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqi3k"]
@@ -8,6 +9,12 @@ size = Vector2(620.0001, 1100.0002)
 
 [node name="Mage" type="Node2D" unique_id=893759127]
 script = ExtResource("1_7anr4")
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=1456751583]
+visible = false
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(0.08087069, 0.0708174)
+texture = ExtResource("2_i3iar")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=943319176]
 texture = ExtResource("2_oqi3k")

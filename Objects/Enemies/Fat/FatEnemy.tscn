@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkxq6efj25d5h" path="res://Objects/Enemies/Fat/fat_enemy.gd" id="1_pscmy"]
 [ext_resource type="Texture2D" uid="uid://dxlww1isnnvnm" path="res://Assets/Sprite/knight.png" id="2_pl1bi"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="3_pl1bi"]
 
 [node name="FatEnemy" type="Node2D" unique_id=2125422060]
 script = ExtResource("1_pscmy")
@@ -10,3 +11,9 @@ script = ExtResource("1_pscmy")
 scale = Vector2(1.9, 1.9)
 texture = ExtResource("2_pl1bi")
 flip_h = true
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=1705243583]
+visible = false
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(0.08087069, 0.0708174)
+texture = ExtResource("3_pl1bi")

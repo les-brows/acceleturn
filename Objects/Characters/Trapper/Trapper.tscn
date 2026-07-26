@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dehcpyo4u001j"]
 
 [ext_resource type="Script" uid="uid://ewpxxvi6nrus" path="res://Objects/Characters/Trapper/trapper.gd" id="1_lprvd"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="2_0b803"]
 [ext_resource type="Texture2D" uid="uid://dqlqn1qkcepu4" path="res://Assets/Sprite/Traper.png" id="2_pcart"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa3om"]
@@ -8,6 +9,12 @@ size = Vector2(40.000008, 51.000015)
 
 [node name="Trapper" type="Node2D" unique_id=638839594]
 script = ExtResource("1_lprvd")
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=1908597943]
+visible = false
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(0.08087069, 0.0708174)
+texture = ExtResource("2_0b803")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=443612665]
 texture = ExtResource("2_pcart")

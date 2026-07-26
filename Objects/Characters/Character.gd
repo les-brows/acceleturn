@@ -23,3 +23,13 @@ func get_case_entity() ->Globals.TypeCase:
 
 func obectif_game_over()->bool:
 	return true
+
+func updateFreeze():
+	if(isFreezedLeft>0):
+		#If freeze 
+		isFreezedLeft-=1
+		if(isFreezedLeft==0):
+			#rmove freeze 
+			_level.update_case(caseCoords.x, caseCoords.y, get_case_entity() )
+			spriteIced.hide()
+			sprite.show()

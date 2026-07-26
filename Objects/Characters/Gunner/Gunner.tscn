@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" uid="uid://byk4avn2sklia" path="res://Objects/Characters/Gunner/gunner.gd" id="1_etuv5"]
 [ext_resource type="Texture2D" uid="uid://csv8njv4y2l8b" path="res://Assets/Sprite/Cowboy base.png" id="2_etuv5"]
+[ext_resource type="Texture2D" uid="uid://behyjl8op5q6k" path="res://Assets/Sprite/Freeze.png" id="2_s1uhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etuv5"]
 size = Vector2(750.0002, 1050.0001)
 
 [node name="Gunner" type="Node2D" unique_id=1954873730]
 script = ExtResource("1_etuv5")
+
+[node name="Freeze" type="Sprite2D" parent="." unique_id=593717043]
+visible = false
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(0.08087069, 0.0708174)
+texture = ExtResource("2_s1uhk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1972901024]
 texture = ExtResource("2_etuv5")
