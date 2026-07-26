@@ -43,17 +43,21 @@ enum TypeCase
 	ENEMIES,
 	CHARACTER,
 	BUSH,
+	MIDDLE,
 	TREE,
 	ICE,
 	TRAP_ICE,
-	TRAP_REPULSE
+	TRAP_REPULSE,
+	TIME_PLUS,
+	TIME_MINUS,
+	MUD
 }
 
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 
-var NUMBER_CELL_X = 14
+var NUMBER_CELL_X = 15
 var NUMBER_CELL_Y = 6
-var COLUMN_MAX_ENEMIES = 6
+var COLUMN_MAX_ENEMIES = 7
 var SIZE_CELL_X :int = 64
 var SIZE_CELL_Y :int = 64
 
