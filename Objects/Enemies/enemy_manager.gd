@@ -20,3 +20,10 @@ func process_enemy_turn():
 	for enemy in get_children():
 		if enemy is Enemy:
 			enemy.act()
+
+func getEntityAtPos(tile : Vector2i) -> Entity:
+	for child in get_children():
+		if child is Entity:
+			if(child.caseCoords == tile):
+				return	child
+	return null

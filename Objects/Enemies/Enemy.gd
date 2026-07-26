@@ -1,5 +1,5 @@
 class_name Enemy
-extends Entities
+extends Entity
 
 var isGhost=false
 

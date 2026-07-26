@@ -106,3 +106,10 @@ func process_character_turn():
 		for child in get_children():
 			if child is Trapper:
 				child.act(curr_action, curr_tile)
+				
+func getEntityAtPos(tile : Vector2i) -> Entity:
+	for child in get_children():
+		if child is Entity:
+			if(child.caseCoords == tile):
+				return	child
+	return null

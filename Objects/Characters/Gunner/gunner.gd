@@ -11,7 +11,11 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 
 	match action:
 		Globals.CharacterAction.ACTION1:
-			# Shoot and move
+			# Shoot
+			var entity: Entity = _level.get_entity_at_pos(tile)
+			var pushDistance: int =  Globals.GUNNER_ACTION1_PUSH_DISTANCE_CHARACTER if entity.is_character() else Globals.GUNNER_ACTION1_PUSH_DISTANCE_ENNEMY
+			var diff = caseCoords - entity.caseCoords
+			entity.move(-diff.sign() * pushDistance)
 			Globals.timerDuration += Globals.GUNNER_ACTION1_TIME_ADDED
 		Globals.CharacterAction.ACTION2:
 			Globals.timerDuration += Globals.GUNNER_ACTION2_TIME_ADDED

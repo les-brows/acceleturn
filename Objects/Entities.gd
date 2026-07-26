@@ -1,4 +1,4 @@
-class_name Entities
+class_name Entity
 extends Node2D
 
 var caseCoords: Vector2i = Vector2(0,0)
@@ -14,28 +14,28 @@ func update_visual():
 
 
 func move(move_direction: Vector2i): 
-	var stop :bool = false 
-	#print("Move Global  : ", move_direction)
-	while move_direction.x!=0 && !stop :
-		if(move_direction.x >=0 ):
-			stop=_move(Vector2i(1,0))
+	var move_after: bool = true 
+	print("Move Global  : ", move_direction)
+	while move_direction.x != 0 && move_after :
+		if(move_direction.x >= 0 ):
+			move_after = _move(Vector2i(1,0))
 		
-			move_direction.x-=1
+			move_direction.x -= 1
 		else : 
-			stop=_move(Vector2i(-1,0))
-			move_direction.x+=1
-	while move_direction.y != 0  && !stop :
-		if(move_direction.y >=0 ):
-			stop=_move(Vector2i(0, 1))
+			move_after = _move(Vector2i(-1,0))
+			move_direction.x += 1
+	while move_direction.y != 0  && move_after :
+		if(move_direction.y >= 0 ):
+			move_after = _move(Vector2i(0, 1))
 		
-			move_direction.y-=1
+			move_direction.y -= 1
 		else : 
-			stop=_move(Vector2i(0, -1))
-			move_direction.y+=1
+			move_after = _move(Vector2i(0, -1))
+			move_direction.y += 1
 
 #move after 
 func _move(move_direction: Vector2i)-> bool : 
-	#print("Move  : ", move_direction)
+	print("Move  : ", move_direction)
 	var newCoords = caseCoords+ move_direction
 	#print("caseCoords", caseCoords, "newCoords", newCoords)
 	var TRAP_REPULSE
@@ -74,12 +74,16 @@ func _move(move_direction: Vector2i)-> bool :
 	else :
 		#print("Limit map ")
 		move_after=true
+	print("Move after: ", move_after)
 	return move_after 
 
 func is_ghost():
 	return false 
 func put_ice_on_entity():
 	pass
+	
+func is_character() -> bool:
+	return false
 	
 	
 func get_case_entity() ->Globals.TypeCase:
