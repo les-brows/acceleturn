@@ -4,6 +4,8 @@ extends Node2D
 var caseCoords: Vector2i = Vector2(0,0)
 var _level: Level = null
 var lastCaseGhost=Globals.TypeCase.EMPTY
+var isFreezedLeft :int =0 
+@onready var sprite: Sprite2D = $Sprite2D
 
 func init_entity(level: Level):
 	_level = level
@@ -104,11 +106,20 @@ func is_ghost():
 	return false 
 func is_push():
 	return true 
+	
+
 func put_ice_on_entity():
-	pass
+	isFreezedLeft=4
+	#Put Ice on casContent 
+	_level.update_case(caseCoords.x, caseCoords.y, Globals.TypeCase.ICE)
+	
+	#change Icone 
+	#Sprite2D.mas
+	
 	
 func is_character() -> bool:
 	return false
+
 
 func obectif_game_over()->bool:
 	return false
