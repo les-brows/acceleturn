@@ -270,6 +270,9 @@ func get_entities_in_zone(zone_start: Vector2i, zone_end: Vector2i) -> Array[Ent
 			if entity != null:
 				list_entities.append(entity)
 	return list_entities
+	
+func get_all_entities() -> Array[Entity]:
+	return characterManager.getAllCharacters() + enemyTurnManager.getAllEnemies()
 
 
 func update_case( columnIndex : int, lineIndex : int , newType: Globals.TypeCase ) ->bool :

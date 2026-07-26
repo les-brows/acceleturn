@@ -17,10 +17,16 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			entity.queue_free()
 			
 			Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
+
 		Globals.CharacterAction.ACTION2:
 			Globals.timerDuration += Globals.MAGE_ACTION2_TIME_ADDED
+
 		Globals.CharacterAction.ACTION3:
+			# Move everyone to gain time
+			for entity in _level.get_all_entities():
+				entity.move(Vector2i(-1, 0))
 			Globals.timerDuration *= Globals.MAGE_ACTION3_TIME_MULT
+
 		Globals.CharacterAction.ACTION4:
 			Globals.timerDuration /= Globals.MAGE_ACTION4_TIME_MULT
 

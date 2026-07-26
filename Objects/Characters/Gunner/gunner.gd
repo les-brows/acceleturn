@@ -16,7 +16,7 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 			var pushDistance: int =  Globals.GUNNER_ACTION1_PUSH_DISTANCE_CHARACTER if entity.is_character() else Globals.GUNNER_ACTION1_PUSH_DISTANCE_ENNEMY
 			var diff = caseCoords - entity.caseCoords
 			entity.move(Vector2i(-diff.sign().x * pushDistance, 0))
-			Globals.timerDuration += Globals.GUNNER_ACTION1_TIME_ADDE
+			Globals.timerDuration += Globals.GUNNER_ACTION1_TIME_ADDED
 
 		Globals.CharacterAction.ACTION2:
 			# Nuke
