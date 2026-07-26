@@ -45,6 +45,37 @@ func set_current_action(action: Globals.CharacterAction):
 	curr_action = action
 	
 func action_needs_target() -> bool:
+	match curr_character:
+		Globals.CharacterClass.GUNNER:
+			match curr_action:
+				Globals.CharacterAction.ACTION1:
+					return	true
+				Globals.CharacterAction.ACTION2:
+					return	true
+				Globals.CharacterAction.ACTION3:
+					return	true
+				Globals.CharacterAction.ACTION4:
+					return	true
+		Globals.CharacterClass.MAGE:
+			match curr_action:
+				Globals.CharacterAction.ACTION1:
+					return	true
+				Globals.CharacterAction.ACTION2:
+					return	false
+				Globals.CharacterAction.ACTION3:
+					return	false
+				Globals.CharacterAction.ACTION4:
+					return	false
+		Globals.CharacterClass.TRAPPER:
+			match curr_action:
+				Globals.CharacterAction.ACTION1:
+					return	true
+				Globals.CharacterAction.ACTION2:
+					return	true
+				Globals.CharacterAction.ACTION3:
+					return	true
+				Globals.CharacterAction.ACTION4:
+					return	true
 	return false
 
 func process_character_turn():
