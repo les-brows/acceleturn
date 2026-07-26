@@ -20,6 +20,20 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 				Globals.timerDuration += Globals.MAGE_ACTION1_TIME_ADDED
 
 		Globals.CharacterAction.ACTION2:
+			var trapPos = Vector2i(6, caseCoords.y)
+			
+			while(_level.get_type_case_from_position(trapPos.x, trapPos.y) != Globals.TypeCase.EMPTY):
+				trapPos.y += 1
+				if(trapPos ==  Vector2i(6, caseCoords.y)):
+					trapPos.x -= 1
+
+				if(trapPos.y >= Globals.NUMBER_CELL_Y):
+					trapPos.y = 0
+					if(trapPos.x != 6):
+						trapPos.x -= 1
+			
+			_level.set_tile(trapPos, Globals.TypeCase.TIME_MINUS)
+			
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.MAGE_ACTION2_TIME_ADDED
 
