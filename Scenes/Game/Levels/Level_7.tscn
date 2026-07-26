@@ -315,7 +315,7 @@ scale = Vector2(1.8, 1.8)
 position = Vector2(928, 162)
 
 [node name="MinionEnemy" parent="EnemyTurnManager" unique_id=604271493 instance=ExtResource("7_2xjig")]
-position = Vector2(927, 224)
+position = Vector2(929, 226)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("5_wsumo")]
 position = Vector2(-124, 107)

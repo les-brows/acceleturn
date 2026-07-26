@@ -319,7 +319,7 @@ position = Vector2(802, 349)
 position = Vector2(929, 97)
 
 [node name="RepousseManEnemy2" parent="EnemyTurnManager" unique_id=19720604 instance=ExtResource("6_bjdmj")]
-position = Vector2(926, 157)
+position = Vector2(929, 162)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("5_v7h32")]
 position = Vector2(-124, 107)
