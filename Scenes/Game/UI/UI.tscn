@@ -24,6 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://5iqwshtbv1s5" path="res://Assets/UI/20240709dragonButtonA-Sheet/tile_0003.png" id="18_5r64m"]
 [ext_resource type="Texture2D" uid="uid://cn1vy11l3kh4w" path="res://Assets/UI/20240707dragon9SlicesB.png" id="21_n02lb"]
 [ext_resource type="Texture2D" uid="uid://62hm00q41th8" path="res://Assets/UI/forbidden_sign.png" id="21_sq541"]
+[ext_resource type="AudioStream" uid="uid://bmwseifm7t38k" path="res://Assets/Sound/CGM3_Funny_Negative_Feedback_01_3.wav" id="23_5r64m"]
+[ext_resource type="AudioStream" uid="uid://gxsw3db30q7t" path="res://Assets/Sound/Event 16.mp3" id="24_dfbcx"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pa3om"]
 frames = 8
@@ -843,6 +845,12 @@ text = "Victory"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SoundLose" type="AudioStreamPlayer" parent="." unique_id=194457256]
+stream = ExtResource("23_5r64m")
+
+[node name="SoundWin" type="AudioStreamPlayer" parent="." unique_id=908087450]
+stream = ExtResource("24_dfbcx")
 
 [connection signal="timeout" from="Time/HBoxContainer/VBoxContainer/MarginContainer2/Timer" to="." method="_on_local_timer_end"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]

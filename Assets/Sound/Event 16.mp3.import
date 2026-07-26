@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gxsw3db30q7t"
+path="res://.godot/imported/Event 16.mp3-e7ba4fffb51cd4f37730fac6e309ca5d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Event 16.mp3"
+dest_files=["res://.godot/imported/Event 16.mp3-e7ba4fffb51cd4f37730fac6e309ca5d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
