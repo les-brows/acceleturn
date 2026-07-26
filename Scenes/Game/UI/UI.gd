@@ -34,6 +34,8 @@ extends CanvasLayer
 @onready var timerText = $%TimerText
 
 @onready var textModifier = $%ModifierText
+@onready var actionPopup = $ActionPopup
+@onready var actionPopupLabel = $%PopupLabel
 
 var trasitionDuration: float = 0.2
 
@@ -41,6 +43,7 @@ var initialFirePos: Vector2 = Vector2(0,0)
 var timerStarted: bool = false
 var timerEndTime: int = 0
 var first_process_run: bool = true
+var should_popup_follow_mouse: bool = false
 
 var tweenCharacter: Tween
 var tweenAction: Tween
@@ -67,6 +70,9 @@ func _process(_delta) -> void:
 		fireAnimation.position.y -= 55 #fireAnimation.size.y doesnt work because blehhhhhhhhhhhhhhhhh
 		initialFirePos = fireAnimation.position
 		first_process_run = false
+		
+	if should_popup_follow_mouse:
+		actionPopup.global_position = get_viewport().get_mouse_position() + Vector2(-15, 15) - Vector2(0, actionPopup.size.y)
 		
 	if timerStarted:
 		var remaining_time: float = timer.time_left
@@ -243,10 +249,13 @@ func _on_hover_action(action: Globals.CharacterAction):
 				Globals.CharacterAction.ACTION1:
 					pass # TODO : Unclear ?
 				Globals.CharacterAction.ACTION2:
+					display_popup("Hiii!")
 					display_text_modifier(Globals.Operations.SUB, 5)
 				Globals.CharacterAction.ACTION3:
+					display_popup("tgrmrlpvt!")
 					display_text_modifier(Globals.Operations.SUB, 1)
 				Globals.CharacterAction.ACTION4:
+					display_popup("tgrmrlpvt!")
 					display_text_modifier(Globals.Operations.SUB, 20)
 					
 		Globals.CharacterClass.MAGE:
@@ -297,6 +306,20 @@ func hide_text_modifier():
 	textModifier.text = ""
 
 
+# ------------ Popup functions -------------------
+
+
+func display_popup(text: String):
+	should_popup_follow_mouse = true
+	actionPopup.visible = true
+	actionPopupLabel.text = text
+
+
+func hide_popup():
+	should_popup_follow_mouse = false
+	actionPopup.visible = false
+
+
 # ------------ Dialogue functions -------------------
 
 
@@ -338,18 +361,22 @@ func _on_character_3_button_pressed() -> void:
 
 
 func _on_action_1_button_pressed() -> void:
+	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION1)
 
 
 func _on_action_2_button_pressed() -> void:
+	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION2)
 
 
 func _on_action_3_button_pressed() -> void:
+	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION3)
 
 
 func _on_action_4_button_pressed() -> void:
+	hide_popup()
 	_on_choose_action.emit(Globals.CharacterAction.ACTION4)
 
 
@@ -379,15 +406,19 @@ func _on_action_4_button_mouse_entered() -> void:
 
 func _on_action_1_button_mouse_exited() -> void:
 	hide_text_modifier()
+	hide_popup()
 
 
 func _on_action_2_button_mouse_exited() -> void:
 	hide_text_modifier()
+	hide_popup()
 
 
 func _on_action_3_button_mouse_exited() -> void:
 	hide_text_modifier()
+	hide_popup()
 
 
 func _on_action_4_button_mouse_exited() -> void:
 	hide_text_modifier()
+	hide_popup()
