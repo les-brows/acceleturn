@@ -476,6 +476,30 @@ mouse_filter = 1
 theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("4_75ja4")
 theme_override_font_sizes/normal_font_size = 24
+text = "Exit Level"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect3" type="TextureButton" parent="Controls/HBoxContainer" unique_id=1631980238]
+custom_minimum_size = Vector2(180, 50)
+layout_mode = 2
+texture_normal = ExtResource("17_y2e3d")
+texture_pressed = ExtResource("18_5r64m")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/HBoxContainer/NinePatchRect3" unique_id=976803273]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 24
 text = "Skip Turn"
 scroll_active = false
 horizontal_alignment = 1
@@ -848,7 +872,8 @@ vertical_alignment = 1
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/CharacterButton" to="." method="_on_character_2_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg3/CharacterButton" to="." method="_on_character_3_button_pressed"]
-[connection signal="pressed" from="Controls/HBoxContainer/NinePatchRect" to="." method="_on_skip_turn_pressed"]
+[connection signal="pressed" from="Controls/HBoxContainer/NinePatchRect" to="." method="_on_exit_level_pressed"]
+[connection signal="pressed" from="Controls/HBoxContainer/NinePatchRect3" to="." method="_on_skip_turn_pressed"]
 [connection signal="toggled" from="Controls/HBoxContainer/NinePatchRect2" to="." method="_on_mute_popups_toggled"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/MarginContainer/CancelAction" to="." method="_on_cancel_action_pressed"]
 [connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton" to="." method="_on_action_1_button_mouse_entered"]
