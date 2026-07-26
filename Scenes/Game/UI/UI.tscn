@@ -710,6 +710,60 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameOverOverlay" type="MarginContainer" parent="." unique_id=646691441]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VictoryBackground" type="ColorRect" parent="GameOverOverlay" unique_id=1333776585]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.43137255)
+
+[node name="VictoryImage" type="TextureRect" parent="GameOverOverlay/VictoryBackground" unique_id=341720406]
+layout_mode = 0
+offset_right = 1132.0
+offset_bottom = 628.0
+rotation = -6.2831855
+pivot_offset = Vector2(576, 324)
+size_flags_vertical = 3
+texture = ExtResource("3_sunpx")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverOverlay/VictoryBackground/VictoryImage" unique_id=1654690826]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 50
+
+[node name="VictoryLabel" type="RichTextLabel" parent="GameOverOverlay/VictoryBackground/VictoryImage/MarginContainer" unique_id=642730976]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 24
+theme_override_fonts/normal_font = ExtResource("4_75ja4")
+theme_override_font_sizes/normal_font_size = 150
+text = "Victory"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="Time/HBoxContainer/VBoxContainer/MarginContainer2/Timer" to="." method="_on_local_timer_end"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg1/CharacterButton" to="." method="_on_character_1_button_pressed"]
 [connection signal="pressed" from="CharacterSelection/VBox/BottomBackground/MarginContainer/CharacterButtonsContainer/CharacterBg2/CharacterButton" to="." method="_on_character_2_button_pressed"]

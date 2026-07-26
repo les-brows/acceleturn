@@ -37,6 +37,10 @@ extends CanvasLayer
 @onready var actionPopup = $ActionPopup
 @onready var actionPopupLabel = $%PopupLabel
 
+@onready var victoryBackground = $GameOverOverlay/VictoryBackground
+@onready var victoryImage: TextureRect = $GameOverOverlay/VictoryBackground/VictoryImage
+@onready var victoryLabel = $%VictoryLabel
+
 var trasitionDuration: float = 0.2
 
 var initialFirePos: Vector2 = Vector2(0,0)
@@ -51,6 +55,8 @@ var tweenTimeBarColor: Tween
 var tweenTimeBarSize: Tween
 var tweenFirePosition: Tween
 var tweenAllyDialog: Tween
+var tweenVictoryImageScale: Tween
+var tweenVictoryImageRotation: Tween
 
 signal _on_choose_character(character: Globals.CharacterClass)
 signal _on_choose_action(action: Globals.CharacterAction)
@@ -360,11 +366,45 @@ func sleep(seconds: float)->void:
 	await get_tree().create_timer(seconds).timeout
 
 
+# ------------ Game Over/Victory functions -------------------
+
+
+func play_end_game(victory: bool):
+	stop_timer()
+	victoryBackground.visible = true
+	
+	if(victory):
+		victoryLabel.text = "Victory"
+	else:
+		victoryLabel.text = "Defeat"
+	
+	victoryImage.scale = Vector2(0,0)
+	victoryImage.rotation_degrees = 0
+	
+	tweenVictoryImageScale = get_tree().create_tween()
+	tweenVictoryImageRotation = get_tree().create_tween()
+
+	tweenVictoryImageScale.tween_property(victoryImage, "scale", Vector2(1,1), 1.5).set_trans(Tween.TRANS_CUBIC)
+	tweenVictoryImageRotation.tween_property(victoryImage, "rotation_degrees", 1800, 1.5).set_trans(Tween.TRANS_CUBIC)
+	
+	await sleep(3)
+	
+	await SceneTransition.close_circle()
+	
+	var levelSelector_scene = load("res://Scenes/MainMenu/LevelSelector.tscn")
+	var levelSelector = levelSelector_scene.instantiate()
+	get_parent().get_parent().add_child(levelSelector)
+	
+	get_parent().queue_free()
+	await SceneTransition.open_circle()
+
+
 # ------------ Button Callbacks functions -------------------
 
 
 func _on_character_1_button_pressed() -> void:
 	_on_choose_character.emit(Globals.CharacterClass.GUNNER)
+	play_end_game(true)
 
 
 func _on_character_2_button_pressed() -> void:

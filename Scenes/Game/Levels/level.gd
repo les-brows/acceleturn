@@ -22,11 +22,16 @@ func _init() -> void:
 	
 	
 func _ready()-> void :
+	Globals.curr_state = Globals.StateTurn.CHOICE_CHARACTER
+	Globals.curr_character = Globals.CharacterClass.NONE
+	Globals.curr_action = Globals.CharacterAction.DEFAULT
+	Globals.timerDuration = Globals.INITIAL_TIME
+	Globals.timeFreezeTurns = 0
+	
 	create_initial_map_from_scene()
 	
 	enemyTurnManager.init_enemies_positions()
 	characterManager.init_characters_positions()
-	
 	
 	position = Vector2(150, 60)
 
@@ -129,6 +134,8 @@ func _on_player_choose_action(action: Globals.CharacterAction):
 
 	
 func _on_state_finished(state: Globals.StateTurn):
+	print(state)
+	print(Globals.curr_state)
 	assert(state == Globals.curr_state)
 	
 	match state:
