@@ -49,6 +49,7 @@ enum CharacterAction
 	ACTION2,
 	ACTION3,
 	ACTION4,
+	CANCEL
 }
 
 enum CharacterClass
@@ -78,6 +79,7 @@ enum TypeCase
 
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
 var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
+var curr_action: Globals.CharacterAction = Globals.CharacterAction.DEFAULT
 
 var NUMBER_CELL_X = 15
 var NUMBER_CELL_Y = 6

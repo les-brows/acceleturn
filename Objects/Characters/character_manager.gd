@@ -1,7 +1,6 @@
 class_name CharacterManager
 extends Node2D
 
-var curr_action: Globals.CharacterAction = Globals.CharacterAction.DEFAULT
 var curr_tile: Vector2i = Vector2i(-1, -1)
 
 func _ready() -> void:
@@ -42,7 +41,7 @@ func set_current_character(character : Globals.CharacterClass):
 	Globals.curr_character = character
 	
 func set_current_action(action: Globals.CharacterAction):
-	curr_action = action
+	Globals.curr_action = action
 
 func set_current_tile(tile: Vector2i):
 	curr_tile = tile
@@ -53,7 +52,7 @@ func can_choose_tile(tile: Vector2i) -> bool:
 func action_needs_target() -> bool:
 	match Globals.curr_character:
 		Globals.CharacterClass.GUNNER:
-			match curr_action:
+			match Globals.curr_action:
 				Globals.CharacterAction.ACTION1:
 					return	true
 				Globals.CharacterAction.ACTION2:
@@ -63,7 +62,7 @@ func action_needs_target() -> bool:
 				Globals.CharacterAction.ACTION4:
 					return	true
 		Globals.CharacterClass.MAGE:
-			match curr_action:
+			match Globals.curr_action:
 				Globals.CharacterAction.ACTION1:
 					return	true
 				Globals.CharacterAction.ACTION2:
@@ -73,7 +72,7 @@ func action_needs_target() -> bool:
 				Globals.CharacterAction.ACTION4:
 					return	false
 		Globals.CharacterClass.TRAPPER:
-			match curr_action:
+			match Globals.curr_action:
 				Globals.CharacterAction.ACTION1:
 					return	true
 				Globals.CharacterAction.ACTION2:
@@ -86,26 +85,26 @@ func action_needs_target() -> bool:
 
 func process_character_turn():
 	if(action_needs_target() && curr_tile == Vector2i(-1, -1)):
-		curr_action = Globals.CharacterAction.DEFAULT
+		Globals.curr_action = Globals.CharacterAction.DEFAULT
 
-	if(curr_action == Globals.CharacterAction.DEFAULT):
+	if(Globals.curr_action == Globals.CharacterAction.DEFAULT):
 		Globals.timerDuration += 5
 		return;
 
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER):
 		for child in get_children():
 			if child is Gunner:
-				child.act(curr_action, curr_tile)
+				child.act(Globals.curr_action, curr_tile)
 
 	if(Globals.curr_character == Globals.CharacterClass.MAGE):
 		for child in get_children():
 			if child is Mage:
-				child.act(curr_action, curr_tile)
+				child.act(Globals.curr_action, curr_tile)
 
 	if(Globals.curr_character == Globals.CharacterClass.TRAPPER):
 		for child in get_children():
 			if child is Trapper:
-				child.act(curr_action, curr_tile)
+				child.act(Globals.curr_action, curr_tile)
 				
 func getEntityAtPos(tile : Vector2i) -> Entity:
 	for child in get_children():

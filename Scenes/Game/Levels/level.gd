@@ -25,6 +25,10 @@ func _ready()-> void :
 	create_initial_map_from_scene()
 
 func _process(_delta):
+	if Input.is_action_just_pressed("input_cancel"):
+		characterManager.set_current_action(Globals.CharacterAction.CANCEL)
+		Globals.state_finished.emit(Globals.curr_state)
+
 	if(TargetSelectionAnimation.visible):
 		var characterTileCoordinates = get_map_position_from_mouse()
 		TargetSelectionAnimation.position = TileMapGround.map_to_local(characterTileCoordinates) + TileMapGround.get_parent().position
@@ -121,10 +125,12 @@ func _on_state_finished(state: Globals.StateTurn):
 	
 	match state:
 		Globals.StateTurn.CHOICE_CHARACTER :
-			Globals.curr_state=Globals.StateTurn.CHOICE_ACTION
+			Globals.curr_state = Globals.StateTurn.CHOICE_ACTION
 		Globals.StateTurn.CHOICE_ACTION :
 			hide_player_move_ui()
-			if(characterManager.action_needs_target()):
+			if Globals.curr_action == Globals.CharacterAction.CANCEL:
+				Globals.curr_state = Globals.StateTurn.CHOICE_CHARACTER
+			elif(characterManager.action_needs_target()):
 				show_target_choice_ui()
 				Globals.curr_state = Globals.StateTurn.CHOICE_TARGET_CHARACTER
 			else:
@@ -133,7 +139,10 @@ func _on_state_finished(state: Globals.StateTurn):
 				
 		Globals.StateTurn.CHOICE_TARGET_CHARACTER :
 			hide_target_choice_ui()
-			Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
+			if Globals.curr_action == Globals.CharacterAction.CANCEL:
+				Globals.curr_state = Globals.StateTurn.CHOICE_ACTION
+			else:
+				Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 
 		Globals.StateTurn.ACTION_CHARACTER :
 			Globals.curr_state = Globals.StateTurn.ACTION_ENEMIES
