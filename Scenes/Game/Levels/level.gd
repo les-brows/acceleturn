@@ -20,8 +20,10 @@ func _init() -> void:
 	create_initial_map()
 	await SceneTransition.open_circle()
 	
-	
 func _ready()-> void :
+	$MusicPlayer.volume_db -= 8
+	$MusicPlayer.play()
+	
 	Globals.curr_state = Globals.StateTurn.CHOICE_CHARACTER
 	Globals.curr_character = Globals.CharacterClass.NONE
 	Globals.curr_action = Globals.CharacterAction.DEFAULT
@@ -419,6 +421,6 @@ func set_tile(positionTile:Vector2i, typeTile:Globals.TypeCase):
 			TileMapDecor.set_cell(positionTile, 1, Vector2i(4,4), 0)
 		Globals.TypeCase.MUD:
 			TileMapDecor.set_cell(positionTile, 1, Vector2i(4,2), 0)
-		Globals.TypeCase.EMPTY:
-			TileMapDecor.set_cell(positionTile, 1,Vector2i(-1,-1) , 0)
-				
+			
+func play_move_sound():
+	get_parent().play_move_sound()

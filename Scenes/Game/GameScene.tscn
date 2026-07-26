@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ctarsgmudxkqb" path="res://Scenes/Game/game_scene.gd" id="1_afrlh"]
 [ext_resource type="PackedScene" uid="uid://fn5o3c23jali" path="res://Scenes/Game/UI/UI.tscn" id="2_t0q61"]
+[ext_resource type="AudioStream" uid="uid://d2djii50smmsb" path="res://Assets/Sound/footstep_dirt_walk_run_03.wav" id="3_afrlh"]
 
 [node name="GameScene" type="Node" unique_id=1144247971]
 script = ExtResource("1_afrlh")
 
 [node name="UI" parent="." unique_id=955902580 instance=ExtResource("2_t0q61")]
+
+[node name="Walk" type="AudioStreamPlayer" parent="." unique_id=707358834]
+stream = ExtResource("3_afrlh")
+volume_db = -10.947
