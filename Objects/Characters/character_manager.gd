@@ -3,6 +3,7 @@ extends Node2D
 
 var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
 var curr_action: Globals.CharacterAction = Globals.CharacterAction.DEFAULT
+var curr_tile: Vector2i = Vector2i(-1, -1)
 
 func _ready() -> void:
 	Globals.state_started.connect(_on_state_started)
@@ -43,7 +44,13 @@ func set_current_character(character : Globals.CharacterClass):
 	
 func set_current_action(action: Globals.CharacterAction):
 	curr_action = action
-	
+
+func set_current_tile(tile: Vector2i):
+	curr_tile = tile
+
+func can_choose_tile(tile: Vector2i) -> bool:
+	return true;
+
 func action_needs_target() -> bool:
 	match curr_character:
 		Globals.CharacterClass.GUNNER:

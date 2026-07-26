@@ -9,7 +9,7 @@ extends Node2D
 @onready var characterManager: CharacterManager = $CharacterManager
 
 var characterChosen : Globals.CharacterClass = Globals.CharacterClass.NONE;
-
+var clicked : bool = false
 
 var caseContent : Array[Array]=[]
 
@@ -21,18 +21,20 @@ func _init() -> void:
 	
 func _process(_delta):
 	if(TargetSelectionAnimation.visible):
-		var characterTileCoordinates = TileMapGround.local_to_map(get_global_mouse_position() - TileMapGround.get_parent().position)
+		var characterTileCoordinates = get_map_position_from_mouse()
 		TargetSelectionAnimation.position = TileMapGround.map_to_local(characterTileCoordinates) + TileMapGround.get_parent().position
-	#var clicked = false
-	#if(!clicked && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
-		#var positionmouse: Vector2i = get_map_position_from_mouse()
-		#get_type_case_from_position(positionmouse.x, positionmouse.y)
-		##print(result )
-		#getPostionAbsoluteFromCoordinates(positionmouse.x, positionmouse.y)
-		##print("absolute , ", absoluteposition)
-		#clicked = true
-	#else :
-		#clicked = false
+		if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT )==true):
+			if(!clicked):
+				var positionmouse: Vector2i = get_map_position_from_mouse()
+				get_type_case_from_position(positionmouse.x, positionmouse.y)
+				getPostionAbsoluteFromCoordinates(positionmouse.x, positionmouse.y)
+				print("absolute , ", positionmouse)
+				clicked = true
+				if(characterManager.can_choose_tile(positionmouse)):
+					characterManager.set_current_tile(positionmouse)
+					Globals.state_finished.emit(Globals.StateTurn.CHOICE_TARGET_CHARACTER)
+		else :
+			clicked = false
 	pass
 
 
@@ -137,21 +139,7 @@ func _on_state_finished(state: Globals.StateTurn):
 
 
 func get_map_position_from_mouse() -> Vector2i:
-	var mouse_position = get_global_mouse_position()
-	var current_tile = get_node("TileMapGround").local_to_map(mouse_position)
-	var tile_position: Vector2
-	tile_position =  get_node("TileMapGround").map_to_local(current_tile)
-	var result : Vector2  
-
-	#print("Position_Click x=", tile_position.x," y=", tile_position.y , "Size tile",Globals.SIZE_CELL_X )
-	@warning_ignore("integer_division")
-	result.x= tile_position.x/Globals.SIZE_CELL_X
-	@warning_ignore("integer_division")
-	result.y= tile_position.y/Globals.SIZE_CELL_Y 
-	
-	#print("Position_Click x=", result.x," y=", result.y)
-	return result
-
+	return TileMapGround.local_to_map(get_global_mouse_position() - TileMapGround.get_parent().position)
 
 func getCoordinatesFromPostionAbsolute(initial_pos: Vector2) -> Vector2i:
 	var current_tile = get_node("TileMapGround").local_to_map(initial_pos)

@@ -17,7 +17,6 @@ func init_enemies_positions():
 			enemy.init_entity(get_parent())
 
 func process_enemy_turn():
-	print("Mes ennemis vont faire des trucs tkt")
 	for enemy in get_children():
 		if enemy is Enemy:
 			enemy.act()
