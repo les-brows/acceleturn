@@ -395,3 +395,8 @@ shape = SubResource("RectangleShape2D_jnq1e")
 visible = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_v7h32")
+
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_right_movement_clicked"]
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_left_movement_clicked"]
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" to="." method="_on_down_movement_clicked"]
+[connection signal="input_event" from="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" to="." method="_on_top_movement_clicked"]
