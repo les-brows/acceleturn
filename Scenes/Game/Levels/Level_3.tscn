@@ -294,10 +294,13 @@ tile_set = SubResource("TileSet_7pr3o")
 script = ExtResource("5_3yqyp")
 
 [node name="GhostEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("6_pkeu3")]
+position = Vector2(929, 96)
 
 [node name="GhostEnemy" parent="EnemyTurnManager" unique_id=1600565444 instance=ExtResource("6_pkeu3")]
+position = Vector2(928, 225)
 
 [node name="GhostEnemy3" parent="EnemyTurnManager" unique_id=554645277 instance=ExtResource("6_pkeu3")]
+position = Vector2(928, 159)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("4_qwafn")]
 position = Vector2(-124, 107)

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bauhlj1a8pg44" path="res://Assets/TileMap/Grass Tileset.png" id="1_x1ugw"]
 [ext_resource type="Texture2D" uid="uid://8ndbci42u57r" path="res://Assets/TileMap/TilesheetV1.png" id="2_q1bj0"]
 [ext_resource type="PackedScene" uid="uid://cavus80k6k0ge" path="res://Objects/Enemies/EnemyManager.tscn" id="3_k3nri"]
-[ext_resource type="PackedScene" uid="uid://c4ke02l0rvs16" path="res://Objects/Enemies/Basic/BasicEnemy.tscn" id="4_y2ety"]
 [ext_resource type="PackedScene" uid="uid://v2lpue07e1c6" path="res://Objects/Characters/CharacterManager.tscn" id="5_2xsbf"]
+[ext_resource type="PackedScene" uid="uid://d4k5yswyeyq4k" path="res://Objects/Enemies/RepousseMan/RepousseManEnemy.tscn" id="5_iu2e6"]
 [ext_resource type="Script" uid="uid://cv4cpcf1kbih0" path="res://Objects/Characters/character_manager.gd" id="6_iu2e6"]
 [ext_resource type="PackedScene" uid="uid://dehcpyo4u001j" path="res://Objects/Characters/Trapper/Trapper.tscn" id="7_aharu"]
 [ext_resource type="PackedScene" uid="uid://u8ckqn1eknte" path="res://Objects/Characters/Mage/Mage.tscn" id="8_il47b"]
@@ -283,7 +283,7 @@ tile_map_data = PackedByteArray("AAAAAAAABAABAAIAAAAAAAEABAABAAQAAAAAAAIABAACAAQ
 tile_set = SubResource("TileSet_h6cj1")
 
 [node name="TileMapDecor" type="TileMapLayer" parent="." unique_id=1405313040]
-tile_map_data = PackedByteArray("AAAFAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAADAAAAAQAEAAQAAAACAAAAAQAEAAQAAAABAAAAAQAEAAQAAAAAAAAAAQAEAAQAAAAAAAUAAQAEAAQAAAABAAUAAQAEAAQAAAACAAUAAQAEAAQAAAADAAUAAQAEAAQAAAAEAAUAAQAEAAQAAAAFAAUAAQAEAAQAAAAKAAEAAQAEAAQAAAAKAAAAAQAEAAQAAAAMAAAAAQAEAAQAAAAMAAEAAQAEAAQAAAAKAAQAAQAEAAQAAAAKAAUAAQAEAAQAAAAMAAQAAQAEAAQAAAAMAAUAAQAEAAQAAAAMAAIAAQAEAAMAAAAKAAMAAQAEAAMAAAAGAAUAAQAEAAQAAAAGAAAAAQAEAAQAAAAAAAEAAQAEAAQAAAAAAAIAAQAEAAQAAAAAAAMAAQAEAAQAAAAAAAQAAQAEAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQAEAAQAAAAAAAUAAQAEAAQAAAABAAUAAQAEAAQAAAADAAUAAQAEAAQAAAAFAAUAAQAEAAQAAAACAAUAAQAEAAMAAAAEAAUAAQAEAAMAAAACAAQAAQAEAAMAAAAEAAQAAQAEAAMAAAAGAAUAAQAEAAMAAAAGAAQAAQAEAAMAAAABAAAAAQAEAAMAAAABAAEAAQAEAAMAAAADAAAAAQAEAAMAAAADAAEAAQAEAAMAAAAFAAAAAQAEAAMAAAAFAAEAAQAEAAMAAAAIAAAAAQAEAAMAAAAIAAEAAQAEAAMAAAAJAAQAAQAEAAMAAAAJAAUAAQAEAAMAAAAKAAAAAQAEAAMAAAAKAAEAAQAEAAMAAAALAAQAAQAEAAMAAAALAAUAAQAEAAMAAAAMAAAAAQAEAAMAAAAMAAEAAQAEAAMAAAANAAQAAQAEAAMAAAANAAUAAQAEAAMAAAAOAAUAAQAEAAQAAAANAAAAAQAEAAQAAAAOAAAAAQAEAAQAAAALAAAAAQAEAAQAAAAJAAAAAQAEAAQAAAAGAAAAAQAEAAQAAAAEAAAAAQAEAAQAAAACAAAAAQAEAAQAAAAIAAUAAQAEAAQAAAAKAAUAAQAEAAQAAAAMAAUAAQAEAAQAAAAHAAAAAQAAAAIAAAAHAAEAAQAAAAIAAAAHAAIAAQAAAAIAAAAHAAMAAQAAAAIAAAAHAAQAAQAAAAIAAAAHAAUAAQAAAAIAAAA=")
 tile_set = SubResource("TileSet_cp10e")
 
 [node name="TileMapForbiddenMove" type="TileMapLayer" parent="." unique_id=1491792877]
@@ -291,30 +291,27 @@ tile_set = SubResource("TileSet_7pr3o")
 
 [node name="EnemyTurnManager" parent="." unique_id=622883255 instance=ExtResource("3_k3nri")]
 
-[node name="BasicEnemy2" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("4_y2ety")]
-position = Vector2(930, 161)
-scale = Vector2(1.8, 1.8)
+[node name="RepousseManEnemy" parent="EnemyTurnManager" unique_id=2125422060 instance=ExtResource("5_iu2e6")]
+position = Vector2(928, 101)
 
-[node name="BasicEnemy" parent="EnemyTurnManager" unique_id=251171337 instance=ExtResource("4_y2ety")]
-position = Vector2(928, 289)
-scale = Vector2(1.8, 1.8)
+[node name="RepousseManEnemy2" parent="EnemyTurnManager" unique_id=1744385016 instance=ExtResource("5_iu2e6")]
+position = Vector2(923, 221)
 
-[node name="BasicEnemy3" parent="EnemyTurnManager" unique_id=1254000337 instance=ExtResource("4_y2ety")]
-position = Vector2(927, 94)
-scale = Vector2(1.8, 1.8)
+[node name="RepousseManEnemy3" parent="EnemyTurnManager" unique_id=719159654 instance=ExtResource("5_iu2e6")]
+position = Vector2(923, 157)
 
 [node name="CharacterManager" parent="." unique_id=464431525 instance=ExtResource("5_2xsbf")]
 position = Vector2(-124, 107)
 script = ExtResource("6_iu2e6")
 
 [node name="Trapper" parent="CharacterManager" unique_id=638839594 instance=ExtResource("7_aharu")]
-position = Vector2(218, -6)
+position = Vector2(154, 57)
 
 [node name="Mage" parent="CharacterManager" unique_id=893759127 instance=ExtResource("8_il47b")]
-position = Vector2(217, 57)
+position = Vector2(157, 117)
 
 [node name="Gunner" parent="CharacterManager" unique_id=1954873730 instance=ExtResource("9_qww4j")]
-position = Vector2(223, 122)
+position = Vector2(160, 184)
 
 [node name="MovementUI" type="Node" parent="." unique_id=1653607984]
 
