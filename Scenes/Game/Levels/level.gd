@@ -224,6 +224,7 @@ func _on_level_timer_end():
 	characterManager.set_current_action(Globals.CharacterAction.DEFAULT)
 	Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 	Globals.state_started.emit(Globals.StateTurn.ACTION_CHARACTER)
+	hide_player_move_ui()
 	
 #return next position and sizePath 
 func path_find( positionInit :Vector2i,  withEnemies : bool,  withEnvironement : bool) ->Array :
