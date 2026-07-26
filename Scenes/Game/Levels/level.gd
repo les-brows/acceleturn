@@ -394,6 +394,13 @@ func _on_movement_area_mouse_exited() -> void:
 	Globals.movement_hovered.emit(false)
 
 func set_tile(positionTile:Vector2i, typeTile:Globals.TypeCase):
+	var success: bool = update_case(positionTile.x, positionTile.y, typeTile)
+
+	print("Set tile ", typeTile, " at ", positionTile, " success:", success)
+
+	if(!success):
+		return;
+
 	match typeTile:
 		Globals.TypeCase.TRAP_REPULSE:
 			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(0,4), 0)
