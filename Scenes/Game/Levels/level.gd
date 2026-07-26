@@ -389,3 +389,20 @@ func _on_movement_area_mouse_entered() -> void:
 
 func _on_movement_area_mouse_exited() -> void:
 	Globals.movement_hovered.emit(false)
+
+func set_tile(positionTile:Vector2i, typeTile:Globals.TypeCase):
+	match typeTile:
+		Globals.TypeCase.TRAP_REPULSE:
+			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(0,4), 0)
+		Globals.TypeCase.TIME_PLUS:
+			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(0,2), 0)
+		Globals.TypeCase.TIME_MINUS:
+			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(0,1), 0)
+		Globals.TypeCase.BUSH:
+			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(4,3), 0)
+		Globals.TypeCase.TREE:
+			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(4,4), 0)
+		Globals.TypeCase.MUD:
+			TileMapDecor.set_cell(positionTile, TileMapDecor.get_cell_source_id(positionTile), Vector2i(4,2), 0)
+			
+				
