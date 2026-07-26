@@ -12,6 +12,9 @@ func _on_state_started(state: Globals.StateTurn):
 		process_character_turn()
 		await get_tree().create_timer(0.2).timeout
 		Globals.state_finished.emit(Globals.StateTurn.ACTION_CHARACTER)
+		if(Globals.timeFreezeTurns > 0):
+			Globals.timeFreezeTurns -= 1
+		print(Globals.timeFreezeTurns)
 
 func init_characters_positions():
 	position=Vector2(0,0)
@@ -126,7 +129,8 @@ func process_character_turn():
 		Globals.curr_action = Globals.CharacterAction.DEFAULT
 
 	if(Globals.curr_action == Globals.CharacterAction.DEFAULT):
-		Globals.timerDuration += 5
+		if(!Globals.timeFreezeTurns):
+			Globals.timerDuration += 5
 		return;
 
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER):
