@@ -70,6 +70,7 @@ enum TypeCase
 }
 
 var curr_state : Globals.StateTurn = Globals.StateTurn.CHOICE_CHARACTER
+var curr_character: Globals.CharacterClass = Globals.CharacterClass.NONE
 
 var NUMBER_CELL_X = 15
 var NUMBER_CELL_Y = 6
