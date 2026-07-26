@@ -16,7 +16,7 @@ extends CanvasLayer
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg1/ActionButton,
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg2/ActionButton,
 	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton,
-	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton
+	$ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButtonUltimate
 ]
 
 @onready var ActionButtonLabels = [
@@ -40,6 +40,9 @@ extends CanvasLayer
 @onready var victoryBackground = $GameOverOverlay/VictoryBackground
 @onready var victoryImage: TextureRect = $GameOverOverlay/VictoryBackground/VictoryImage
 @onready var victoryLabel = $%VictoryLabel
+
+@onready var forbiddenImage = $%ForbiddenImage
+@onready var actionButtonUltimate = $%ActionButtonUltimate
 
 var trasitionDuration: float = 0.2
 
@@ -141,7 +144,7 @@ func hide_character_menu():
 	characterSelectionMenu.position = Vector2(0, 2000)
 
 
-func show_character_menu():
+func show_character_menu():		
 	# Move the menu from 2000 to 300
 	characterSelectionMenu.position = Vector2(0, 300)
 	
@@ -179,6 +182,14 @@ func show_action_menu():
 	for button in ActionButtons:
 		button.disabled = false
 
+	if((Globals.curr_character == Globals.CharacterClass.GUNNER  and Globals.selected_level < Globals.ULTIMATE_UNLOCK_LEVEL_GUNNER) or
+	   (Globals.curr_character == Globals.CharacterClass.MAGE    and Globals.selected_level < Globals.ULTIMATE_UNLOCK_LEVEL_MAGE) or
+	   (Globals.curr_character == Globals.CharacterClass.TRAPPER and Globals.selected_level < Globals.ULTIMATE_UNLOCK_LEVEL_TRAPPER)):
+		actionButtonUltimate.disabled = true
+		forbiddenImage.visible = true
+	else:
+		actionButtonUltimate.disabled = false
+		forbiddenImage.visible = false
 
 func update_action_menu_labels():
 	

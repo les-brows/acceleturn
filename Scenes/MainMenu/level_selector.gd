@@ -107,6 +107,8 @@ func handle_level_selection(level: int) -> void:
 	
 	await SceneTransition.close_circle()
 	
+	Globals.selected_level = level
+	
 	if level == 0:
 		level_node = level_1_scene.instantiate()
 	if level == 1:
