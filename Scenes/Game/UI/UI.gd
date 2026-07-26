@@ -90,12 +90,15 @@ func _process(_delta) -> void:
 		actionPopup.global_position = get_viewport().get_mouse_position() + Vector2(-15, 15) - Vector2(0, actionPopup.size.y)
 		
 	if timerStarted:
-		var remaining_time: float = timer.time_left
-		var minute: int =  int(remaining_time / 60.0)
-		var sec: int = int(remaining_time) % 60 + ceil(remaining_time / 60.0)
 		timerText.clear()
-		if(minute > 0):
-			timerText.append_text("%02d:%02d" % [minute, sec])
+		
+		var remaining_time: float = timer.time_left
+		var sec: int = int(remaining_time)
+		if(sec > 999):
+			sec = 999
+			
+		if(sec > 99):
+			timerText.append_text("%03d" % [sec])
 		else:
 			timerText.append_text("%02d" % [sec])
 
