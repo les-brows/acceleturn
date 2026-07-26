@@ -166,7 +166,6 @@ func reset_timer():
 
 
 func start_timer(timeToFinish: float):
-	print("Time to finish: %d" % timeToFinish)
 	if(timeToFinish <= 0):
 		timeToFinish = 0.25
 	timer.wait_time = timeToFinish

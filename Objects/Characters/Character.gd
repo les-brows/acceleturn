@@ -4,6 +4,7 @@ extends Entities
 
 func act(action: Globals.CharacterAction):
 	print("act:", action)
+	Globals.timerDuration += -3
 	match action:
 		Globals.CharacterAction.MOVE_LEFT:
 			move(Vector2i(-1, 0))

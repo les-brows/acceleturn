@@ -108,7 +108,6 @@ func _on_state_finished(state: Globals.StateTurn):
 			hide_player_move_ui()
 			if(characterManager.action_needs_target()):
 				Globals.curr_state=Globals.StateTurn.CHOICE_TARGET_CHARACTER
-				#set ACTION 
 			else:
 				Globals.curr_state = Globals.StateTurn.ACTION_CHARACTER
 				
