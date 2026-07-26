@@ -85,6 +85,9 @@ func action_needs_target() -> bool:
 	return false
 
 func process_character_turn():
+	if(action_needs_target() && curr_tile == Vector2i(-1, -1)):
+		curr_action = Globals.CharacterAction.DEFAULT
+
 	if(curr_action == Globals.CharacterAction.DEFAULT):
 		Globals.timerDuration += 5
 		return;
@@ -92,14 +95,14 @@ func process_character_turn():
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER):
 		for child in get_children():
 			if child is Gunner:
-				child.act(curr_action)
+				child.act(curr_action, curr_tile)
 
 	if(Globals.curr_character == Globals.CharacterClass.MAGE):
 		for child in get_children():
 			if child is Mage:
-				child.act(curr_action)
+				child.act(curr_action, curr_tile)
 
 	if(Globals.curr_character == Globals.CharacterClass.TRAPPER):
 		for child in get_children():
 			if child is Trapper:
-				child.act(curr_action)
+				child.act(curr_action, curr_tile)

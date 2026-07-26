@@ -2,7 +2,7 @@ class_name Character
 extends Entities
 
 
-func act(action: Globals.CharacterAction):
+func act(action: Globals.CharacterAction, tile: Vector2i):
 	print("act:", action)
 	Globals.timerDuration += -3
 	match action:
