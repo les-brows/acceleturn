@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bpxctn4a2vq1s" path="res://Assets/UI/tile_0004.png" id="11_y2e3d"]
 [ext_resource type="Texture2D" uid="uid://cbrkwylar8pir" path="res://Assets/UI/Group 4 - 3_8.png" id="12_o4pdo"]
 [ext_resource type="Texture2D" uid="uid://cn1vy11l3kh4w" path="res://Assets/UI/20240707dragon9SlicesB.png" id="21_n02lb"]
+[ext_resource type="Texture2D" uid="uid://62hm00q41th8" path="res://Assets/UI/forbidden_sign.png" id="21_sq541"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_pa3om"]
 frames = 8
@@ -657,7 +658,16 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ActionButton" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4" unique_id=273868532]
+[node name="ForbiddenImage" type="TextureRect" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/MarginContainer" unique_id=911700964]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("21_sq541")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ActionButtonUltimate" type="Button" parent="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4" unique_id=273868532]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -778,6 +788,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton" to="." method="_on_action_3_button_mouse_entered"]
 [connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton" to="." method="_on_action_3_button_mouse_exited"]
 [connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg3/ActionButton" to="." method="_on_action_3_button_pressed"]
-[connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton" to="." method="_on_action_4_button_mouse_entered"]
-[connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton" to="." method="_on_action_4_button_mouse_exited"]
-[connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButton" to="." method="_on_action_4_button_pressed"]
+[connection signal="mouse_entered" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButtonUltimate" to="." method="_on_action_4_button_mouse_entered"]
+[connection signal="mouse_exited" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButtonUltimate" to="." method="_on_action_4_button_mouse_exited"]
+[connection signal="pressed" from="ActionSelection/VBox/BottomBackground/MarginContainer/ActionSelectionButtons/HBoxContainer/ActionBg4/ActionButtonUltimate" to="." method="_on_action_4_button_pressed"]
