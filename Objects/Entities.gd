@@ -75,9 +75,11 @@ func _move(move_direction: Vector2i)-> bool :
 				if(!is_ghost() && case == Globals.TypeCase.TRAP_ICE ): 
 					#effet d' arrivée 
 					#print("ICe trap  ")
+					_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
 					put_ice_on_entity()
-				if(!is_ghost() && !is_push() &&  case ==Globals.TypeCase.TRAP_REPULSE):
-					#print("TRAP_REPULSE trap  ")
+				if(!is_ghost() && is_push() &&  case ==Globals.TypeCase.TRAP_REPULSE):
+					
+					_level.set_tile(newCoords, Globals.TypeCase.EMPTY )
 					move(Vector2i(2,0)) #2 case  on the right 
 			else :
 				#print("Not move block")
@@ -116,7 +118,7 @@ func put_ice_on_entity():
 	#change Icone 
 	spriteIced.show()
 	sprite.hide()
-	#Sprite2D.mas
+	
 	
 	
 func is_character() -> bool:
