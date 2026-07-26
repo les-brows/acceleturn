@@ -289,7 +289,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Level2" type="Node2D" unique_id=1804012200]
+[node name="Level" type="Node2D" unique_id=1804012200]
 script = ExtResource("1_qwx8x")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]
@@ -393,6 +393,14 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p3am1")
 
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_right_movement_clicked"]
+[connection signal="mouse_entered" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_entered"]
+[connection signal="mouse_exited" from="MovementUI/TileSelectionSpriteRight/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_exited"]
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_left_movement_clicked"]
+[connection signal="mouse_entered" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_entered"]
+[connection signal="mouse_exited" from="MovementUI/TileSelectionSpriteLeft/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_exited"]
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" to="." method="_on_down_movement_clicked"]
+[connection signal="mouse_entered" from="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_entered"]
+[connection signal="mouse_exited" from="MovementUI/TileSelectionSpriteDown/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_exited"]
 [connection signal="input_event" from="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" to="." method="_on_top_movement_clicked"]
+[connection signal="mouse_entered" from="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_entered"]
+[connection signal="mouse_exited" from="MovementUI/TileSelectionSpriteUp/Sprite2D/Area2D" to="." method="_on_movement_area_mouse_exited"]

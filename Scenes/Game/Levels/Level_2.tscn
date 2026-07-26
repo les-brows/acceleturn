@@ -289,7 +289,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Level2" type="Node2D" unique_id=1804012200]
+[node name="Level" type="Node2D" unique_id=1804012200]
 script = ExtResource("1_7bqlc")
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=2022278852]

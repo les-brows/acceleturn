@@ -382,3 +382,11 @@ func _on_top_movement_clicked(_viewport: Node, event: InputEvent, _shape_idx: in
 		print('clicked up!')
 		characterManager.set_current_action(Globals.CharacterAction.MOVE_UP)
 		Globals.state_finished.emit(Globals.StateTurn.CHOICE_ACTION)
+
+
+func _on_movement_area_mouse_entered() -> void:
+	Globals.movement_hovered.emit(true)
+
+
+func _on_movement_area_mouse_exited() -> void:
+	Globals.movement_hovered.emit(false)
