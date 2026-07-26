@@ -20,3 +20,6 @@ func is_character() -> bool:
 
 func get_case_entity() ->Globals.TypeCase:
 	return Globals.TypeCase.CHARACTER
+
+func obectif_game_over()->bool:
+	return true

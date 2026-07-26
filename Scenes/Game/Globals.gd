@@ -47,7 +47,8 @@ signal state_started(state: StateTurn)
 signal movement_hovered(currently_hovering: bool)
 @warning_ignore("unused_signal")
 signal open_popup(characterName: String, text: String, character: Globals.CharacterClass)
-
+@warning_ignore("unused_signal")
+signal level_finished( game_over: bool)
 
 enum CharacterAction
 {

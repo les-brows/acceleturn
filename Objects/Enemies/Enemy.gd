@@ -22,3 +22,5 @@ func get_case_entity() ->Globals.TypeCase:
 
 func repousse_act():
 	pass
+func obectif_game_over()->bool:
+	return false

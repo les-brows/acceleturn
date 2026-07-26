@@ -49,8 +49,11 @@ func _move(move_direction: Vector2i)-> bool :
 	#Outside Map 
 	if(newCoords.x >= 0 && newCoords.y >= 0 && newCoords.x < Globals.NUMBER_CELL_X && newCoords.y < Globals.NUMBER_CELL_Y ):
 		var case :Globals.TypeCase= _level.get_type_case_from_position(newCoords.x, newCoords.y)
+		
+		if(case == Globals.TypeCase.MIDDLE):
+			print("END !!!! obectif_game_over()", obectif_game_over())
+			Globals.level_finished.emit(obectif_game_over())
 		# if possible
-		# 
 		if(case != Globals.TypeCase.ICE && case != Globals.TypeCase.CHARACTER ):
 			if(is_ghost() || (case != Globals.TypeCase.TREE && case != Globals.TypeCase.BUSH)):
 				
@@ -106,8 +109,9 @@ func put_ice_on_entity():
 	
 func is_character() -> bool:
 	return false
-	
-	
+
+func obectif_game_over()->bool:
+	return false
 func get_case_entity() ->Globals.TypeCase:
 	print("Default get_case_entity :: ERROR !!!!")
 	return  Globals.TypeCase.ENEMIES
