@@ -64,7 +64,8 @@ func can_choose_tile(tile: Vector2i) -> bool:
 
 	# Only ennemies
 	if(Globals.curr_character == Globals.CharacterClass.GUNNER && Globals.curr_action == Globals.CharacterAction.ACTION4 or 
-	   Globals.curr_character == Globals.CharacterClass.MAGE && Globals.curr_action == Globals.CharacterAction.ACTION1 ):
+	   Globals.curr_character == Globals.CharacterClass.MAGE && Globals.curr_action == Globals.CharacterAction.ACTION1 or
+	   Globals.curr_character == Globals.CharacterClass.TRAPPER && Globals.curr_action == Globals.CharacterAction.ACTION1 ):
 		if(!(typeCase == Globals.TypeCase.ENEMIES)):
 			$FailSound.play()
 			return false
