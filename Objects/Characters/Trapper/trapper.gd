@@ -28,6 +28,14 @@ func act(action: Globals.CharacterAction, tile: Vector2i):
 				Globals.timerDuration += Globals.TRAPPER_ACTION3_TIME_ADDED
 				
 		Globals.CharacterAction.ACTION4:
+			# Blackhole
+			var zoneStart = tile - Vector2i(Globals.TRAPPER_ACTION4_RANGE, Globals.TRAPPER_ACTION4_RANGE)
+			var zoneEnd = tile + Vector2i(Globals.TRAPPER_ACTION4_RANGE, Globals.TRAPPER_ACTION4_RANGE)
+			for entity in _level.get_entities_in_zone(zoneStart, zoneEnd):
+				var diff = tile - entity.caseCoords
+				if(entity.is_push()):
+					entity.move(diff.sign() * Globals.TRAPPER_ACTION4_PUSH_DISTANCE)
+			
 			if(!Globals.timeFreezeTurns):
 				Globals.timerDuration += Globals.TRAPPER_ACTION4_TIME_ADDED
 

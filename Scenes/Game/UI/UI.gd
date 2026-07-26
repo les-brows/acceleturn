@@ -194,8 +194,8 @@ func update_action_menu_labels():
 			ActionButtonLabels[2].text = "Backtracking"
 			ActionButtonLabels[3].text = "Time Warp"
 		Globals.CharacterClass.TRAPPER:
-			ActionButtonLabels[0].text = "Ice Trap"
-			ActionButtonLabels[1].text = "Spring Trap"
+			ActionButtonLabels[0].text = "Freeze, don't move"
+			ActionButtonLabels[1].text = "Repulse Trap"
 			ActionButtonLabels[2].text = "Tree Conjuring"
 			ActionButtonLabels[3].text = "Black Hole Trap"
 	return false
